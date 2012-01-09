@@ -1,4 +1,4 @@
-# LifeTree web application
+# Voluble chat application
 
 ## Synopsis
 
