@@ -1,0 +1,43 @@
+Facebook:
+    appId: "282172928498649"
+    appSecret: "37b2f0d758442c9c2327baeaa196d7d2"
+    redirectPath: "/"
+    entryPath: "/auth/facebook"
+    callbackPath: "/auth/facebook/callback"
+    scope: "email,user_photos,read_stream,create_event,publish_stream"
+Twitter:
+    consumerKey: "l2AbWf22A136POS9XWxQ"
+    consumerSecret: "glDqSvEHPBt9PpIE7E6Oz5z58x01ENv2t5hcAHCrw"
+    redirectPath: "/"
+    entryPath: "/auth/twitter"
+    callbackPath: "/auth/twitter/callback"
+Session:
+    secret: "$23flkDKS$J23fm455JOJLU&&^O"
+    salt: "3l4k2j3u4982u7(AIO$UY@42y6hf2h3IKH4IJK(&$@JN@#NJU%Y"
+
+App:
+    port: 8000
+    db:
+        user: "postgres"
+        password: "atlantida"
+        host: "127.0.0.1"
+        dbName: "lifetree"
+        port: 5432
+    User:
+        default_role: 'user'
+Phrases:
+    empty_email: "Email is empty"
+    empty_password: "password is empty"
+    email_already_taken: "Email already taken"
+    login_and_psw_pair_not_found: "login failed"
+Views:
+    register: "register.jade"
+    login: "login.jade"
+    login_path: "/login"
+    register_path: "/register"
+    login_success_path: "/"
+
+
+
+
+

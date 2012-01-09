@@ -1,0 +1,33 @@
+{
+  "author": "",
+  "name": "Voluble",
+  "description": "Voluble chat application",
+  "version": "0.0.1",
+  "homepage": "voluble.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Stanzr/voluble.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "~0.6.6"
+  },
+  "dependencies": {
+      "everyauth":"*",
+      "mongoose":"*",
+      "express":"*",
+      "config":"*",
+      "express-namespace":"*",
+      "jade":"*",
+      "express-resource":"*",
+      "async":"*",
+      "request":"*",
+      "mongodb":"*"
+
+  },
+  "devDependencies": {
+      "Faker":"*",
+      "mockery":"*",
+      "mocha":"*"
+  }
+}
