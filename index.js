@@ -48,9 +48,15 @@ app.set('view engine', 'jade');
  * Routes
  */
 app.get('/', function (req, res) {
-    res.render('main.jade');
+    res.render('dashboard.jade');
+});
+app.get('/login',function(req,res){
+    res.render('loggedin.jade');
 });
 
+app.get('/test/:render',function(req,res){
+    res.render(req.params.render,{'layout':false});
+});
 app.get('/privacy',function(req,res){
     res.render('')
 });

@@ -1,0 +1,146 @@
+!!! strict
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    script(type='text/javascript', src='/js/jquery.js')
+    script(type='text/javascript', src='/js/select.js')
+    script(type='text/javascript')
+      $(document).ready(function(){
+      $("select").uniform();
+      });
+    link(rel='stylesheet', href='/css/style.css', media='screen')
+    link(rel='stylesheet', type='text/css', media='all', href='/css/select.css')
+    //if IE 7
+    link(rel='stylesheet', href='/css/ie7.css', media='screen')
+    title Chat Management - Edit
+    style(type='text/css')
+      .jlhlebbhengjlhmcjebbkambaekglhkf {top: 0px; left: 0px;min-width: 30px;max-width: 300px;font-size: 13px;font-family: arial, helvetica, sans-serif;opacity: .93;padding:0px;position:absolute;display:block;z-index: 999997;font-style: normal;font-variant: normal;font-weight: normal;}#jlhlebbhengjlhmcjebbkambaekglhkf_up{text-align: center;padding:0px;margin: 0px;}#jlhlebbhengjlhmcjebbkambaekglhkf_cont{background-color: #729FCF;font-family: arial, helvetica, sans-serif-webkit-box-shadow: #729FCF 0px 0px 2px;color: #FFFFFF;padding:7px;-webkit-border-radius: 5px;}#jlhlebbhengjlhmcjebbkambaekglhkf_down{text-align: center;padding:0px;margin: 0px;}
+    style(type='text/css')
+      embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}
+  body
+    .container
+      .middler
+        .top
+          h1
+            a(href='#') Voluble
+          ul.navigation
+            li.welcome_top
+              a(href='#')
+                img(src='/images/user_001.jpg', alt='User 001')
+                | Welcome,
+                strong taariqlewis
+            li
+              a(href='#') History
+            li
+              a(href='#') Settings
+            li
+              a(href='#') Log out
+        //
+          .top
+        .center
+          .center_top
+            .center_mid
+              h2.main Social Media Optimizations
+              .navigate_2
+                ul
+                  li.details
+                    a.active(href='#')
+                      span Details
+                  li.invite
+                    a(href='#')
+                      span Invite
+                  li.send
+                    a(href='#')
+                      span Send
+                button.save
+                  span Save & Exit
+              .center_mid_full
+                .center_mid_full_top
+                .center_mid_full_content
+                  .image
+                    span
+                      a(href='#') add image
+                  .edit_chat
+                    form(action='#')
+                      .text_area_top
+                      p(style='float: left;')
+                        textarea(rows='', cols='') Enter a brief description of what your chat is about...
+                      .text_area_bottom
+                      .chat_data
+                        .edit_item.e1
+                          label Chat date
+                          .calendar
+                            .calendar_in
+                              input(type='text', value='02/12/2012')
+                            button
+                        .edit_item.e2
+                          label Starts at
+                          .timer
+                            .time_input
+                              input.time(type='text', value='12:30')
+                            .selectable
+                              #uniform-nod.selector
+                                span am
+                                select#nod(style='opacity: 0;')
+                                  option(value='30') am
+                                  option(value='45') pm
+                            span.tz
+                              | Timezone:
+                              a(href='#') CST
+                        .edit_item.e3
+                          label Chat length
+                          .selectable(style='width: 98px;')
+                            #uniform-hours.selector
+                              span 1 hr
+                              select#hours(style='opacity: 0;')
+                                option(value='30') 1 hr
+                                option(value='45') 2 hr
+                        .edit_item.e4
+                          .selectable(style='width: 118px;')
+                            #uniform-minutes.selector
+                              span 30 min
+                              select#minutes(style='opacity: 0;')
+                                option(value='30') 30 min
+                                option(value='45') 45 min
+                      //
+                        .chat_data
+                      .hash_topic
+                        label Chat hashtag
+                        .hashtag
+                          input(type='text', value='#hashtag')
+                      //
+                        .hash_topic
+                      .hash_topic
+                        label Chat topic
+                        .hashtag
+                          input(type='text', value='')
+                        span.trash
+                          a(href='#')
+                      //
+                        .hash_topic
+                      p.add_topic
+                        a(href='#')
+                          | + Add another chat topic
+                      .buttons
+                        p(style='float: left; margin-right: 6px;')
+                          button
+                            span Preview
+                        p(style='float: left;')
+                          button.save_chat
+                            span Save Chat
+                      //
+                        .buttons
+                  //
+                    .edit_chat
+                //
+                  .center_mid_full_content
+                .center_mid_full_bottom
+              //
+                .center_mid_full
+            //
+              .center_mid
+            .center_bottom
+        //
+          .middler
+      //
+        .container

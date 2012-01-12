@@ -1,0 +1,39 @@
+div.bios
+{
+padding-bottom:20px;
+}
+
+div.buttons
+{
+padding-bottom:33px;
+}
+
+div.discuss_info p.message,div.likes_info p.message
+{
+padding-bottom:6px;
+}
+
+div.most_likes,div.social
+{
+padding-bottom:24px;
+}
+
+div.people ul
+{
+padding-bottom:23px;
+}
+
+div.selector select
+{
+margin-top:17px;
+}
+
+div.ui_right ul.ui_nav
+{
+padding-bottom:12px;
+}
+
+ul.event_listings li p span,div.discuss_info p span,div p span.days,div.likes_info p span
+{
+margin-top:-18px;
+}
