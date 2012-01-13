@@ -1,0 +1,19 @@
+ul.navigation
+  -if(undefined === session.user)
+    li.lo
+      a#login(href='/login') Log in
+        li
+          a#register(href='/register') Sign up
+
+  -else
+    li.welcome_top
+      a(href='/profile')
+        img(src='session.user.image_url', alt='session.user.name')
+        | Welcome,
+        strong #{session.user.name}
+    li
+      a(href='/history') History
+    li
+      a(href='/settings') Settings
+    li
+      a(href='/logout') Log out

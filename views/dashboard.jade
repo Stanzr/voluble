@@ -14,73 +14,19 @@
       //
         .enter_event
       ul.event_listings
-        li
-          p
-            | Event Name
-            span 12 Feb 2012
-          p.event_info Additional metadata can be placed here
-        li
-          p
-            | Event Name
-            span 12 Feb 2012
-          p.event_info Additional metadata can be placed here
-        li
-          p
-            | Event Name
-            span 12 Feb 2012
-          p.event_info Additional metadata can be placed here
-        li
-          p
-            | Event Name
-            span 12 Feb 2012
-          p.event_info Additional metadata can be placed here
-        li.last_event
-          p
-            | Event Name
-            span 12 Feb 2012
-          p.event_info Additional metadata can be placed here
+        -if(undefined != data.events)
+          each event in data.events
+            include event_partials/upcoming_event
       .center_mid_sides_bottom
     //
       .center_mid_left
     .center_mid_right
       .center_mid_sides_top
       h2.eventer Past Events
-      ul.event_listings
-        li
-          p
-            | Event Name
-            span 10 Feb 2012
-          p.event_info ## attendees, etc, analytics
-        li
-          p
-            | Event Name
-            span 10 Feb 2012
-          p.event_info ## attendees, etc, analytics
-        li
-          p
-            | Event Name
-            span 10 Feb 2012
-          p.event_info ## attendees, etc, analytics
-        li
-          p
-            | Event Name
-            span 10 Feb 2012
-          p.event_info ## attendees, etc, analytics
-        li
-          p
-            | Event Name
-            span 10 Feb 2012
-          p.event_info ## attendees, etc, analytics
-        li
-          p
-            | Event Name
-            span 10 Feb 2012
-          p.event_info ## attendees, etc, analytics
-        li.last_event
-          p
-            | Event Name
-            span 10 Feb 2012
-          p.event_info ## attendees, etc, analytics
+      ul.event_listings#past_events
+        -if(undefined != data.past_events)
+          each past_event in data.past_events
+            include event_partials/past_event
       .center_mid_sides_bottom
     //
       .center_mid_right
