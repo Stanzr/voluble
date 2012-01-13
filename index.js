@@ -6,13 +6,15 @@ var app = express.createServer();
 var io = require('socket.io').listen(app);
 var MemoryStore = require('./node_modules/express/node_modules/connect/lib/middleware/session/memory');
 var session_store = new MemoryStore();
+var jade = require('jade');
+var evt = require('fs').readFileSync('./views/client_side/past_event.jade', 'utf8')
+var showEvt = jade.compile(evt,{'filename':'./views/client_side/past_event.jade','pretty':true});
 
 /**
  * app.use directives
  */
 app.use(express.bodyParser());
 app.use(function(req,res,next){
-    console.log(req.url);
     var ajax = 'x-requested-with';
     if(req.headers[ajax]&&req.headers[ajax]==='XMLHttpRequest'){
         res.setHeader('Content-type','application/json');
@@ -47,13 +49,85 @@ app.set('view engine', 'jade');
 /**
  * Routes
  */
+
+
+/**
+ * dummy data
+ */
+    var iter = 0;
+var upcomingEvents = [
+    {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }, {
+        'name':'Event name '+(++iter),
+        'info':'Event info '+(++iter),
+        'summary':'',
+        'date':(new Date()).toString()
+
+    }
+];
+
 app.get('/', function (req, res) {
-    res.render('dashboard.jade');
+    res.render('dashboard.jade',{'title':"hi!",'data':{'events':upcomingEvents}});
 });
 app.get('/login',function(req,res){
     res.render('loggedin.jade');
 });
-
+app.get('/evt',function(req,res){
+   res.send(showEvt({'past_event':{'name':'past evt 1','data':'1 Jan 2012','summary':'it was cool!'}}));
+});
 app.get('/test/:render',function(req,res){
     res.render(req.params.render,{'layout':false});
 });
@@ -100,6 +174,9 @@ var parseCookie = function (str) {
 
 io.configure(function () {
     io.set('authorization', function (handshakeData, callback) {
+
+        callback(null,true);
+        /*
         var unauthorized = false;
         if(!handshakeData||!handshakeData.headers||!handshakeData.headers.cookie){
             callback(null,unauthorized);
@@ -120,18 +197,14 @@ io.configure(function () {
         }else{
             callback(null,unauthorized);
         }
+        */
     });
 });
 
 io.sockets.on('connection', function (socket) {
-    //console.log(socket);
-    socket.on('chatMessage', function (data) {
-        data.sender = socket.handshake.uInfo.user_name;
-        socket.broadcast.emit('chatMessage', data);
-    });
-    socket.on('availableChats',function(){
-        console.log(socket.handshake);
-    })
+   setInterval(function(){
+       socket.emit('pastevt',showEvt({'past_event':{'name':'past evt 1','data':'1 Jan 2012','summary':'it was cool!'}}));
+   },20000)
 });
 
 

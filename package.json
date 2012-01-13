@@ -22,7 +22,6 @@
       "express-resource":"*",
       "async":"*",
       "request":"*",
-      "mongodb":"*",
       "socket.io":"*"
 
   },
