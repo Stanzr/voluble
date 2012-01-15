@@ -1,3 +1,3 @@
-exports.configure = function(socket){
+exports.configure = function (socket) {
 
 };

@@ -26,7 +26,7 @@ socket_routes.configure(io);
 
 app.get('/a',function(req,res){
     res.render('dashboard',{'data':{'events':undefined,'past_events':undefined},'title':'hi'});
-})
+});
 
 exports.express = app;
 exports.io = io;

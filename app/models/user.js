@@ -1,18 +1,18 @@
-var mongoose = require('mongoose');
+var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
-var User = new Schema({
-    'auth':{
-        'twitter':{
+var User = new Schema( {
+    'auth' : {
+        'twitter' : {
 
         },
-        'facebook':{
+        'facebook' : {
 
-        } 
+        }
     }
-    
-});
+
+} );
 
 module.exports = User;
 

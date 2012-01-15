@@ -27,7 +27,7 @@ var handlers = {
         'path':'/',
         'title':'hello',
         'handler':function(req,res){
-            res.render('dashboard.jade',defaultData);
+            res.render('dashboard',defaultData);
         }
     }
 };

@@ -1,19 +1,15 @@
-var io = require('socket.io');
-
+var io = require( 'socket.io' );
 
 exports.io = io;
-exports.configure = function(options){
+exports.configure = function (options) {
     var opts = {};
-
 
 };
 
+io.configure( function () {
+    io.set( 'authorization', function (handshakeData, callback) {
 
-
-io.configure(function () {
-    io.set('authorization', function (handshakeData, callback) {
-
-        callback(null,true);
+        callback( null, true );
         /*
          var unauthorized = false;
          if(!handshakeData||!handshakeData.headers||!handshakeData.headers.cookie){
@@ -36,10 +32,10 @@ io.configure(function () {
          callback(null,unauthorized);
          }
          */
-    });
-});
+    } );
+} );
 
-io.sockets.on('connection', function (socket) {
+io.sockets.on( 'connection', function (socket) {
 
-});
+} );
 

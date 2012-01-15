@@ -1,33 +1,32 @@
-
 #uniform-hours {
-    width: 98px!important;
+    width: 98px !important;
 }
 
 #uniform-hours span {
-    background-image: url(/images/drop_down.png)!important;
+    background-image: url(/images/drop_down.png) !important;
     padding: 6px 0 0 13px !important;
-    width: 85px!important;
+    width: 85px !important;
 }
 
 #uniform-minutes {
-    width: 118px!important;
+    width: 118px !important;
 }
 
 #uniform-minutes span {
-    background-image: url(/images/drop_down.png)!important;
+    background-image: url(/images/drop_down.png) !important;
     padding: 6px 0 0 13px !important;
-    width: 105px!important;
+    width: 105px !important;
 }
 
 #uniform-nod {
-    background-image: url(/images/nod.png)!important;
-    width: 46px!important;
+    background-image: url(/images/nod.png) !important;
+    width: 46px !important;
 }
 
 #uniform-nod span {
-    padding: 6px 0 0!important;
+    padding: 6px 0 0 !important;
     text-align: center;
-    width: 46px!important;
+    width: 46px !important;
 }
 
 * {
@@ -339,14 +338,14 @@ div.discuss_info p {
     width: 440px;
 }
 
-div.discuss_info p a,div.likes_info p a,div.replies h3 a.active,div.replies h4 a.active,div.moderators p a {
+div.discuss_info p a, div.likes_info p a, div.replies h3 a.active, div.replies h4 a.active, div.moderators p a {
     color: gray;
 }
 
-div.discuss_info p span,div p span.days {
+div.discuss_info p span, div p span.days {
     color: #bbb;
     float: right;
-    font-size: 13px!important;
+    font-size: 13px !important;
     font-weight: 400;
     margin-top: 0;
 }
@@ -356,7 +355,7 @@ div.discuss_info p span.options img {
     margin-left: 5px;
 }
 
-div.discuss_info p.message,div.likes_info p.message {
+div.discuss_info p.message, div.likes_info p.message {
     font-size: 14px;
     font-weight: 400;
     margin-bottom: 6px;
@@ -384,21 +383,21 @@ div.divide_side {
 
 div.e1 {
     margin-right: 24px;
-    width: 160px!important;
+    width: 160px !important;
 }
 
 div.e2 {
     margin-right: 24px;
-    width: 124px!important;
+    width: 124px !important;
 }
 
 div.e3 {
     margin-right: 4px;
-    width: 98px!important;
+    width: 98px !important;
 }
 
 div.e4 {
-    width: 118px!important;
+    width: 118px !important;
 }
 
 div.edit_chat {
@@ -474,7 +473,7 @@ div.hash_topic label {
     width: 308px;
 }
 
-div.hash_topic,div.buttons {
+div.hash_topic, div.buttons {
     float: left;
     font-size: 14px;
     margin: 0 0 24px;
@@ -520,14 +519,14 @@ div.image span {
     width: 123px;
 }
 
-div.image span a,div.ui_right ul.ui_nav li a,ul.navigation li a,div.discuss_info p.message a,div.likes_info p.message a,div.replies h3 a,div.replies h4 a,div.popup p a,div.moderators span a,div.sign_upper a {
+div.image span a, div.ui_right ul.ui_nav li a, ul.navigation li a, div.discuss_info p.message a, div.likes_info p.message a, div.replies h3 a, div.replies h4 a, div.popup p a, div.moderators span a, div.sign_upper a {
     color: #369;
     text-decoration: none;
 }
 
-div.jsppane,div.jspcontainer {
-    padding: 4px 0 0!important;
-    width: 541px!important;
+div.jsppane, div.jspcontainer {
+    padding: 4px 0 0 !important;
+    width: 541px !important;
 }
 
 div.likes {
@@ -592,7 +591,7 @@ div.modder {
 }
 
 div.moderators h3 {
-    padding-left: 24px!important;
+    padding-left: 24px !important;
 }
 
 div.moderators p {
@@ -610,7 +609,7 @@ div.moderators span.toink {
     margin-left: 10px;
 }
 
-div.moderators,div.people {
+div.moderators, div.people {
     border-bottom: 1px solid #e0ded8;
     float: left;
     width: 431px;
@@ -667,7 +666,7 @@ div.navigate_2 ul li a span {
     width: 106px;
 }
 
-div.navigate_2 ul li a.active,div.buttons button.save_chat span {
+div.navigate_2 ul li a.active, div.buttons button.save_chat span {
     color: #fff;
 }
 
@@ -726,18 +725,18 @@ div.people ul li.modder {
 }
 
 div.popup {
-    background-image: url(/images/sprite.png)!important;
-    background-position: -382px 0!important;
-    background-repeat: no-repeat!important;
+    background-image: url(/images/sprite.png) !important;
+    background-position: -382px 0 !important;
+    background-repeat: no-repeat !important;
     display: none;
-    float: left!important;
-    height: 59px!important;
-    left: -76px!important;
-    position: absolute!important;
-    text-align: center!important;
-    top: 35px!important;
-    width: 191px!important;
-    z-index: 10000!important;
+    float: left !important;
+    height: 59px !important;
+    left: -76px !important;
+    position: absolute !important;
+    text-align: center !important;
+    top: 35px !important;
+    width: 191px !important;
+    z-index: 10000 !important;
 }
 
 div.popup p {
@@ -850,7 +849,7 @@ div.replies h3 {
 
 div.replies h4 {
     float: left;
-    padding: 0!important;
+    padding: 0 !important;
     width: 180px;
 }
 
@@ -883,17 +882,17 @@ div.selectable select {
 }
 
 div.selector {
-    background-color: transparent!important;
-    background-image: url(/images/selectable_001.png)!important;
-    background-position: 0 0!important;
-    background-repeat: no-repeat!important;
-    border: none!important;
-    color: #484848!important;
-    float: left!important;
-    font-family: Helvetica, Arial, Myriad Pro, sans-serif!important;
-    height: 41px!important;
-    line-height: 30px!important;
-    padding: 0!important;
+    background-color: transparent !important;
+    background-image: url(/images/selectable_001.png) !important;
+    background-position: 0 0 !important;
+    background-repeat: no-repeat !important;
+    border: none !important;
+    color: #484848 !important;
+    float: left !important;
+    font-family: Helvetica, Arial, Myriad Pro, sans-serif !important;
+    height: 41px !important;
+    line-height: 30px !important;
+    padding: 0 !important;
 }
 
 div.selector select {
@@ -902,15 +901,15 @@ div.selector select {
 }
 
 div.selector span {
-    background-color: transparent!important;
-    background-position: right 0!important;
-    background-repeat: no-repeat!important;
-    border: none!important;
-    color: #484848!important;
-    float: left!important;
-    font-family: Helvetica, Arial, Myriad Pro, sans-serif!important;
-    font-size: 16px!important;
-    height: 41px!important;
+    background-color: transparent !important;
+    background-position: right 0 !important;
+    background-repeat: no-repeat !important;
+    border: none !important;
+    color: #484848 !important;
+    float: left !important;
+    font-family: Helvetica, Arial, Myriad Pro, sans-serif !important;
+    font-size: 16px !important;
+    height: 41px !important;
 }
 
 div.side_nav {
@@ -990,18 +989,18 @@ div.teaser {
 
 div.teaser h3 {
     background-image: url(/images/tease.png);
-    background-position: 117px 4px!important;
+    background-position: 117px 4px !important;
     background-repeat: no-repeat;
-    padding-left: 24px!important;
+    padding-left: 24px !important;
     width: 300px;
 }
 
 div.teaser h4 {
-    color: #969696!important;
-    font-size: 14px!important;
-    margin-bottom: 13px!important;
-    margin-top: -12px!important;
-    padding-left: 24px!important;
+    color: #969696 !important;
+    font-size: 14px !important;
+    margin-bottom: 13px !important;
+    margin-top: -12px !important;
+    padding-left: 24px !important;
     width: 300px;
 }
 
@@ -1075,7 +1074,7 @@ div.timer span.tz {
     margin-top: 8px;
 }
 
-div.timer span.tz a,p.add_topic a {
+div.timer span.tz a, p.add_topic a {
     color: #369;
 }
 
@@ -1096,7 +1095,7 @@ div.top h1 {
     width: 126px;
 }
 
-div.top h1 a,div.ques_nav span a,div.side_nav span a {
+div.top h1 a, div.ques_nav span a, div.side_nav span a {
     display: block;
     height: 100%;
     width: 100%;
@@ -1142,7 +1141,7 @@ div.ui_right h2.main_right {
     width: 381px;
 }
 
-div.ui_right h3,div.ui_right h4 {
+div.ui_right h3, div.ui_right h4 {
     background-position: 25px 3px;
     background-repeat: no-repeat;
     color: gray;
@@ -1248,7 +1247,7 @@ ul.discuss {
     overflow-y: auto;
     padding-top: 4px;
     position: relative;
-    width: 541px!important;
+    width: 541px !important;
     z-index: 999;
 }
 
@@ -1288,7 +1287,7 @@ ul.discuss li:hover {
     cursor: pointer;
 }
 
-ul.discuss li:hover div.discuss_info p span,div.discuss_info p span.options,div.likes_info p span.options {
+ul.discuss li:hover div.discuss_info p span, div.discuss_info p span.options, div.likes_info p span.options {
     display: none;
 }
 
@@ -1353,7 +1352,7 @@ ul.navigation li {
     padding-left: 14px;
 }
 
-ul.navigation li.lo,ul.navigation li.welcome_top {
+ul.navigation li.lo, ul.navigation li.welcome_top {
     border-left: none;
 }
 

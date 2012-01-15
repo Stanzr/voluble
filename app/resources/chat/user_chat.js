@@ -1,6 +1,6 @@
 var options = {};
 
-function setOptions(opts) {
+function setOptions (opts) {
     options = opts;
     return api;
 
@@ -8,7 +8,7 @@ function setOptions(opts) {
 exports.configure = setOptions;
 var api = {};
 api.index = function (req, res) {
-    res.end('hi from chat');
+    res.end( 'hi from chat' );
 };
 api.new = function (req, res) {
 };

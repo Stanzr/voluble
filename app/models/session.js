@@ -1,45 +1,46 @@
-var util = require('util');
-var config = require('config');
-var mongoose = require('mongoose');
+var util = require( 'util' );
+var config = require( 'config' );
+var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
-var connect = require('connect');
-var ExpressSession = require('express').session;
-var _ = require('underscore');
+var connect = require( 'connect' );
+var ExpressSession = require( 'express' ).session;
+var _ = require( 'underscore' );
 
-var sessionStore = new Schema({
-    'sid':String,
-    'image_url':String,
-    'name':String
-});
+var sessionStore = new Schema( {
+    'sid' : String,
+    'image_url' : String,
+    'name' : String
+} );
 
-var Session = function(options) {
+var Session = function (options) {
     options = options || {};
-    ExpressSession.Store.call(this, options);
-    this.model = mongoose.model('User', sessionStore);
+    ExpressSession.Store.call( this, options );
+    this.model = mongoose.model( 'User', sessionStore );
 };
 
-util.inherits(Session, ExpressSession.Store);
+util.inherits( Session, ExpressSession.Store );
 
-Session.prototype.get = function(sid, fn) {
-    fn = typeof fn === 'function' ? fn : function() {};
-    this.model.findOne({ sessionId: sid }, function(err, doc) {
-        fn(err, _.extend(doc, { cookie: config.session.cookie }));
-    });
+Session.prototype.get = function (sid, fn) {
+    var cb = typeof fn === 'function' ? fn : function () {
+    };
+    this.model.findOne( { sessionId : sid }, function (err, doc) {
+        cb( err, _.extend( doc, { cookie : config.session.cookie } ) );
+    } );
 };
 
-Session.prototype.set = function(sid, expressSession, fn) {
-    var sessionDocument = new this.model({
-        sessionId: sid,
-        lastAccess: expressSession.lastAccess
-    });
-    sessionDocument.save(fn);
+Session.prototype.set = function (sid, expressSession, fn) {
+    var sessionDocument = new this.model( {
+        sessionId : sid,
+        lastAccess : expressSession.lastAccess
+    } );
+    sessionDocument.save( fn );
 };
 
-Session.prototype.destroy = function(sid, fn) {
+Session.prototype.destroy = function (sid, fn) {
     var noticeText = "Session#destroy coudn't be called directly";
-    console.error("\n" + noticeText);
-    fn(new Error(noticeText));
+    console.error( "\n" + noticeText );
+    fn( new Error( noticeText ) );
 };
 
 module.exports = Session;
