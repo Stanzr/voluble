@@ -10,7 +10,7 @@ pending...
   * cd Voluble
   * `npm install` or `npm install --dev`
   * `npm install jake -g`
-  * check settings in config/development.yaml
+  * check settings in config/*.js (depends on your NODE_ENV(default 'development') )
   * `jake -T` to list all available tasks
 
 
