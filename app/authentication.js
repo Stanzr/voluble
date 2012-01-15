@@ -2,10 +2,10 @@ var everyauth = require('everyauth');
 var CONFIG = require('config');
 var crypto = require('crypto');
 var request = require('request'); //for retrieving Facebook profile pic
-
+console.dir(CONFIG.auth);
 everyauth.facebook
-    .appId(CONFIG.Facebook.appId)
-    .appSecret(CONFIG.Facebook.appSecret)
+    .appId(CONFIG.auth.facebook.appId)
+    .appSecret(CONFIG.auth.facebook.appSecret)
     .handleAuthCallbackError(function (req, res) {
         console.log('callback error');
     })
@@ -56,52 +56,23 @@ everyauth.facebook
         return promise;
 
     })
-    .redirectPath(CONFIG.Facebook.redirectPath)
-    .entryPath(CONFIG.Facebook.entryPath)
-    .callbackPath(CONFIG.Facebook.callbackPath)
-    .scope(CONFIG.Facebook.scope);
+    .redirectPath(CONFIG.auth.facebook.redirectPath)
+    .entryPath(CONFIG.auth.facebook.entryPath)
+    .callbackPath(CONFIG.auth.facebook.callbackPath)
+    .scope(CONFIG.auth.facebook.scope);
 
 everyauth.twitter
-    .consumerKey(CONFIG.Twitter.consumerKey)
-    .consumerSecret(CONFIG.Twitter.consumerSecret)
+    .consumerKey(CONFIG.auth.twitter.consumerKey)
+    .consumerSecret(CONFIG.auth.twitter.consumerSecret)
     .findOrCreateUser(function (session, accessToken, accessTokenSecret, twitterUserMetadata) {
-        var promise = this.Promise();
-        User.findOne({oauth_token:accessToken, oauth_token_secret:accessTokenSecret}, {only:['id', 'role', 'user_name', 'profile_pic_url']}, function (err, user) {
-            if (err) {
-                promise.fulfill([err]);
-            }
-            if (user === undefined) {
-                User.create({
-                    'oauth_token':accessToken,
-                    'oauth_token_secret':accessTokenSecret,
-                    'user_name':twitterUserMetadata.name,
-                    'role':CONFIG.App.User.default_role,
-                    'profile_pic_url':twitterUserMetadata.profile_image_url
-                }, function (err, newUser) {
-                    if (err) {
-                        promise.fulfill([err]);
-                    } else {
-                        var newUsr = newUser.rows[0];
-                        var usr = {
-                            'id':newUsr.id,
-                            'user_name':newUsr.user_name,
-                            'role':newUsr.role,
-                            'profile_pic_url':newUsr.profile_pic_url
-                        };
-                        session.info = usr;
-                        promise.fulfill(usr);
-                    }
-                })
-            } else {
-                session.info = user;
-                promise.fulfill(user);
-            }
-        });
-        return promise;
+        console.log(arguments);
+        process.exit(1);
+        
+        
     })
-    .redirectPath(CONFIG.Twitter.redirectPath)
-    .entryPath(CONFIG.Twitter.entryPath)
-    .callbackPath(CONFIG.Twitter.callbackPath);
+    .redirectPath(CONFIG.auth.twitter.redirectPath)
+    .entryPath(CONFIG.auth.twitter.entryPath)
+    .callbackPath(CONFIG.auth.twitter.callbackPath);
 
 function encryptPassword(psw, salt) {
     var hash = crypto.createHash('md5');
@@ -110,7 +81,7 @@ function encryptPassword(psw, salt) {
     return hash.digest('hex');
 }
 
-
+/*
 everyauth.password
     .loginWith('email')
     .getLoginPath(CONFIG.Views.login_path)
@@ -187,4 +158,5 @@ everyauth.password
         return promise;
     })
     .registerSuccessRedirect(CONFIG.Views.login_success_path); // Where to redirect to after a successful registration
+    */
 module.exports = everyauth;
