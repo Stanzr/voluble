@@ -7,6 +7,7 @@ pending...
 ## Initial setup
 
   * install [node](http://nodejs.org/) version 0.6 ([download](http://nodejs.org/#download)) with [npm](http://npmjs.org/)
+  * install [MongoDB](http://www.mongodb.org/)
   * cd Voluble
   * `npm install`
   * `npm install jake -g`
