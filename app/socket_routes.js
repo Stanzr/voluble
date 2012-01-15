@@ -1,0 +1,3 @@
+exports.configure = function(socket){
+
+};
