@@ -37,9 +37,7 @@ exports.configure = function(app){
      */
     for(iterator in handlers){
        route =  handlers[iterator];
-       console.log('setting app '+route.method+' with path '+route.path);
         app[route.method](route.path,route.handler);
-        console.log(app.routes);
     }
     /**
      * setting resources handling
