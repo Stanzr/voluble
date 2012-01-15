@@ -2,7 +2,8 @@ var everyauth = require('everyauth');
 var CONFIG = require('config');
 var crypto = require('crypto');
 var request = require('request'); //for retrieving Facebook profile pic
-console.dir(CONFIG.auth);
+
+
 everyauth.facebook
     .appId(CONFIG.auth.facebook.appId)
     .appSecret(CONFIG.auth.facebook.appSecret)

@@ -33,6 +33,7 @@
   "devDependencies": {
       "Faker":"~0.1.3",
       "mockery":"~1.1.1",
-      "mocha":"~0.9.0"
+      "mocha":"~0.9.0",
+      "should": "~0.5.1"
   }
 }

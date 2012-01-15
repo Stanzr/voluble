@@ -4,15 +4,15 @@ var res = require('express-resource');
 var auth = require('./app/authentication.js');
 var express_configuration = require('./app/express_configuration.js');
 var app = express.createServer();
-var io = require('socket.io').listen(app);
-var jade = require('jade');
-var express_routes = require('./app/express_routes.js');
+var io = require('socket.io');
+var express_routes = require('./express_routes.js');
 var socket_routes = require('./app/socket_routes.js');
 
 /**
  * app settings
  */
-express_configuration.configure(app);
+ 
+app = express_configuration.configure(app);
 
 
 
@@ -21,8 +21,12 @@ express_configuration.configure(app);
  * Routes
  */
 
-express_routes.configure(app);
+app = express_routes.configure(app);
 socket_routes.configure(io);
 
+app.get('/a',function(req,res){
+    res.render('dashboard',{'data':{'events':undefined,'past_events':undefined},'title':'hi'});
+})
 
-module.exports = app;
+exports.express = app;
+exports.io = io;
