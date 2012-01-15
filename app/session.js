@@ -7,6 +7,7 @@ var connect = require('connect');
 var ExpressSession = require('express').session;
 var _ = require('underscore');
 
+
 var sessionStore = new Schema({
   sessionId  : String,
   lastAccess : Date
@@ -23,7 +24,8 @@ util.inherits(Session, ExpressSession.Store);
 Session.prototype.get = function(sid, fn) {
   fn = typeof fn === 'function' ? fn : function() {};
   this.model.findOne({ sessionId: sid }, function(err, doc) {
-    fn(err, _.extend(doc, { cookie: config.session.cookie }));
+      doc = doc || {};
+     fn(err, _.extend(doc, { cookie: config.session.cookie }));
   });
 };
 
