@@ -18,6 +18,8 @@
   "dependencies": {
       "everyauth":"~0.2.28",
       "mongoose":"~2.4.9",
+      "mongoose-auth":"0.0.11",
+      "mongoose-types":"~1.0.3",
       "express":"~2.5.5",
       "config":"~0.4.9",
       "express-namespace":"~0.0.4",
