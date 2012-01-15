@@ -1,7 +1,7 @@
 var express = require('express');
 var CONFIG = require('config');
 var auth = require('./authentication.js');
-var Session = require('./session.js');
+var Session = require('./models.js').session;
 var session_store = new Session();
 
 exports.configure=function(app){
@@ -18,11 +18,10 @@ exports.configure=function(app){
         next();
     });
 
-
     app.use(express.cookieParser());
-    app.use(express.session({ store: session_store, secret:CONFIG.session.secret}));
+    app.use(express.session({"store": session_store, "secret":CONFIG.session.secret})); 
     app.use(auth.middleware());
-    app.use(express.static(__dirname + '/public'));
+    app.use(express.static(process.cwd() + '/public'));
     app.dynamicHelpers({
         session:function (req, res) {
             return req.session;
@@ -33,6 +32,7 @@ exports.configure=function(app){
      * app.set directives
      */
     app.set('view engine', 'jade');
+    return app
 };
 
 

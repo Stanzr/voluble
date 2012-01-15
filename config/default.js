@@ -4,7 +4,7 @@ module.exports = {
     'environments': ['development', 'production', 'test']
   },
   'database': {
-    'host': '127.0.0.1',
+    'host': 'localhost',
     'name': 'Voluble_dev'
   },
   'session': {
