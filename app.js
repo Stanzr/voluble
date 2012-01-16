@@ -4,7 +4,7 @@ var res = require('express-resource');
 var auth = require('./app/authentication.js');
 var express_configuration = require('./app/express_configuration.js');
 var app = express.createServer();
-var io = require('socket.io');
+var io = require('socket.io').listen(app);
 var express_routes = require('./express_routes.js');
 var socket_routes = require('./app/socket_routes.js');
 

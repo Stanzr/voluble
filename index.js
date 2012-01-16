@@ -2,7 +2,6 @@ var app = require('./app.js').express;
 var io = require('./app.js').io;
 var CONFIG = require('config');
 
-io.listen(app);
 
 
 app.listen(CONFIG.server.port);

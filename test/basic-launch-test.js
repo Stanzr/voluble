@@ -14,7 +14,12 @@ describe( "Application", function () {
     describe( "socket.io", function () {
         it( "should listen to socket connection", function (done) {
             var app = require( '../app' ).io;
-            app.listen( config.server.port, function () {
+            var express = require('../app').express;
+            var l = console.log;
+            console.info = function(data){
+                l('stubbed '+data );
+            };
+            express.listen( config.server.port, function () {
                 done();
             } );
         } )
