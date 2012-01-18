@@ -8,7 +8,18 @@ function FutureEvent (callback) {
         'name' : Faker.Name.firstName(),
         'info' : Faker.Lorem.sentence( 8 ),
         'status' : 'planning',
-        'event_date' : new Date( Date.now() + Faker.Helpers.randomNumber( 10 * 1000 ) ),
+        'start_date' : new Date( Date.now() + Faker.Helpers.randomNumber( 10 * 1000 ) ),
+        'summary' : Faker.Lorem.sentence( 8 ),
+        'attendees' : [new objIdGen()]
+    } )).save( callback );
+}
+
+function CurrentEvent (callback) {
+    (new models.event( {
+        'name' : Faker.Name.firstName(),
+        'info' : Faker.Lorem.sentence( 8 ),
+        'status' : 'started',
+        'start_date' :  Date.now() - Faker.Helpers.randomNumber( 100 ) ,
         'summary' : Faker.Lorem.sentence( 8 ),
         'attendees' : [new objIdGen()]
     } )).save( callback );
@@ -19,7 +30,7 @@ function PastEvent (callback) {
         'name' : Faker.Name.firstName(),
         'info' : Faker.Lorem.sentence( 8 ),
         'status' : 'finished',
-        'event_date' : new Date( Date.now() - Faker.Helpers.randomNumber( 10 * 1000 ) ),
+        'start_date' : new Date( Date.now() - Faker.Helpers.randomNumber( 10 * 1000 ) ),
         'summary' : Faker.Lorem.sentence( 8 ),
         'attendees' : [new objIdGen()]
     } )).save( callback );
@@ -28,6 +39,6 @@ function PastEvent (callback) {
 var seed = new Seeder();
 
 exports.run = function (cb) {
-    seed.create().next( 15, FutureEvent ).next(20,PastEvent).run( cb );
+    seed.create().next( 15, FutureEvent ).next(20,PastEvent).next(10, CurrentEvent).run( cb );
 };
 
