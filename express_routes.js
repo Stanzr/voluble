@@ -1,11 +1,11 @@
 var _ = require('underscore')._;
-
+var models = require('./app/models.js');
 var resourceOptions = {
-    "option":true
+    "model":models
 };
 var resources = {
     'user_chat':{
-        'path':'/chat',
+        'path':'chat',
         'resource':require('./app/resources/chat/user_chat.js').configure(resourceOptions)
     }
 };
@@ -51,7 +51,7 @@ exports.configure = function(app){
      */
     for(iterator in resources){
         route = resources[iterator];
-        app['resource'](route.path,route.resource);
+        app.resource(route.path,route.resource);
     }
     return app;
 };
