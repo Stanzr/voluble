@@ -17,9 +17,16 @@ api['new'] = function (req, res) {
 api.create = function (req, res) {
 };
 api.show = function (req, res) {
-    res.render('CUloggedin',{
-        'title':"Welcome to "+req.params.chat
+    options.model.chatMsg.findByChat(req.params.chat,function(err,results){
+        console.log(arguments);
+        res.render( 'CUloggedin', {
+            'title' : "Welcome to " + req.params.chat,
+            'data' : {
+                'messages':results
+            }
+        } );
     });
+
 };
 api.edit = function (req, res) {
 

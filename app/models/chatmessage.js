@@ -7,8 +7,11 @@ var ChatMsg = new Schema( {
     'created_at' : {'type':Date,'default':Date.now},
     'chatId':String,
     'message' : String,
-    'status' : {'type':String, 'enum':['system','user','attention']}
+    'type' : {'type':String, 'enum':['system','user','attention']}
 } );
+ChatMsg.statics.findByChat= function(chatId,cb){
+    this.find({'chatId':chatId},cb);
+};
 
 module.exports = ChatMsg;
 
