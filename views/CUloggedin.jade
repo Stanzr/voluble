@@ -1,705 +1,392 @@
-!!! strict
-html(xmlns='http://www.w3.org/1999/xhtml')
-  head
-    meta(http-equiv='content-type', content='text/html;charset=utf-8')
-    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
-    script(type='text/javascript', src='http://cdn.jquerytools.org/1.2.6/jquery.tools.min.js')
-    script(type='text/javascript', src='/js/wheel.js')
-    script(type='text/javascript', src='/js/scroll.js')
-    link(rel='stylesheet', href='/css/style.css', media='screen')
-    link(rel='stylesheet', type='text/css', media='all', href='/css/scroll.css')
-    //if IE 7
-    link(rel='stylesheet', href='/css/ie7.css', media='screen')
-    title Chat UI - Logged In
-  body
-    .container
-      .middler
-        .top
-          h1
-            a(href='#') Voluble
-          ul.navigation
-            li.welcome_top
-              a(href='#')
-                img(src='/images/user_001.jpg', alt='User 001')
-                | Welcome,
-                strong taariqlewis
-            li
-              a(href='#') History
-            li
-              a(href='#') Settings
-            li
-              a(href='#') Log out
-        //
-          .top
-        .center
-          .center_top
-          .center_mid
-            .ui_left
-              .ui_left_content
-                .question_count
-                  h3
-                    | Question 1
-                    span of 3
-                  .ques_nav
-                    .divide_ques
-                    span.prev
-                      a(href='')
-                    .divide_ques
-                    span.next
-                      a(href='')
-                //
-                  .question_count
-                .question
-                  h2
-                    | We have to ask about #NewNewTwitter. What do you think as a user? What are the implications for marketing?
-                  p
-                    | Connect, Discover, Tweet! Have you played with it? What do you think? And what about the brand pages? Does it feel more like Facebook now?
-                .question_bottom
-                ul.discuss
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper.yellow
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom.yellow_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-                  li
-                    .topper
-                      .avatar
-                      .discuss_info
-                        p
-                          a(href='#')
-                            | gregoryHouse
-                          span
-                            | 5 days ago
-                          span.options
-                            a(href='#')
-                              img(src='/images/undo.png', alt='')
-                            a(href='#')
-                              img(src='/images/okay.png', alt='')
-                            a(href='#')
-                              img(src='/images/share.png', alt='')
-                            a(href='#')
-                              img(src='/images/delete.png', alt='')
-                        p.message
-                          a(href='#') @Crowdbooster
-                          | Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
-                    .discuss_bottom
-              //
-                .ui_left_content
-              .ui_left_bottom
-              .commenter
-                .ui_left_top
-                form(action='#')
-                  p(style='float: left;')
-                    textarea(cols='', rows='') Type your comment...
-                  .check_box
-                    p(style='float: left;')
-                      input(type='checkbox', value='')
-                    span.also
-                      | Also post on Twitter
-                      br
-                      em appends #SMOchat
-                    p(style='float: right;')
-                      button.send
-                        span SEND
-                .ui_left_bottom
-            //
-              .ui_left
-            .ui_right
-              h2.main_right Social Media Optimization
-              ul.ui_nav
-                li
-                  a(href='#') edit
-                li
-                  a(href='#') email
-                li
-                  a(href='#') curate
-                li
-                  a(href='#') aliases
-                li
-                  a(href='#') moderators
-                li.last
-                  a(href='#') analytics
-              .people
-                h3 43 people in chat
-                .side_nav
-                  span.prev
-                    a(href='')
-                  .divide_side
-                  span.next
-                    a(href='')
-                ul
-                  li.modder
-                    a(href='#')
-                      img.tip.trigger(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                    img.mod(src='/images/mod.png', alt='')
-                  li.modder
-                    a(href='#')
-                      img.tip.trigger(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                    img.mod(src='/images/mod.png', alt='')
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-                  li
-                    a(href='#')
-                      img.tip(src='/images/user.png', alt='')
-                    .popup
-                      p.message
-                        a(href='#') message
-                      p.mute
-                        a(href='#') mute
-                      p.ban
-                        a(href='#') ban
-              .most_likes.words
-                h3 Most Likes
-                .side_nav
-                  span.prev
-                    a(href='')
-                  .divide_side
-                  span.next
-                    a(href='')
-                div
-                  .likes
-                    .avatar
-                    .likes_info
-                      p
-                        a(href='#')
-                          | ZaddleMarketing
-                        span
-                          | x8
-                      p.message
-                        | It uses a dictionary of over 200 Latin words and all that jazz
-                  .likes_bottom
-                div
-                  .likes
-                    .avatar
-                    .likes_info
-                      p
-                        a(href='#')
-                          | ZaddleMarketing
-                        span
-                          | x8
-                      p.message
-                        | It uses a dictionary of over 200 Latin words and all that jazz
-                  .likes_bottom
-              .replies.words
-                h3
-                  a.active(href='#') Replies to me
-                .divide_side(style='margin-top: 14px;')
-                h4
-                  a(href='#') Direct Messages (1)
-                .side_nav
-                  span.prev
-                    a(href='')
-                  .divide_side
-                  span.next
-                    a(href='')
-                div
-                  .likes.reply
-                    .avatar
-                    .likes_info
-                      p
-                        a(href='#')
-                          | ZaddleMarketing
-                        span.days
-                          | 6 days ago
-                      p.message
-                        | There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
-                  .likes_bottom.reply_bottom
-                div
-                  .likes.reply
-                    .avatar
-                    .likes_info
-                      p
-                        a(href='#')
-                          | ZaddleMarketing
-                        span.days
-                          | 6 days ago
-                      p.message
-                        | There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
-                  .likes_bottom.reply_bottom
-                div
-                  .likes.reply
-                    .avatar
-                    .likes_info
-                      p
-                        a(href='#')
-                          | ZaddleMarketing
-                        span.days
-                          | 6 days ago
-                      p.message
-                        | There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
-                  .likes_bottom.reply_bottom
-            //
-              .ui_right
-          //
-            .center_mid
-          .center_bottom
-        //
-          .center
-      //
-        .middler
-    //
-      .container
-    script(type='text/javascript')
-      $(document).ready(function(){
-      $('.discuss').jScrollPane();
-      $('div.people ul li img.tip').tooltip({ effect: 'fade'});
-      });
+.center
+  .center_top
+  .center_mid
+    .ui_left
+      .ui_left_content
+        .question_count
+          h3
+            | Question 1
+            span of 3
+          .ques_nav
+            .divide_ques
+            span.prev
+              a(href='')
+            .divide_ques
+            span.next
+              a(href='')
+        .question
+          h2
+            | We have to ask about #NewNewTwitter. What do you think as a user? What are the implications for marketing?
+          p
+            | Connect, Discover, Tweet! Have you played with it? What do you think? And what about the brand pages? Does it feel more like Facebook now?
+        .question_bottom
+        ul.discuss
+          -if(undefined != data.messages)
+            each message in data.messages
+              include event_partials/pubChatMsg
+
+      .ui_left_bottom
+      .commenter
+        .ui_left_top
+        form(action='#')
+          p(style='float: left;')
+            textarea(cols='', rows='') Type your comment...
+          .check_box
+            p(style='float: left;')
+              input(type='checkbox', value='')
+            span.also
+              | Also post on Twitter
+              br
+              em appends #SMOchat
+            p(style='float: right;')
+              button.send
+                span SEND
+        .ui_left_bottom
+    .ui_right
+      h2.main_right Social Media Optimization
+      ul.ui_nav
+        li
+          a(href='#') edit
+        li
+          a(href='#') email
+        li
+          a(href='#') curate
+        li
+          a(href='#') aliases
+        li
+          a(href='#') moderators
+        li.last
+          a(href='#') analytics
+      .people
+        h3 43 people in chat
+        .side_nav
+          span.prev
+            a(href='')
+          .divide_side
+          span.next
+            a(href='')
+        ul
+          li.modder
+            a(href='#')
+              img.tip.trigger(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+            img.mod(src='/images/mod.png', alt='')
+          li.modder
+            a(href='#')
+              img.tip.trigger(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+            img.mod(src='/images/mod.png', alt='')
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+          li
+            a(href='#')
+              img.tip(src='/images/user.png', alt='')
+            .popup
+              p.message
+                a(href='#') message
+              p.mute
+                a(href='#') mute
+              p.ban
+                a(href='#') ban
+      .most_likes.words
+        h3 Most Likes
+        .side_nav
+          span.prev
+            a(href='')
+          .divide_side
+          span.next
+            a(href='')
+        div
+          .likes
+            .avatar
+            .likes_info
+              p
+                a(href='#')
+                  | ZaddleMarketing
+                span
+                  | x8
+              p.message
+                | It uses a dictionary of over 200 Latin words and all that jazz
+          .likes_bottom
+        div
+          .likes
+            .avatar
+            .likes_info
+              p
+                a(href='#')
+                  | ZaddleMarketing
+                span
+                  | x8
+              p.message
+                | It uses a dictionary of over 200 Latin words and all that jazz
+          .likes_bottom
+      .replies.words
+        h3
+          a.active(href='#') Replies to me
+        .divide_side(style='margin-top: 14px;')
+        h4
+          a(href='#') Direct Messages (1)
+        .side_nav
+          span.prev
+            a(href='')
+          .divide_side
+          span.next
+            a(href='')
+        div
+          .likes.reply
+            .avatar
+            .likes_info
+              p
+                a(href='#')
+                  | ZaddleMarketing
+                span.days
+                  | 6 days ago
+              p.message
+                | There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
+          .likes_bottom.reply_bottom
+        div
+          .likes.reply
+            .avatar
+            .likes_info
+              p
+                a(href='#')
+                  | ZaddleMarketing
+                span.days
+                  | 6 days ago
+              p.message
+                | There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
+          .likes_bottom.reply_bottom
+        div
+          .likes.reply
+            .avatar
+            .likes_info
+              p
+                a(href='#')
+                  | ZaddleMarketing
+                span.days
+                  | 6 days ago
+              p.message
+                | There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
+          .likes_bottom.reply_bottom
+  .center_bottom
+
