@@ -7,9 +7,14 @@ var resources = {
     'user_chat':{
         'path':'chat',
         'resource':require('./app/resources/chat/user_chat.js').configure(resourceOptions)
+    },
+    'users':{
+        'path':'user',
+        'resource':require('./app/resources/users/user.js').configure(resourceOptions),
+        'using':'user_chat'
     }
 };
-
+var readyResources = {};
 
 var defaultData = {
     'title':'Welcome to the Voluble',
@@ -51,7 +56,10 @@ exports.configure = function(app){
      */
     for(iterator in resources){
         route = resources[iterator];
-        app.resource(route.path,route.resource);
+        readyResources[iterator]=app.resource(route.path,route.resource);
+        if(route.using&& readyResources[route.using]){
+            readyResources[route.using].add(readyResources[iterator]);
+        }
     }
     return app;
 };
