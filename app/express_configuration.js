@@ -21,6 +21,7 @@ exports.configure = function (app) {
     app.use( express.cookieParser() );
     app.use( express.session( {"store" : session_store, "secret" : config.session.secret} ) );
     app.use( auth.middleware() );
+    app.use(express.favicon());
     app.use( express.static( process.cwd() + '/public' ) );
     app.dynamicHelpers( {
         session : function (req) {
