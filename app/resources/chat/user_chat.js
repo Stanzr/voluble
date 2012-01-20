@@ -1,16 +1,24 @@
+var async = require('async');
 var options = {};
 
 
 var api = {};
 api.index = function (req, res) {
-    options.model.event.findCurrentEvents(function(err,evts){
-        res.render('dashboard',{
+    async.parallel([
+        function(callback){
+            options.model.event.findCurrentEvents(callback);
+        },
+        function(callback){
+            options.model.event.findPastEvents(callback);
+        }
+    ],function(err,results){
+        res.render( 'dashboard', {
             'title' : 'Available chats',
             'data' : {
-                'events' : evts,
-                'past_events' : undefined
-            }});
-    })
+                'events' : results[0],
+                'past_events' : results[1]
+            }} );
+    });
 };
 api['new'] = function (req, res) {
 };

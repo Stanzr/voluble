@@ -12,7 +12,10 @@ var Event = new Schema( {
 } );
 
 Event.statics.findCurrentEvents = function(cb){
-   this.find({'start_date':{'$lt':Date.now()},'status':{'$ne':'finished'}},cb);
+    this.find({'start_date' : {'$gte' : new Date()}},cb);
+};
+Event.statics.findPastEvents = function(cb){
+   this.find({'start_date':{'$lt':new Date()}}).limit(10).run(cb);
 };
 
 module.exports = Event;

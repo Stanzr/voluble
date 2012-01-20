@@ -8,7 +8,7 @@ function FutureEvent (callback) {
         'name' : Faker.Name.firstName(),
         'info' : Faker.Lorem.sentence( 8 ),
         'status' : 'planning',
-        'start_date' : new Date( Date.now() + Faker.Helpers.randomNumber( 10 * 1000 ) ),
+        'start_date' : new Date( Date.now() + ((24*60*60) * 1000 ) ),
         'summary' : Faker.Lorem.sentence( 8 ),
         'attendees' : [new objIdGen()]
     } )).save( callback );
