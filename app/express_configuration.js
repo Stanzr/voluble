@@ -4,6 +4,7 @@ var auth = require( './authentication.js' );
 var Session = require( './models.js' ).session;
 var session_store = new Session();
 
+
 exports.configure = function (app) {
     app.use( express.bodyParser() );
     app.use( function (req, res, next) {

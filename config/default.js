@@ -15,9 +15,11 @@ module.exports = {
       'maxAge': 60*60*1000 
     }
   },
+  'users':{
+    'default_role':'user'
+  },
   'server': {
-    'port': 8000,
-
+    'port': 8000
   },
   'auth':{
       'facebook':{

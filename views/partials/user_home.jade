@@ -1,14 +1,14 @@
 ul.navigation
   -if(undefined === session.user)
     li.lo
-      a#login(href='/login') Log in
+      a#login(href='/auth/facebook') Log in
         li
           a#register(href='/register') Sign up
 
   -else
     li.welcome_top
       a(href='/profile')
-        img(src='session.user.image_url', alt='session.user.name')
+        img(src='#{session.user.profile_pic_url}', alt='#{session.user.name}')
         | Welcome,
         strong #{session.user.name}
     li

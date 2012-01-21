@@ -16,7 +16,7 @@ everyauth.facebook
             if (err) {
                 promise.fulfill( [err] );
             }
-            if (usr === undefined) {
+            if (!usr) {
                 var url = 'https://graph.facebook.com/' + fbUserMetadata.username + '?fields=picture&access_token=' + accessToken;
                 request( url, function (err, resp, body) {
                     var profile_pic = {'picture' : 'defaultpic.jpg'};
@@ -26,7 +26,7 @@ everyauth.facebook
                     var user = new User();
                     user.auth.facebook.accessToken = accessToken;
                     user.auth.facebook.userId = fbUserMetadata.id;
-                    user.role = config.App.User.default_role;
+                    user.role = config.users.default_role;
                     user.email = fbUserMetadata.email;
                     user.profile_pic_url = profile_pic.picture;
                     user.name = fbUserMetadata.name;
@@ -37,11 +37,13 @@ everyauth.facebook
                             promise.fulfill( [err] );
                             return undefined;
                         }
-                        promise.fulfill( data );
+                        session.user = done;
+                        promise.fulfill( done );
 
                     } );
                 } );
             } else {
+                session.user = usr;
                 promise.fulfill( usr );
             }
         } );
@@ -177,4 +179,6 @@ function encryptPassword (psw, salt) {
  })
  .registerSuccessRedirect(config.Views.login_success_path); // Where to redirect to after a successful registration
  */
+
+everyauth.everymodule.logoutPath('/logout');
 module.exports = everyauth;
