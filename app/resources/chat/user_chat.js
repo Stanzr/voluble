@@ -21,8 +21,10 @@ api.index = function (req, res) {
     });
 };
 api['new'] = function (req, res) {
+    res.end('new');
 };
 api.create = function (req, res) {
+    res.end('create');
 };
 api.show = function (req, res) {
     options.model.chatMsg.findByChat(req.params.chat,function(err,results){
@@ -37,11 +39,13 @@ api.show = function (req, res) {
 
 };
 api.edit = function (req, res) {
-
+    res.end('edit');
 };
 api.update = function (req, res) {
+    res.end('update');
 };
 api.destroy = function (req, res) {
+    res.end('destroy');
 };
 
 function setOptions (opts) {

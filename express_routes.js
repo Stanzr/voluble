@@ -1,19 +1,22 @@
 var _ = require('underscore')._;
 var models = require('./app/models.js');
+var fs = require('fs');
+var jade = require('jade');
 var resourceOptions = {
     "model":models
 };
 var resources = {
     'user_chat':{
-        'path':'chat',
+        'path':'',
         'resource':require('./app/resources/chat/user_chat.js').configure(resourceOptions)
     },
-    'users':{
-        'path':'user',
-        'resource':require('./app/resources/users/user.js').configure(resourceOptions),
-        'using':'user_chat'
+    'users' :{
+        'path' :'/user',
+        'resource' :require('./app/resources/users/user.js').configure(resourceOptions),
+        'using' :'user_chat'
     }
 };
+
 var readyResources = {};
 
 var defaultData = {
@@ -27,12 +30,11 @@ var defaultData = {
 };
 
 var handlers = {
-    'index':{
+    'templateCache':{
         'method':'get',
-        'path':'/',
-        'title':'hello',
+        'path':'/templates/:templateId/:callbackFunction',
         'handler':function(req,res){
-            res.render('dashboard',defaultData);
+
         }
     }
 };
