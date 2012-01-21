@@ -8,16 +8,13 @@ module.exports = {
     'name': 'Voluble_dev'
   },
   'session': {
-    'secret': "$LKU789JO534u5934jioU&$#JFL",
-    'cookie': {
-      'path': '/',
-      'httpOnly': true,
-      'maxAge': 60*60*1000 
-    }
+    'secret': "$LKU789JO534u5934jioU&$#JFL"
+  },
+  'users':{
+    'default_role':'user'
   },
   'server': {
-    'port': 8000,
-
+    'port': 8000
   },
   'auth':{
       'facebook':{
