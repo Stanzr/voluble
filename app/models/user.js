@@ -26,7 +26,7 @@ var User = new Schema( {
     }
 } );
 
-User.methods.findByAuthProvider = function(type,token,cb){
+User.statics.findByAuthProvider = function(type,token,cb){
     switch(type){
         case 'twitter':this.findOne({'auth.twitter.token':token}).run(cb);
             break;
