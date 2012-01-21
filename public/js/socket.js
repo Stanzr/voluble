@@ -9,14 +9,6 @@ socket.on('resForChatJoin',function(isAllowed){
         alert('cant join ' + chat);
     }
 });
-/*
-$('.send').live('click',function(){
-    var msg = $('#chatMsg').val();
-    if(msg){
-        socket.emit('chatMsg',msg);
-    }
-});
-*/
 $(window).ready(function(){
     $('#chatForm').submit(function(evt){
         evt.stopPropagation();
