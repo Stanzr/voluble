@@ -1,7 +1,8 @@
 ul.navigation
   -if(undefined === session.user)
     li.lo
-      a#login(href='/auth/facebook') Log in
+      a#login(href='/auth/facebook') Log in(fb)
+      a#login(href='/auth/twitter') Log in (tw)
         li
           a#register(href='/register') Sign up
 
