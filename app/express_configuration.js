@@ -1,8 +1,8 @@
 var express = require('express');
 var config = require('config');
 var auth = require('./authentication.js');
-var Session = require('./models.js').session;
-var session_store = new Session();
+var session_store = require('./models.js').session;
+
 
 session_store.destroy = function(){
     console.log('session destroy called');
