@@ -19,7 +19,7 @@ exports.configure = function(io){
                 'profile_pic_url' :socket.handshake.user.user.profile_pic_url
             };
             socket.get('chatId', function(chat){
-                socket.broadcast.to(chat).emit('chatMsg', chatMessage)
+                io.sockets['in'](chat).emit('chatMsg', chatMessage);
             });
         });
     });
