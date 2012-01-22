@@ -1,9 +1,8 @@
 var async = require('async');
 var options = {};
 
-
 var api = {};
-api.index = function (req, res) {
+api.index = function(req, res){
     async.parallel([
         function(callback){
             options.model.event.findCurrentEvents(callback);
@@ -11,40 +10,58 @@ api.index = function (req, res) {
         function(callback){
             options.model.event.findPastEvents(callback);
         }
-    ],function(err,results){
-        res.render( 'dashboard', {
-            'title' : 'Available chats',
-            'data' : {
-                'events' : results[0],
-                'past_events' : results[1]
-            }} );
+    ], function(err, results){
+        res.render('dashboard.html', {
+            'title' :'Available chats',
+            'data' :{
+                'events' :results[0],
+                'past_events' :results[1]
+            }});
     });
 };
-api['new'] = function (req, res) {
+api['new'] = function(req, res){
+    res.end('new');
 };
-api.create = function (req, res) {
+api.create = function(req, res){
+    res.end('create');
 };
-api.show = function (req, res) {
-    options.model.chatMsg.findByChat(req.params.chat,function(err,results){
-        console.log(arguments);
-        res.render( 'CUloggedin', {
-            'title' : "Welcome to " + req.params.chat,
-            'data' : {
-                'messages':results
+api.show = function(req, res){
+    async.parallel([
+        function(callback){
+            options.model.event.findEvent(req.params.id, callback);
+
+        },
+        function(callback){
+            options.model.chatMsg.findByChat('/'+req.params.id, callback);
+        },
+        function(callback){
+            options.model.chatMsg.findMostLiked('/' + req.params.id,callback);
+        }
+    ], function(err, results){
+        res.render('event.html', {
+            'title' :"Welcome to " + req.params.id,
+            'chatName' :req.params.id,
+            'data' :{
+                'messages' :results[1],
+                'event' :results[0],
+                'most_liked':results[2]
+
             }
-        } );
+        });
     });
 
 };
-api.edit = function (req, res) {
+api.edit = function(req, res){
+    res.end('edit');
+};
+api.update = function(req, res){
+    res.end('update');
+};
+api.destroy = function(req, res){
+    res.end('destroy');
+};
 
-};
-api.update = function (req, res) {
-};
-api.destroy = function (req, res) {
-};
-
-function setOptions (opts) {
+function setOptions (opts){
     options = opts;
     return api;
 

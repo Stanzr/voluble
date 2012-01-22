@@ -1,0 +1,958 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0062)http://johnromeral.com/clients/voluble/chat-ui-logged-out.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<script src="./Chat UI - Logged Out_files/saved_resource" async=""></script><script type="text/javascript" async="" src="./Chat UI - Logged Out_files/plusone.js" gapi_processed="true"></script><script id="twitter-wjs" src="./Chat UI - Logged Out_files/widgets.js"></script><script id="facebook-jssdk" src="./Chat UI - Logged Out_files/all.js"></script><script type="text/javascript" src="./Chat UI - Logged Out_files/jquery.min.js"></script>
+	<script type="text/javascript" src="./Chat UI - Logged Out_files/jquery.tools.min.js"></script>
+	<script type="text/javascript" src="./Chat UI - Logged Out_files/wheel.js"></script>
+	<script type="text/javascript" src="./Chat UI - Logged Out_files/scroll.js"></script>
+	<link rel="stylesheet" href="http://johnromeral.com/clients/voluble/style.css" media="screen">
+	<link rel="stylesheet" type="text/css" media="all" href="./Chat UI - Logged Out_files/scroll.css">
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="ie7.css" media="screen" />
+	<![endif]-->
+	<title>Chat UI - Logged Out</title>
+<script src="./Chat UI - Logged Out_files/nonSecureAnonymousFramework"></script><style type="text/css">* html #li_ui_li_gen_1326144860109_0 a#li_ui_li_gen_1326144860109_0-link{height:1% !important;}#li_ui_li_gen_1326144860109_0{position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1326144860109_0 a#li_ui_li_gen_1326144860109_0-link{border:0 !important;height:undefinedpx !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1326144860109_0 a#li_ui_li_gen_1326144860109_0-link:link, #li_ui_li_gen_1326144860109_0 a#li_ui_li_gen_1326144860109_0-link:visited, #li_ui_li_gen_1326144860109_0 a#li_ui_li_gen_1326144860109_0-link:hover, #li_ui_li_gen_1326144860109_0 a#li_ui_li_gen_1326144860109_0-link:active{border:0 !important;text-decoration:none !important;}#li_ui_li_gen_1326144860109_0 a#li_ui_li_gen_1326144860109_0-link:after{content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-logo{background:url(http://static02.linkedin.com/scds/common/u/img/sprite/sprite_connect_v13.png) 0px -276px no-repeat !important;cursor:pointer !important;border:0 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:20px !important;height:20px !important;float:right !important;}#li_ui_li_gen_1326144860109_0.hovered #li_ui_li_gen_1326144860109_0-logo{background-position:-20px -276px !important;}#li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-logo, #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-logo{background-position:-40px -276px !important;}.IN-shadowed #li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-logo{}#li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title{color:#333 !important;cursor:pointer !important;display:block !important;white-space:nowrap !important;float:left !important;margin-left:1px !important;vertical-align:top !important;overflow:hidden !important;text-align:center !important;height:18px !important;padding:0 4px 0 23px !important;border:1px solid #000 !important;border-top-color:#E2E2E2 !important;border-right-color:#BFBFBF !important;border-bottom-color:#B9B9B9 !important;border-left-color:#E2E2E2 !important;border-left:0 !important;text-shadow:#FFFFFF -1px 1px 0 !important;line-height:20px !important;border-radius:0 !important;-webkit-border-radius:0 !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;background-color:#ECECEC !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#FEFEFE), color-stop(100%,#ECECEC)) !important; background-image: -webkit-linear-gradient(top, #FEFEFE 0%, #ECECEC 100%) !important;}#li_ui_li_gen_1326144860109_0.hovered #li_ui_li_gen_1326144860109_0-title{border:1px solid #000 !important;border-top-color:#ABABAB !important;border-right-color:#9A9A9A !important;border-bottom-color:#787878 !important;border-left-color:#04568B !important;border-left:0 !important;background-color:#EDEDED !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDEDED), color-stop(100%,#DEDEDE)) !important; background-image: -webkit-linear-gradient(top, #EDEDED 0%, #DEDEDE 100%) !important;}#li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-title, #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-title{color:#666 !important;border:1px solid #000 !important;border-top-color:#B6B6B6 !important;border-right-color:#B3B3B3 !important;border-bottom-color:#9D9D9D !important;border-left-color:#49627B !important;border-left:0 !important;background-color:#DEDEDE !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E3E3), color-stop(100%,#EDEDED)) !important; background-image: -webkit-linear-gradient(top, #E3E3E3 0%, #EDEDED 100%) !important;}.IN-shadowed #li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title{}.IN-shadowed #li_ui_li_gen_1326144860109_0.hovered #li_ui_li_gen_1326144860109_0-title{}.IN-shadowed #li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-title, .IN-shadowed #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-title{}#li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title-text, #li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title-text *{color:#333 !important;font-size:11px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;font-style:normal !important;display:inline-block !important;background:transparent none !important;vertical-align:baseline !important;height:18px !important;line-height:20px !important;float:none !important;}#li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title-text strong{font-weight:bold !important;}#li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title-text em{font-style:italic !important;}#li_ui_li_gen_1326144860109_0.hovered #li_ui_li_gen_1326144860109_0-title-text, #li_ui_li_gen_1326144860109_0.hovered #li_ui_li_gen_1326144860109_0-title-text *{color:#000 !important;}#li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-title-text, #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-title-text, #li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-title-text *, #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-title-text *{color:#666 !important;}#li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title #li_ui_li_gen_1326144860109_0-mark{display:inline-block !important;width:0px !important;overflow:hidden !important;}.success #li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title{color:#333 !important;border-top-color:#E2E2E2 !important;border-right-color:#BFBFBF !important;border-bottom-color:#B9B9B9 !important;border-left-color:#E2E2E2 !important;background-color:#ECECEC !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#FEFEFE), color-stop(100%,#ECECEC)) !important; background-image: -webkit-linear-gradient(top, #FEFEFE 0%, #ECECEC 100%) !important;}.success #li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title-text, .success #li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title-text *{color:#333 !important;}.IN-shadowed .success #li_ui_li_gen_1326144860109_0 #li_ui_li_gen_1326144860109_0-title{}.success #li_ui_li_gen_1326144860109_0.hovered #li_ui_li_gen_1326144860109_0-title{color:#000 !important;border-top-color:#ABABAB !important;border-right-color:#9A9A9A !important;border-bottom-color:#787878 !important;border-left-color:#04568B !important;background-color:#EDEDED !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDEDED), color-stop(100%,#DEDEDE)) !important; background-image: -webkit-linear-gradient(top, #EDEDED 0%, #DEDEDE 100%) !important;}.success #li_ui_li_gen_1326144860109_0.hovered #li_ui_li_gen_1326144860109_0-title-text, .success #li_ui_li_gen_1326144860109_0.hovered #li_ui_li_gen_1326144860109_0-title-text *{color:#000 !important;}.success #li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-title, .success #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-title{color:#666 !important;border-top-color:#B6B6B6 !important;border-right-color:#B3B3B3 !important;border-bottom-color:#9D9D9D !important;border-left-color:#49627B !important;background-color:#DEDEDE !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E3E3), color-stop(100%,#EDEDED)) !important; background-image: -webkit-linear-gradient(top, #E3E3E3 0%, #EDEDED 100%) !important;}.success #li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-title-text, .success #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-title-text, .success #li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-title-text *, .success #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-title-text *{color:#666 !important;}.IN-shadowed .success #li_ui_li_gen_1326144860109_0.clicked #li_ui_li_gen_1326144860109_0-title, .IN-shadowed .success #li_ui_li_gen_1326144860109_0.down #li_ui_li_gen_1326144860109_0-title{}#li_ui_li_gen_1326144860122_1-container.IN-right {display:inline-block !important;float:left !important;overflow:visible !important;position:relative !important;height:18px !important;padding-left:2px !important;line-height:1px !important;cursor:pointer !important;}#li_ui_li_gen_1326144860122_1.IN-right {display:block !important;float:left !important;height:18px !important;margin-right:4px !important;padding-right:4px !important;background:url(http://static02.linkedin.com/scds/common/u/img/sprite/sprite_connect_v13.png) right -100px no-repeat !important;}#li_ui_li_gen_1326144860122_1-inner.IN-right {display:block !important;float:left !important;padding-left:8px !important;text-align:center !important;background:url(http://static02.linkedin.com/scds/common/u/img/sprite/sprite_connect_v13.png) 0px -60px no-repeat !important;}#li_ui_li_gen_1326144860122_1-content.IN-right {display:inline !important;font-size:11px !important;color:#04558B !important;font-weight:bold !important;font-family:Arial, sans-serif !important;line-height:18px !important;padding:0 5px 0 5px !important;}#li_ui_li_gen_1326144860122_1-container.IN-hovered #li_ui_li_gen_1326144860122_1.IN-right, #li_ui_li_gen_1326144860122_1-container.IN-clicked #li_ui_li_gen_1326144860122_1.IN-right, #li_ui_li_gen_1326144860122_1-container.IN-down #li_ui_li_gen_1326144860122_1.IN-right {background-position-y:-120px !important;}#li_ui_li_gen_1326144860122_1-container.IN-hovered #li_ui_li_gen_1326144860122_1-inner.IN-right, #li_ui_li_gen_1326144860122_1-container.IN-clicked #li_ui_li_gen_1326144860122_1-inner.IN-right, #li_ui_li_gen_1326144860122_1-container.IN-down #li_ui_li_gen_1326144860122_1-inner.IN-right {background-position-y:-80px !important;}#li_ui_li_gen_1326144860122_1-container.IN-empty {display:none !important;}#li_ui_li_gen_1326144860122_1-container.IN-hidden #li_ui_li_gen_1326144860122_1 {display:none !important;}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border-spacing:0;border:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size: 11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size: 24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size: 14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;left:-10000px;overflow:visible;position:absolute;top:-10000px;width:100%
+}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yO/r/_j03izEX40U.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0 0, 0 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size: 12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size: 12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0 0, 0 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size: 16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{position:relative;display:-moz-inline-block;display:inline-block}
+.fb_iframe_widget iframe{position:relative;vertical-align:text-bottom}
+.fb_iframe_widget span{position:relative}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_button_simple,
+.fb_button_simple_rtl{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yH/r/eIpbnVKI9lR.png);background-repeat:no-repeat;cursor:pointer;outline:none;text-decoration:none}
+.fb_button_simple_rtl{background-position:right 0}
+.fb_button_simple .fb_button_text{margin:0 0 0 20px;padding-bottom:1px}
+.fb_button_simple_rtl .fb_button_text{margin:0 10px 0 0}
+a.fb_button_simple:hover .fb_button_text,
+a.fb_button_simple_rtl:hover .fb_button_text,
+.fb_button_simple:hover .fb_button_text,
+.fb_button_simple_rtl:hover .fb_button_text{text-decoration:underline}
+.fb_button,
+.fb_button_rtl{background:#29447e url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);background-repeat:no-repeat;cursor:pointer;display:inline-block;padding:0 0 0 1px;text-decoration:none;outline:none}
+.fb_button .fb_button_text,
+.fb_button_rtl .fb_button_text{background:#5f78ab url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);border-top:solid 1px #879ac0;border-bottom:solid 1px #1a356e;color:#fff;display:block;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-weight:bold;padding:2px 6px 3px 6px;margin:1px 1px 0 21px;text-shadow:none}
+a.fb_button,
+a.fb_button_rtl,
+.fb_button,
+.fb_button_rtl{text-decoration:none}
+a.fb_button:active .fb_button_text,
+a.fb_button_rtl:active .fb_button_text,
+.fb_button:active .fb_button_text,
+.fb_button_rtl:active .fb_button_text{border-bottom:solid 1px #29447e;border-top:solid 1px #45619d;background:#4f6aa3;text-shadow:none}
+.fb_button_xlarge,
+.fb_button_xlarge_rtl{background-position:left -60px;font-size: 24px;line-height:30px}
+.fb_button_xlarge .fb_button_text{padding:3px 8px 3px 12px;margin-left:38px}
+a.fb_button_xlarge:active{background-position:left -99px}
+.fb_button_xlarge_rtl{background-position:right -268px}
+.fb_button_xlarge_rtl .fb_button_text{padding:3px 8px 3px 12px;margin-right:39px}
+a.fb_button_xlarge_rtl:active{background-position:right -307px}
+.fb_button_large,
+.fb_button_large_rtl{background-position:left -138px;font-size: 13px;line-height:16px}
+.fb_button_large .fb_button_text{margin-left:24px;padding:2px 6px 4px 6px}
+a.fb_button_large:active{background-position:left -163px}
+.fb_button_large_rtl{background-position:right -346px}
+.fb_button_large_rtl .fb_button_text{margin-right:25px}
+a.fb_button_large_rtl:active{background-position:right -371px}
+.fb_button_medium,
+.fb_button_medium_rtl{background-position:left -188px;font-size: 11px;line-height:14px}
+a.fb_button_medium:active{background-position:left -210px}
+.fb_button_medium_rtl{background-position:right -396px}
+.fb_button_text_rtl,
+.fb_button_medium_rtl .fb_button_text{padding:2px 6px 3px 6px;margin-right:22px}
+a.fb_button_medium_rtl:active{background-position:right -418px}
+.fb_button_small,
+.fb_button_small_rtl{background-position:left -232px;font-size: 10px;line-height:10px}
+.fb_button_small .fb_button_text{padding:2px 6px 3px;margin-left:17px}
+a.fb_button_small:active,
+.fb_button_small:active{background-position:left -250px}
+.fb_button_small_rtl{background-position:right -440px}
+.fb_button_small_rtl .fb_button_text{padding:2px 6px;margin-right:18px}
+a.fb_button_small_rtl:active{background-position:right -458px}
+.fb_share_count_wrapper{position:relative;float:left}
+.fb_share_count{background:#b0b9ec none repeat scroll 0 0;color:#333;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;text-align:center}
+.fb_share_count_inner{background:#e8ebf2;display:block}
+.fb_share_count_right{margin-left:-1px;display:inline-block}
+.fb_share_count_right .fb_share_count_inner{border-top:solid 1px #e8ebf2;border-bottom:solid 1px #b0b9ec;margin:1px 1px 0 1px;font-size: 10px;line-height:10px;padding:2px 6px 3px;font-weight:bold}
+.fb_share_count_top{display:block;letter-spacing:-1px;line-height:34px;margin-bottom:7px;font-size: 22px;border:solid 1px #b0b9ec}
+.fb_share_count_nub_top{border:none;display:block;position:absolute;left:7px;top:35px;margin:0;padding:0;width:6px;height:7px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yU/r/bSOHtKbCGYI.png)}
+.fb_share_count_nub_right{border:none;display:inline-block;padding:0;width:5px;height:10px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yX/r/i_oIVTKMYsL.png);vertical-align:top;background-position:right 5px;z-index:10;left:2px;margin:0 2px 0 0;position:relative}
+.fb_share_no_count{display:none}
+.fb_share_size_Small .fb_share_count_right .fb_share_count_inner{font-size: 10px}
+.fb_share_size_Medium .fb_share_count_right .fb_share_count_inner{font-size: 11px;padding:2px 6px 3px;letter-spacing:-1px;line-height:14px}
+.fb_share_size_Large .fb_share_count_right .fb_share_count_inner{font-size: 13px;line-height:16px;padding:2px 6px 4px;font-weight:normal;letter-spacing:-1px}
+.fb_share_count_hidden .fb_share_count_nub_top,
+.fb_share_count_hidden .fb_share_count_top,
+.fb_share_count_hidden .fb_share_count_nub_right,
+.fb_share_count_hidden .fb_share_count_right{visibility:hidden}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size: 13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size: 11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr{left:-4px}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_rtl{left:2px}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{left:0;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+/* @noflip */
+.fbpluginrecommendationsbarleft{left:10px}
+/* @noflip */
+.fbpluginrecommendationsbarright{right:10px}
+</style><style type="text/css">.jlhlebbhengjlhmcjebbkambaekglhkf {top: 0px; left: 0px;min-width: 30px;max-width: 300px;font-size: 13px;font-family: arial, helvetica, sans-serif;opacity: .93;padding:0px;position:absolute;display:block;z-index: 999997;font-style: normal;font-variant: normal;font-weight: normal;}#jlhlebbhengjlhmcjebbkambaekglhkf_up{text-align: center;padding:0px;margin: 0px;}#jlhlebbhengjlhmcjebbkambaekglhkf_cont{background-color: #729FCF;font-family: arial, helvetica, sans-serif-webkit-box-shadow: #729FCF 0px 0px 2px;color: #FFFFFF;padding:7px;-webkit-border-radius: 5px;}#jlhlebbhengjlhmcjebbkambaekglhkf_down{text-align: center;padding:0px;margin: 0px;}</style></head><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+<body data-rendering="true"><iframe id="twttrHubFrame" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" name="twttrHubFrame" style="position: absolute; top: -9999em; width: 10px; height: 10px; " src="./Chat UI - Logged Out_files/hub.1324331373.html"></iframe>
+	<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px; "><div><iframe id="f2b10b2ffc" name="f134780994" scrolling="no" style="border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial; overflow-x: hidden; overflow-y: hidden; height: 240px; width: 575px; " class="FB_UI_Hidden" src="./Chat UI - Logged Out_files/oauth.html"></iframe></div></div></div>
+	<script type="text/javascript">
+		(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=159124977501600";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<div class="container">
+		<div class="middler">
+			<div class="top">
+				<h1><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">Voluble</a></h1>
+				<ul class="navigation">
+					<li class="lo"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">Log in</a></li>
+					<li><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">Sign up</a></li>
+				</ul>
+			</div><!--.top-->
+			<div class="center">
+				<div class="center_top"></div>
+				<div class="center_mid">
+					<div class="ui_left">
+						<div class="ui_left_content">
+							<div class="question_count">
+								<h3>Question 1 <span>of 3</span></h3>
+								<div class="ques_nav">
+									<div class="divide_ques"></div>
+									<span class="prev"><a href=""></a></span>
+									<div class="divide_ques"></div>
+									<span class="next"><a href=""></a></span>
+								</div>
+							</div><!--.question_count-->
+							<div class="question">
+								<h2>
+									We have to ask about #NewNewTwitter. What do you think as a user? What are the implications for marketing?
+								</h2>
+								<p>
+									Connect, Discover, Tweet! Have you played with it? What do you think? And what about the brand pages? Does it feel more like Facebook now?
+								</p>
+							</div>
+							<div class="question_bottom"></div>
+							<ul class="discuss jspScrollable" style="overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 541px; " tabindex="0">
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+							<div class="jspContainer" style="width: 541px; height: 700px; "><div class="jspPane" style="padding-top: 4px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 521px; top: 0px; "><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper yellow">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom yellow_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li><li>
+									<div class="topper">
+										<div class="avatar"></div>
+										<div class="discuss_info">
+											<p>
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+													gregoryHouse
+												</a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/undo.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/okay.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/share.png" alt="">
+													</a>
+													<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+														<img src="./Chat UI - Logged Out_files/delete.png" alt="">
+													</a>
+												</span>
+											</p>
+											<p class="message">
+												<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">@Crowdbooster</a> Humm? #Americanexpress is not very exciting anyways LOL #SmoChat it's more Corp America
+											</p>
+										</div>
+									</div>
+									<div class="discuss_bottom"></div>
+								</li></div><div class="jspVerticalBar"><div class="jspCap jspCapTop"></div><div class="jspTrack" style="height: 700px; "><div class="jspDrag" style="height: 458px; "><div class="jspDragTop"></div><div class="jspDragBottom"></div></div></div><div class="jspCap jspCapBottom"></div></div></div></ul>
+						</div><!--.ui_left_content-->
+						<div class="ui_left_bottom"></div>
+						<div class="commenter">
+							<div class="ui_left_top"></div>
+							<div class="sign_upper">
+								<p>Please <strong><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">log in</a></strong> or <strong><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">sign up</a></strong> to add your comment</p>
+							</div>
+							<div class="ui_left_bottom"></div>
+						</div>
+					</div><!--.ui_left-->
+					<div class="ui_right">
+						<h2 class="main_right">Social Media Optimization</h2>
+						<div class="teaser">
+							<h3>#SMOchat</h3>
+							<div class="side_nav" style="margin-right:27px;">
+								<span class="cross"><a href=""></a></span>
+							</div>
+							<h4>Scheduled for 20 Dec 2011 12:00 PST</h4>
+							<p>
+								<img src="./Chat UI - Logged Out_files/chat_logo.png" alt="">
+								You're measuring social media, but what have you learned and how have you adapted your strategy for success? Let's discuss lessons learned, successful tips, and how we optimized and achieved better results. Join our conversations on Twitter to learn from other like-minded professionals. This chat is hosted by @Crowdbooster, a social media optimization solution, in collaboration with @StanzaOne.
+							</p>
+							<div class="social">
+								<div class="social_in fb">
+									<div class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"><span><iframe id="f3479622f8" name="f2a3037ae4" scrolling="no" style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; height: 20px; width: 90px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; border-image: initial; " title="Like this content on Facebook." class="fb_ltr" src="./Chat UI - Logged Out_files/like.html"></iframe></span></div>								
+								</div>
+								<div class="social_in">
+									<iframe allowtransparency="true" frameborder="0" scrolling="no" src="./Chat UI - Logged Out_files/tweet_button.1324331373.html" class="twitter-share-button twitter-count-horizontal" style="height: 20px; width: 110px; " title="Twitter Tweet Button"></iframe>
+									<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+								</div>
+								<div class="social_in">
+									<script src="./Chat UI - Logged Out_files/in.js" type="text/javascript"></script>
+									<span style="line-height: 1; vertical-align: baseline; display: inline-block; text-align: center; " class="IN-widget"><span style="padding-top: 0px !important; padding-right: 0px !important; padding-bottom: 0px !important; padding-left: 0px !important; margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important; "><span id="li_ui_li_gen_1326144860109_0"><a id="li_ui_li_gen_1326144860109_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1326144860109_0-logo">in</span><span id="li_ui_li_gen_1326144860109_0-title"><span id="li_ui_li_gen_1326144860109_0-mark"></span><span id="li_ui_li_gen_1326144860109_0-title-text">Share</span></span></a></span></span><span style="padding-top: 0px !important; padding-right: 0px !important; padding-bottom: 0px !important; padding-left: 0px !important; margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important; "><span id="li_ui_li_gen_1326144860122_1-container" class="IN-right IN-hidden"><span id="li_ui_li_gen_1326144860122_1" class="IN-right"><span id="li_ui_li_gen_1326144860122_1-inner" class="IN-right"><span id="li_ui_li_gen_1326144860122_1-content" class="IN-right">0</span></span></span></span></span></span><script type="IN/Share+init" data-counter="right"></script>
+								</div>
+								<div class="social_in">
+									<!-- Place this tag where you want the +1 button to render -->
+									<div id="___plusone_0" style="height: 20px; width: 90px; display: inline-block; text-indent: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; "><iframe allowtransparency="true" frameborder="0" hspace="0" id="I1_1326144860241" marginheight="0" marginwidth="0" name="I1_1326144860241" scrolling="no" src="./Chat UI - Logged Out_files/fastbutton.html" style="width: 90px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; height: 20px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="-1" vspace="0" width="100%" title="+1"></iframe></div>
+									<!-- Place this render call where appropriate -->
+									<script type="text/javascript">
+									(function() {
+									var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+									po.src = 'https://apis.google.com/js/plusone.js';
+									var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+									})();
+									</script>
+								</div>
+							</div>
+						</div>
+						<div class="moderators">
+							<h3>Moderated by:</h3>
+							<div class="side_nav">
+								<span class="prev"><a href=""></a></span>
+								<div class="divide_side"></div>
+								<span class="next"><a href=""></a></span>
+							</div>
+							<div class="bios">
+								<div class="bio">
+									<div class="modder">
+										<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip trigger" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+										<img class="mod" src="./Chat UI - Logged Out_files/mod.png" alt="">
+									</div>
+									<p><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">Crowdbooster</a></p>
+									<span class="toink"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">send a message</a></span>
+								</div>
+								<div class="bio">
+									<div class="modder">
+										<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip trigger" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+										<img class="mod" src="./Chat UI - Logged Out_files/mod.png" alt="">
+									</div>
+									<p><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">Crowdbooster</a></p>
+									<span class="toink"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">send a message</a></span>
+								</div>
+							</div>
+						</div>
+						<div class="people">
+							<h3>43 people in chat</h3>
+							<div class="side_nav">
+								<span class="prev"><a href=""></a></span>
+								<div class="divide_side"></div>
+								<span class="next"><a href=""></a></span>
+							</div>
+							<ul>
+								<li class="modder">
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip trigger" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+									<img class="mod" src="./Chat UI - Logged Out_files/mod.png" alt="">
+								</li>
+								<li class="modder">
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip trigger" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+									<img class="mod" src="./Chat UI - Logged Out_files/mod.png" alt="">
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+								<li>
+									<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#"><img class="tip" src="./Chat UI - Logged Out_files/user.png" alt=""></a>
+									<div class="popup">
+										<p class="message"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">message</a></p>
+										<p class="mute"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">mute</a></p>
+										<p class="ban"><a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">ban</a></p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="most_likes words" style="border:none;">
+							<h3>Most Likes</h3>
+							<div class="side_nav">
+								<span class="prev"><a href=""></a></span>
+								<div class="divide_side"></div>
+								<span class="next"><a href=""></a></span>
+							</div>
+							<div>
+								<div class="likes">
+									<div class="avatar"></div>
+									<div class="likes_info">
+										<p>
+											<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+												ZaddleMarketing
+											</a>
+											<span>
+												x8
+											</span>
+										</p>
+										<p class="message">
+											It uses a dictionary of over 200 Latin words and all that jazz
+										</p>
+									</div>
+								</div>
+								<div class="likes_bottom"></div>
+							</div>
+							<div>
+								<div class="likes">
+									<div class="avatar"></div>
+									<div class="likes_info">
+										<p>
+											<a href="http://johnromeral.com/clients/voluble/chat-ui-logged-out.html#">
+												ZaddleMarketing
+											</a>
+											<span>
+												x8
+											</span>
+										</p>
+										<p class="message">
+											It uses a dictionary of over 200 Latin words and all that jazz
+										</p>
+									</div>
+								</div>
+								<div class="likes_bottom"></div>
+							</div>
+						</div>
+					</div><!--.ui_right-->
+				</div><!--.center_mid-->
+				<div class="center_bottom"></div>
+			</div><!--.center-->
+		</div><!--.middler-->
+	</div><!--.container-->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.discuss').jScrollPane();
+			$('div.people ul li img.tip').tooltip({ effect: 'fade'});
+		});
+	</script>
+
+</body></html>
