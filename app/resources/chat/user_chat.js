@@ -33,13 +33,19 @@ api.show = function(req, res){
         },
         function(callback){
             options.model.chatMsg.findByChat('/'+req.params.id, callback);
+        },
+        function(callback){
+            options.model.chatMsg.findMostLiked('/' + req.params.id,callback);
         }
     ], function(err, results){
         res.render('event.html', {
             'title' :"Welcome to " + req.params.id,
+            'chatName' :req.params.id,
             'data' :{
                 'messages' :results[1],
-                'event' :results[0]
+                'event' :results[0],
+                'most_liked':results[2]
+
             }
         });
     });

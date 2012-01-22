@@ -3,7 +3,9 @@ socket.on( 'systemMsg', function (data) {
    console.log('systemMsg!',data);
 } );
 
-var chat = document.location.pathname;
+
+var chat = document.location.pathname.replace('/','');
+var chatContainer;
 socket.emit('reqForChatJoin', chat);
 socket.on('resForChatJoin',function(isAllowed){
     if(!isAllowed){
@@ -18,19 +20,43 @@ socket.on('resForChatJoin',function(isAllowed){
 
 $(window).ready(onReady);
 
-
+var DEFAULT_TEXTAREA_VALUE = 'Type your comment...';
 function onReady(){
     $('#chatForm').submit(function(evt){
         evt.stopPropagation();
-        var msg = _.escape($('#chatMsg').val());
-        if (msg){
+        var msg = _.escape($.trim($('#chatMsg').val()));
+        if (msg.length>2){
             socket.emit('chatMsg', msg);
             $('#chatMsg').val('');
 
         }
         return false;
     });
-    $('ul.discuss').jScrollPane();
+
+
+    $('#chatMsg').val(DEFAULT_TEXTAREA_VALUE);
+
+
+
+    $('#chatMsg').blur(function(){
+       $(this).val(DEFAULT_TEXTAREA_VALUE);
+    });
+    $('#chatMsg').keydown(function(evt){
+        if(evt.keyCode== 13 &&!evt.metaKey){
+            $('#chatForm').submit();
+        }
+    });
+    $('#chatMsg').focus(function(evt){
+        if($(this).val()==DEFAULT_TEXTAREA_VALUE){
+            $(this).val('');
+        }
+        evt.stopPropagation();
+        return false;
+    });
+
+    chatContainer = ($('ul.jspScrollable').jScrollPane()).data('jsp');
+    chatContainer.scrollToBottom(true);
+    chatContainer.reinitialise(true);
     $("abbr.timeago").timeago();
 }
 
@@ -38,11 +64,9 @@ function onReady(){
 var readyTemplates = {};
 function getTemplate(template,callback){
     if(!readyTemplates[template]){
-        console.log('getting /templates/' + template);
         $.get('/templates/' + template, function(data){
             if (data){
                 readyTemplates[template] = _.template(data);
-                console.log(readyTemplates);
                 callback && callback(readyTemplates[template]);
             }
         });
@@ -81,7 +105,11 @@ socket.on('newcomer',function(newUser){
 
 socket.on('chatMsg',function(data){
     getTemplate('pubChatMsg',function(template){
-        $('div.jspPane').append(template({'message' :data}));
+        chatContainer.getContentPane().append(
+            template({'message' :data})
+        );
+        chatContainer.reinitialise();
+        chatContainer.scrollToBottom(true);
         $("abbr.timeago").timeago();
     });
 });

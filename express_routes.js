@@ -43,7 +43,6 @@ var handlers = {
                    res.end('',404);
                }else{
                    fs.readFile(template,function(err,fileContent){
-                       console.log('sending');
                        res.send(fileContent);
                    })
                }
