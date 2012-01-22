@@ -14,7 +14,7 @@ var resources = {
         'resource':require('./app/resources/chat/user_chat.js').configure(resourceOptions)
     },
     'users' :{
-        'path' :'/user',
+        'path' :'user',
         'resource' :require('./app/resources/users/user.js').configure(resourceOptions),
         'using' :'user_chat'
     }
