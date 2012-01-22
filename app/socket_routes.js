@@ -1,4 +1,5 @@
 var models = require('./models.js');
+var _ = require('underscore')._;
 var session_store = models.session;
 
 exports.configure = function(io){
@@ -6,9 +7,17 @@ exports.configure = function(io){
         socket.on('reqForChatJoin', function(chatId){
             //TODO:handle auth
 
-            socket.set('chatId', chatId);
-            socket.emit('resForChatJoin', true);
-            socket.join(chatId);
+            socket.set('chatId', chatId,function(){
+                socket.emit('resForChatJoin', true);
+                socket.join(chatId);
+                var usr = {
+                    'profile_url' :socket.handshake.user.user.profile_url,
+                    'name' :socket.handshake.user.user.name,
+                    'profile_pic_url' :socket.handshake.user.user.profile_pic_url
+                };
+                socket.broadcast.to(chatId).emit('newcomer', usr);
+            });
+
         });
         socket.on('chatMsg', function(msg){
             var chatMessage = {};
@@ -18,9 +27,41 @@ exports.configure = function(io){
                 'name' :socket.handshake.user.user.name,
                 'profile_pic_url' :socket.handshake.user.user.profile_pic_url
             };
-            socket.get('chatId', function(chat){
-                io.sockets['in'](chat).emit('chatMsg', chatMessage);
+            socket.get('chatId', function(err,chat){
+                (new models.chatMsg({
+                    'user':chatMessage.sender,
+                    'chatId':chat,
+                    'message':chatMessage.msg,
+                    'type':'user'
+                    })).save(function(err,msg){
+                    chatMessage.id = msg._id;
+                    io.sockets['in'](chat).emit('chatMsg', chatMessage);
+                });
+
+
             });
+        });
+
+        socket.on('getChatParticipants',function(){
+            socket.get('chatId',function(err,chat){
+               if(chat){
+                   if(io.sockets.manager.rooms['/' + chat]){
+                       var clients = io.sockets.clients(chat);
+                       var clients_info = _.map(clients,function(client){
+                           return {
+                               'name':client.handshake.user.user.name,
+                               'profile_pic_url':client.handshake.user.user.profile_pic_url
+                           };
+                       });
+                       console.log(clients_info);
+                       socket.emit('peoplesInRoom', clients_info);
+                   }
+                   console.log(io.sockets.manager.rooms['/'+chat].length);
+               }else{
+                   console.log('cant count peoples in chat '+chat);
+               }
+
+           })
         });
     });
 };

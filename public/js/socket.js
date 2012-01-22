@@ -8,6 +8,11 @@ socket.emit('reqForChatJoin', chat);
 socket.on('resForChatJoin',function(isAllowed){
     if(!isAllowed){
         alert('cant join ' + chat);
+    }else{
+        setTimeout(function(){
+            socket.emit('getChatParticipants')
+        },100);
+
     }
 });
 
@@ -31,6 +36,7 @@ function onReady(){
 var readyTemplates = {};
 function getTemplate(template,callback){
     if(!readyTemplates[template]){
+        console.log('getting /templates/' + template);
         $.get('/templates/' + template, function(data){
             if (data){
                 readyTemplates[template] = _.template(data);
@@ -43,8 +49,36 @@ function getTemplate(template,callback){
     }
 
 }
+
+socket.on('peoplesInRoom',function(data){
+    $('#peopleCounter').html(data.length);
+    getTemplate('chatParticipant',function(template){
+       _.each(data,function(user){
+            $('div.people>ul').append(template({'user':user}));
+       });
+    });
+});
+
+socket.on('newMostLiked',function(liked){
+    $('.most_likes>.likes_container').remove();
+    getTemplate('likes',function(template){
+        _.each(liked, function(like){
+            $('.most_likes').append(template({"data":like}));
+        });
+    });
+});
+
+
+socket.on('newcomer',function(newUser){
+    $('#peopleCounter').html(parseInt($('#peopleCounter').html(),10)+1);
+    getTemplate('chatParticipant',function(template){
+        $('div.people>ul').append(template({'user' :newUser}));
+    })
+});
+
+
 socket.on('chatMsg',function(data){
     getTemplate('pubChatMsg',function(template){
-        $('ul.discuss').append(template({'message' :data}));
-    })
+        $('div.jspPane').append(template({'message' :data}));
+    });
 });

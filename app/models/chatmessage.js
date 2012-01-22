@@ -7,6 +7,7 @@ var ChatMsg = new Schema( {
     'created_at' : {'type':Date,'default':Date.now},
     'chatId':String,
     'message' : String,
+    'likes':[],
     'type' : {'type':String, 'enum':['system','user','attention']}
 } );
 ChatMsg.statics.findByChat= function(chatId,cb){
