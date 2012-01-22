@@ -4,8 +4,14 @@ socket.on( 'systemMsg', function (data) {
 } );
 
 
-var chat = document.location.pathname.replace('/','');
+var chat = document.location.pathname;
 var chatContainer;
+
+
+socket.on('userLeave',function(uid){
+    $('div.people>ul>li#'+uid.id).remove();
+    $('#peopleCounter').html(parseInt($('#peopleCounter').html(), 10) - 1);
+});
 socket.emit('reqForChatJoin', chat);
 socket.on('resForChatJoin',function(isAllowed){
     if(!isAllowed){
@@ -25,7 +31,7 @@ function onReady(){
     $('#chatForm').submit(function(evt){
         evt.stopPropagation();
         var msg = _.escape($.trim($('#chatMsg').val()));
-        if (msg.length>2){
+        if (msg.length>1){
             socket.emit('chatMsg', msg);
             $('#chatMsg').val('');
 
@@ -39,7 +45,10 @@ function onReady(){
 
 
     $('#chatMsg').blur(function(){
-       $(this).val(DEFAULT_TEXTAREA_VALUE);
+       if($(this).val().trim()===''){
+           $(this).val(DEFAULT_TEXTAREA_VALUE);
+       }
+
     });
     $('#chatMsg').keydown(function(evt){
         if(evt.keyCode== 13 &&!evt.metaKey){

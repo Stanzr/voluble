@@ -10,16 +10,21 @@ exports.configure = function(io){
             socket.set('chatId', chatId,function(){
                 socket.emit('resForChatJoin', true);
                 socket.join(chatId);
+
                 var usr = {
                     'profile_url' :socket.handshake.user.user.profile_url,
                     'name' :socket.handshake.user.user.name,
-                    'profile_pic_url' :socket.handshake.user.user.profile_pic_url
+                    'profile_pic_url' :socket.handshake.user.user.profile_pic_url,
+                    'socket_id':socket.id
                 };
                 socket.broadcast.to(chatId).emit('newcomer', usr);
             });
 
         });
         socket.on('chatMsg', function(msg){
+            if(!socket.handshake||!socket.handshake.user|| socket.handshake.user.user.name==='Guest'){
+                return false;
+            }
             var chatMessage = {};
             chatMessage.msg = msg || '';
             chatMessage.sender = {
@@ -41,6 +46,13 @@ exports.configure = function(io){
 
 
             });
+        });
+        socket.on('disconnect',function(){
+            socket.get('chatId',function(err,chatId){
+               if(chatId){
+                   io.sockets['in'](chatId).emit('userLeave', {'id':socket.id});
+               }
+           });
         });
         socket.on('likeMsg',function(msgId){
             socket.get('chatId',function(err,chatId){
@@ -68,7 +80,8 @@ exports.configure = function(io){
                        var clients_info = _.map(clients,function(client){
                            return {
                                'name':client.handshake.user.user.name,
-                               'profile_pic_url':client.handshake.user.user.profile_pic_url
+                               'profile_pic_url':client.handshake.user.user.profile_pic_url,
+                               'socket_id':client.id
                            };
                        });
                        console.log(clients_info);
