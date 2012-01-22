@@ -3,6 +3,14 @@ var Faker = require('Faker');
 var objIdGen = require('mongoose').Types.ObjectId;
 var Seeder = require('./seeder.js');
 
+function generateQuestions(){
+  var len = Faker.Helpers.randomNumber(10);
+    var result = [];
+   while(--len){
+     result.push({'header':Faker.Lorem.sentence(5)+'?','question':Faker.Lorem.sentence(8)});
+   }
+    return result;
+}
 function FutureEvent (callback){
     (new models.event({
         'name' :Faker.Name.firstName(),
@@ -10,7 +18,8 @@ function FutureEvent (callback){
         'status' :'planned',
         'start_date' :new Date(Date.now() + ((24 * 60 * 60 * 30) * 1000 )),
         'summary' :Faker.Lorem.sentence(8),
-        'attendees' :[new objIdGen()]
+        'attendees' :[new objIdGen()],
+        'questions':generateQuestions()
     })).save(callback);
 }
 
@@ -21,7 +30,9 @@ function CurrentEvent (callback){
         'status' :'started',
         'start_date' :Date.now() - Faker.Helpers.randomNumber(100),
         'summary' :Faker.Lorem.sentence(8),
-        'attendees' :[new objIdGen()]
+        'attendees' :[new objIdGen()],
+        'questions' :generateQuestions()
+
     })).save(callback);
 }
 
@@ -32,7 +43,8 @@ function PastEvent (callback){
         'status' :'finished',
         'start_date' :new Date(Date.now() - Faker.Helpers.randomNumber(10 * 1000)),
         'summary' :Faker.Lorem.sentence(8),
-        'attendees' :[new objIdGen()]
+        'attendees' :[new objIdGen()],
+        'questions' :generateQuestions()
     })).save(callback);
 }
 
