@@ -26,26 +26,42 @@ exports.configure = function(io){
                 return false;
             }
             var chatMessage = {};
-            chatMessage.msg = msg || '';
-            chatMessage.sender = {
-                'profile_url' :socket.handshake.user.user.profile_url,
-                'name' :socket.handshake.user.user.name,
-                'profile_pic_url' :socket.handshake.user.user.profile_pic_url
-            };
-            socket.get('chatId', function(err,chat){
-                (new models.chatMsg({
-                    'user':chatMessage.sender,
-                    'chatId':chat,
-                    'message':chatMessage.msg,
-                    'type':'user'
-                    })).save(function(err,msg){
-                    chatMessage.id = msg._id;
-                    chatMessage.created_at = msg.created_at;
-                    io.sockets['in'](chat).emit('chatMsg', chatMessage);
+            chatMessage.msg = msg.msg || '';
+            var replies = msg.repliesTo.split(';');
+            if(replies.length>0){
+                replies = _.map(_.compact(replies),function(reply){
+                    return reply.split(':');
                 });
+            }
+            models.user.find({'_id':{'$in':_.map(replies,function(reply){
+                return reply[1];
+            })}},{'profile_url':1,'name':1},function(err,results){
+                _.map(results,function(replied){
+                   var replacer = new RegExp('@'+replied.name,'ig');
+                    chatMessage.msg = chatMessage.msg.replace(replacer,'<a href="'+replied.profile_url+'">@'+replied.name+'</a>');
+                });
+                chatMessage.sender = {
+                    'profile_url' :socket.handshake.user.user.profile_url,
+                    'name' :socket.handshake.user.user.name,
+                    'profile_pic_url' :socket.handshake.user.user.profile_pic_url
+                };
+                socket.get('chatId', function(err, chat){
+                    (new models.chatMsg({
+                        'user' :chatMessage.sender,
+                        'chatId' :chat,
+                        'message' :chatMessage.msg,
+                        'type' :'user'
+                    })).save(function(err, msg){
+                        chatMessage.id = msg._id;
+                        chatMessage.created_at = msg.created_at;
+                        io.sockets['in'](chat).emit('chatMsg', chatMessage);
+                    });
 
-
+                });
             });
+
+
+
         });
         socket.on('disconnect',function(){
             socket.get('chatId',function(err,chatId){
@@ -62,7 +78,8 @@ exports.configure = function(io){
                            return {
                                'message':liked.message,
                                'user':{
-                                   'name':liked.user.name
+                                   'name':liked.user.name,
+                                   'profile_pic_url':liked.user.profile_pic_url
                                },
                                'likes':liked.likeCount
                            };
