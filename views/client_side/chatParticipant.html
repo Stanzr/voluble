@@ -1,7 +1,7 @@
 <% if(user.moder){%>
-<li class="moder">
+<li class="moder" id="<%=user.socket_id%>">
 <%}else{%>
-<li>
+<li id="<%=user.socket_id%>">
 <%}%>
 
     <a href="#"><img class="tip" src="<%=user.profile_pic_url%>" alt="<%=user.name %>"></a>
