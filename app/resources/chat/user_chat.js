@@ -27,16 +27,19 @@ api.create = function (req, res) {
     res.end('create');
 };
 api.show = function (req, res) {
-    options.model.chatMsg.findByChat(req.params.chat,function(err,results){
-        console.log(arguments);
-        res.render( 'CUloggedin', {
-            'title' : "Welcome to " + req.params.chat,
-            'data' : {
-                'messages':results
-            }
-        } );
-    });
-
+    if(!req.session||!req.session.user){
+        res.redirect('/');
+    }else{
+        options.model.chatMsg.findByChat(req.params.chat, function(err, results){
+            console.log(arguments);
+            res.render('CUloggedin', {
+                'title' :"Welcome to " + req.params.chat,
+                'data' :{
+                    'messages' :results
+                }
+            });
+        });
+    }
 };
 api.edit = function (req, res) {
     res.end('edit');
