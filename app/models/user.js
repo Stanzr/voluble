@@ -38,6 +38,10 @@ User.statics.findByAuthProvider = function(type,token,cb){
             break;
     }
 };
+User.statics.findByNameRegexp = function(term,cb){
+    var regex = new RegExp(term,'i');
+    this.find({name:regex},{'name':1}).limit(5).run(cb);
+};
 
 module.exports = User;
 

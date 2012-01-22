@@ -62,7 +62,8 @@ exports.configure = function(io){
                            return {
                                'message':liked.message,
                                'user':{
-                                   'name':liked.user.name
+                                   'name':liked.user.name,
+                                   'profile_pic_url':liked.user.profile_pic_url
                                },
                                'likes':liked.likeCount
                            };
