@@ -20,7 +20,7 @@ everyauth.facebook
             if (!usr){
                 var url = 'https://graph.facebook.com/' + fbUserMetadata.username + '?fields=picture&access_token=' + accessToken;
                 request(url, function(err, resp, body){
-                    var profile_pic = {'picture' :'defaultpic.jpg'};
+                    var profile_pic = {'picture' :'/images/user_001.jpg'};
                     if (resp.statusCode === 200){
                         profile_pic = JSON.parse(body);
                     }

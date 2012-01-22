@@ -1,19 +1,25 @@
 var _ = require('underscore')._;
 var models = require('./app/models.js');
+var fs = require('fs');
+var path = require('path');
+var TEMPLATE_EXTENSION ='.html';
+var TEMPLATE_FOLDER = './views/client_side/';
+var jade = require('jade');
 var resourceOptions = {
     "model":models
 };
 var resources = {
     'user_chat':{
-        'path':'chat',
+        'path':'',
         'resource':require('./app/resources/chat/user_chat.js').configure(resourceOptions)
     },
-    'users':{
-        'path':'user',
-        'resource':require('./app/resources/users/user.js').configure(resourceOptions),
-        'using':'user_chat'
+    'users' :{
+        'path' :'/user',
+        'resource' :require('./app/resources/users/user.js').configure(resourceOptions),
+        'using' :'user_chat'
     }
 };
+
 var readyResources = {};
 
 var defaultData = {
@@ -27,12 +33,20 @@ var defaultData = {
 };
 
 var handlers = {
-    'index':{
+    'templateCache':{
         'method':'get',
-        'path':'/',
-        'title':'hello',
+        'path':'/templates/:templateId',
         'handler':function(req,res){
-            res.render('dashboard',defaultData);
+            var template = TEMPLATE_FOLDER+req.params.templateId+TEMPLATE_EXTENSION;
+            path.exists(template,function(exist){
+               if(!exist){
+                   res.end('',404);
+               }else{
+                   fs.readFile(template,function(err,fileContent){
+                       res.send(fileContent);
+                   })
+               }
+            });
         }
     }
 };
