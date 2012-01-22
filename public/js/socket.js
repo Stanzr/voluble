@@ -28,10 +28,15 @@ var DEFAULT_TEXTAREA_VALUE = 'Type your comment...';
 function onReady (){
     $('#chatForm').submit(function(evt){
         evt.stopPropagation();
-        var msg = _.escape($.trim($('#chatMsg').val()));
-        if (msg.length > 1){
+        var msg = {
+            'msg':_.escape($.trim($('#chatMsg').val())),
+            'repliesTo': $('#repliesFromMe').val()
+        };
+
+        if (msg.msg.length > 1){
             socket.emit('chatMsg', msg);
             $('#chatMsg').val('');
+            $('#repliesFromMe').val();
 
         }
         return false;
@@ -60,7 +65,13 @@ function onReady (){
     function extractLast (term){
         return split(term).pop();
     }
-    $("#chatMsg").autocomplete({
+    $("#chatMsg").bind("keydown",
+        function(event){
+            if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).data("autocomplete").menu.active){
+                event.preventDefault();
+            }
+        }).autocomplete({
         source : function(request, response){
             $.getJSON(chat+"/user?action=list", {
                 term :extractLast(request.term)
@@ -76,17 +87,21 @@ function onReady (){
             var pos = text.lastIndexOf(trigger);
 
             this.value = text.substring(0, pos + trigger.length) +
-                ui.item.value;
-
+                ui.item.label;
+            var replies = $('#repliesFromMe').val();
+            replies+=ui.item.label+':'+ui.item.value+';';
+            $('#repliesFromMe').val(replies);
             triggered = false;
-
             return false;
         },
-        focus :function(){
+        focus :function(evt,object){
             return false;
         },
         minLength :2
-    }).bind("keyup", function(){
+    }).bind("keyup", function(evt){
+            if(evt.keyCode===40||evt.keyCode=== 38){
+                return false;
+            }
             var text = this.value;
             var len = text.length;
             var last;
@@ -105,13 +120,7 @@ function onReady (){
         });
 
     $('#chatMsg').val(DEFAULT_TEXTAREA_VALUE);
-    /*
-     $('#chatMsg').autocomplete({
-     'source':peoples
-     });
-     */
 
-    $("#chatMsg").autocomplete("option", "minLength", 1);
 
     $('#chatMsg').blur(function(){
         if ($(this).val().trim() === ''){
@@ -120,7 +129,7 @@ function onReady (){
 
     });
     $('#chatMsg').keydown(function(evt){
-        if (evt.keyCode == 13 && !evt.metaKey){
+        if (evt.keyCode == 13 && evt.metaKey){
             $('#chatForm').submit();
         }
     });

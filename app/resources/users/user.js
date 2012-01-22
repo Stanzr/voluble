@@ -6,7 +6,13 @@ var api = {};
 api.index = function(req, res){
     if (req.query && req.query.action === 'list' && req.query.term){
         models.user.findByNameRegexp(req.query.term, function(err, results){
-            res.render('layout.html', _.pluck(results, 'name'));
+            var resArr = _.map(results,function(result){
+                return {
+                    'label':result.name,
+                    'value':result._id
+                }
+            });
+            res.render('layout.html', resArr);
         });
     } else{
         res.end('hi from user' + JSON.stringify(req.query));

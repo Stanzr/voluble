@@ -13,6 +13,10 @@ var guest = {
 exports.configure = function(io){
     io.configure(function(){
         io.set('authorization', function(handshakeData, callback){
+            if(!handshakeData.headers.cookie){
+                callback(null,false);
+                return false;
+            }
             var cookie = parseCookie(handshakeData.headers.cookie);
             session_store.get(cookie['connect.sid'],function(err,user){
                 handshakeData.user = user&&user.hasOwnProperty('user')? user : guest;
