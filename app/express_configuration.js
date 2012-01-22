@@ -2,7 +2,7 @@ var express = require('express');
 var config = require('config');
 var auth = require('./authentication.js');
 var session_store = require('./models.js').session;
-
+var _ = require('underscore')._;
 
 session_store.destroy = function(){
     console.log('session destroy called');
@@ -21,7 +21,14 @@ exports.configure = function(app){
 
         next();
     });
-
+    app.register('.html', {
+        compile :function(str, options){
+            var template = _.template(str);
+            return function(locals){
+                return template(locals);
+            };
+        }
+    });
     app.use(express.cookieParser());
     app.use(express.session({"store" :session_store, "secret" :config.session.secret}));
     app.use(auth.middleware());
@@ -36,7 +43,9 @@ exports.configure = function(app){
     /**
      * app.set directives
      */
-    app.set('view engine', 'jade');
+    app.set('view options', {
+        layout :false
+    });
     return app;
 };
 
