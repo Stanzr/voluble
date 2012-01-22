@@ -2,7 +2,7 @@ var _ = require('underscore')._;
 var models = require('./app/models.js');
 var fs = require('fs');
 var path = require('path');
-var JADE_EXTENSION ='.html';
+var TEMPLATE_EXTENSION ='.html';
 var TEMPLATE_FOLDER = './views/client_side/';
 var jade = require('jade');
 var resourceOptions = {
@@ -37,12 +37,13 @@ var handlers = {
         'method':'get',
         'path':'/templates/:templateId',
         'handler':function(req,res){
-            var template = TEMPLATE_FOLDER+req.params.templateId+JADE_EXTENSION;
+            var template = TEMPLATE_FOLDER+req.params.templateId+TEMPLATE_EXTENSION;
             path.exists(template,function(exist){
                if(!exist){
                    res.end('',404);
                }else{
                    fs.readFile(template,function(err,fileContent){
+                       console.log('sending');
                        res.send(fileContent);
                    })
                }

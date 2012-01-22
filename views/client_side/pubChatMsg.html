@@ -1,8 +1,8 @@
-<li>
+<li id="<%=message.id%>">
     <div class="topper">
         <div class="avatar">
             <% if(message.sender&&message.sender.profile_pic_url){%>
-                <img src="<%=message.sender.profile_pic_url%>"/>
+            <img src="<%=message.sender.profile_pic_url%>"/>
             <% } %>
         </div>
         <div class="discuss_info">
