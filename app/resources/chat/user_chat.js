@@ -32,7 +32,7 @@ api.show = function(req, res){
 
         },
         function(callback){
-            options.model.chatMsg.findByChat(req.params.id, callback);
+            options.model.chatMsg.findByChat('/'+req.params.id, callback);
         }
     ], function(err, results){
         res.render('event.html', {

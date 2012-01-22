@@ -30,6 +30,8 @@ function onReady(){
         }
         return false;
     });
+    $('ul.discuss').jScrollPane();
+    $("abbr.timeago").timeago();
 }
 
 
@@ -80,5 +82,15 @@ socket.on('newcomer',function(newUser){
 socket.on('chatMsg',function(data){
     getTemplate('pubChatMsg',function(template){
         $('div.jspPane').append(template({'message' :data}));
+        $("abbr.timeago").timeago();
     });
+});
+
+
+
+$('.okay').live('click',function(evt){
+   evt.stopPropagation();
+    var id = $(this).parent().parent().parent().parent().parent().attr('id');
+    socket.emit('likeMsg',{'id':id});
+    return false;
 });

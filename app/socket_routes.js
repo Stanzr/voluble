@@ -35,13 +35,31 @@ exports.configure = function(io){
                     'type':'user'
                     })).save(function(err,msg){
                     chatMessage.id = msg._id;
+                    chatMessage.created_at = msg.created_at;
                     io.sockets['in'](chat).emit('chatMsg', chatMessage);
                 });
 
 
             });
         });
-
+        socket.on('likeMsg',function(msgId){
+            socket.get('chatId',function(err,chatId){
+                models.chatMsg.like(msgId,socket.handshake.user.user,function(err,results){
+                    models.chatMsg.findMostLiked(chatId,function(err,result){
+                        var mostLiked = _.map(result,function(liked){
+                           return {
+                               'message':liked.message,
+                               'user':{
+                                   'name':liked.user.name
+                               },
+                               'likes':liked.likeCount
+                           };
+                        });
+                        io.sockets['in'](chatId).emit('newMostLiked', mostLiked);
+                    });
+                });
+            });
+        });
         socket.on('getChatParticipants',function(){
             socket.get('chatId',function(err,chat){
                if(chat){
