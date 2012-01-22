@@ -1,0 +1,38 @@
+<li>
+    <div class="topper">
+        <div class="avatar">
+            <% if(message.sender&&message.sender.profile_pic_url){%>
+                <img src="<%=message.sender.profile_pic_url%>"/>
+            <% } %>
+        </div>
+        <div class="discuss_info">
+            <p>
+                <a href="#">
+                    <%=message.sender.name%>
+                </a>
+												<span>
+													5 days ago
+												</span>
+												<span class="options">
+													<a href="#">
+                                                        <img src="/images/undo.png" alt="">
+                                                    </a>
+													<a href="#">
+                                                        <img src="/images/okay.png" alt="">
+                                                    </a>
+													<a href="#">
+                                                        <img src="/images/share.png" alt="">
+                                                    </a>
+													<a href="#">
+                                                        <img src="/images/delete.png" alt="">
+                                                    </a>
+												</span>
+            </p>
+
+            <p class="message">
+                <%=message.msg%>
+            </p>
+        </div>
+    </div>
+    <div class="discuss_bottom"></div>
+</li>

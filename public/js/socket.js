@@ -2,6 +2,7 @@ var socket = io.connect( document.location.origin );
 socket.on( 'systemMsg', function (data) {
    console.log('systemMsg!',data);
 } );
+
 var chat = document.location.pathname;
 socket.emit('reqForChatJoin', chat);
 socket.on('resForChatJoin',function(isAllowed){
@@ -9,56 +10,41 @@ socket.on('resForChatJoin',function(isAllowed){
         alert('cant join ' + chat);
     }
 });
-$(window).ready(onReady);
-var voluble;
-function getTemplate(template,cb){
-    $.get('/templates/'+template, function(data){
-        if(data){
-            voluble.templates[template] = voluble.main.templater.jade.compile(data,{"client":true});
-            cb&&cb(voluble.templates[template]);
-        }else{
-            cb && cb(null);
-        }
 
-    });
-}
+$(window).ready(onReady);
+
+
 function onReady(){
-    voluble = voluble || {};
-    voluble.main = {
-        "templater" :{
-            "jade" :jade
-        }
-    };
-    voluble.templates = {};
     $('#chatForm').submit(function(evt){
         evt.stopPropagation();
-        var msg = $('#chatMsg').val();
+        var msg = _.escape($('#chatMsg').val());
         if (msg){
             socket.emit('chatMsg', msg);
             $('#chatMsg').val('');
+
         }
         return false;
     });
-
 }
 
 
+var readyTemplates = {};
+function getTemplate(template,callback){
+    if(!readyTemplates[template]){
+        $.get('/templates/' + template, function(data){
+            if (data){
+                readyTemplates[template] = _.template(data);
+                console.log(readyTemplates);
+                callback && callback(readyTemplates[template]);
+            }
+        });
+    }else{
+        callback&&callback(readyTemplates[template]);
+    }
 
+}
 socket.on('chatMsg',function(data){
-    var chatMsgTemplate = 'pubChatMsg';
-    getTemplate(chatMsgTemplate, function(template){
-        if(template!==null){
-             if(typeof template === 'function'){
-                 try{
-                     template.call({});
-                 }catch(e){
-                     console.dir(e);
-                 }
-
-             }else{
-                 console.log('template is not a function');
-             }
-            //$('ul.discuss').append('<li>'+template(data)+'</li>');
-        }
-    });
+    getTemplate('pubChatMsg',function(template){
+        $('ul.discuss').append(template({'message' :data}));
+    })
 });
