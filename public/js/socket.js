@@ -96,8 +96,7 @@ function onReady (){
         },
         focus :function(evt,object){
             return false;
-        },
-        minLength :2
+        }
     }).bind("keyup", function(evt){
             if(evt.keyCode===40||evt.keyCode=== 38){
                 return false;
