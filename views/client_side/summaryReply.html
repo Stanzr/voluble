@@ -1,0 +1,23 @@
+<div>
+    <div class="likes reply">
+        <div class="avatar">
+            <img src="<%=reply.sender.profile_pic_url%>"/>
+        </div>
+        <div class="likes_info">
+            <p>
+                <a href="#">
+                    <%=reply.sender.name%>
+                </a>
+
+                                                    <span class="days">
+                                                        <abbr class="timeago" title="<%=reply.created_at%>"></abbr>
+                                                    </span>
+            </p>
+
+            <p class="message">
+                <%=reply.msg%>
+            </p>
+        </div>
+    </div>
+    <div class="likes_bottom reply_bottom"></div>
+</div>

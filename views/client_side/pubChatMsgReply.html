@@ -1,0 +1,38 @@
+<li id="<%=message.id%>">
+    <div class="topper yellow">
+        <div class="avatar">
+            <% if(message.sender&&message.sender.profile_pic_url){%>
+            <img src="<%=message.sender.profile_pic_url%>"/>
+            <% } %>
+        </div>
+        <div class="discuss_info">
+            <p>
+                <a href="#">
+                    <%=message.sender.name%>
+                </a>
+												<span>
+													<abbr class="timeago" title="<%=message.created_at%>"></abbr>
+												</span>
+												<span class="options">
+													<a href="#" class="undo">
+                                                        <img src="/images/undo.png" alt="">
+                                                    </a>
+													<a href="#" class="okay">
+                                                        <img src="/images/okay.png" alt="">
+                                                    </a>
+													<a href="#" class="share">
+                                                        <img src="/images/share.png" alt="">
+                                                    </a>
+													<a href="#" class="delete">
+                                                        <img src="/images/delete.png" alt="">
+                                                    </a>
+												</span>
+            </p>
+
+            <p class="message">
+                <%=message.msg%>
+            </p>
+        </div>
+    </div>
+    <div class="discuss_bottom yellow_bottom"></div>
+</li>

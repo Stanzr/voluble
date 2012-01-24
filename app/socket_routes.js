@@ -8,8 +8,6 @@ exports.configure = function(io){
             //TODO:handle auth
 
             socket.set('chatId', chatId,function(){
-                socket.emit('resForChatJoin', true);
-                socket.join(chatId);
 
                 var usr = {
                     'profile_url' :socket.handshake.user.user.profile_url,
@@ -17,7 +15,21 @@ exports.configure = function(io){
                     'profile_pic_url' :socket.handshake.user.user.profile_pic_url,
                     'socket_id':socket.id
                 };
+                socket.emit('resForChatJoin', usr);
+                socket.join(chatId);
                 socket.broadcast.to(chatId).emit('newcomer', usr);
+                models.chatMsg.findByChat(chatId,function(err,results){
+                var messages = _.map(results,function(chatMsg){
+                  return {
+                    'sender':chatMsg.user,
+                    'replies':chatMsg.replies,
+                    'created_at':chatMsg.created_at,
+                    'msg':chatMsg.message,
+                    'id':chatMsg._id
+                  }; 
+                 });
+                 socket.emit('chatMsg',messages);
+              });
             });
 
         });
@@ -33,11 +45,14 @@ exports.configure = function(io){
                     return reply.split(':');
                 });
             }
+
             models.user.find({'_id':{'$in':_.map(replies,function(reply){
                 return reply[1];
             })}},{'profile_url':1,'name':1},function(err,results){
+                chatMessage.replies = [];
                 _.map(results,function(replied){
                    var replacer = new RegExp('@'+replied.name,'ig');
+                   chatMessage.replies.push({'to':replied.name});
                     chatMessage.msg = chatMessage.msg.replace(replacer,'<a href="'+replied.profile_url+'">@'+replied.name+'</a>');
                 });
                 chatMessage.sender = {
@@ -50,7 +65,8 @@ exports.configure = function(io){
                         'user' :chatMessage.sender,
                         'chatId' :chat,
                         'message' :chatMessage.msg,
-                        'type' :'user'
+                        'type' :'user',
+                        'replies': chatMessage.replies
                     })).save(function(err, msg){
                         chatMessage.id = msg._id;
                         chatMessage.created_at = msg.created_at;
