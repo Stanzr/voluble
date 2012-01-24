@@ -1,5 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <script type="text/javascript" src="/js/jquery.js"></script>
 	<script type="text/javascript" src="/js/wheel.js"></script>
@@ -9,14 +11,18 @@
 	<script type="text/javascript" src="/js/jquery-ui-1.8.17.custom.min.js"></script>
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="/js/socket.js"></script>
-	<link rel="stylesheet" href="/css/style.css" media="screen">
-	<link rel="stylesheet" href="/css/jquery-ui-1.8.17.custom.css" media="screen">
-	<link rel="stylesheet" type="text/css" media="all" href="/css/scroll.css">
+	<link rel="stylesheet" href="/css/style.css" media="screen"/>
+	<link rel="stylesheet" href="/css/jquery-ui-1.8.17.custom.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" media="all" href="/css/scroll.css"/>
 	<!--[if IE 7]>
 		<link rel="stylesheet" href="ie7.css" media="screen" />
 	<![endif]-->
 	<title><%=title%></title>
-<style type="text/css">.jlhlebbhengjlhmcjebbkambaekglhkf {top: 0px; left: 0px;min-width: 30px;max-width: 300px;font-size: 13px;font-family: arial, helvetica, sans-serif;opacity: .93;padding:0px;position:absolute;display:block;z-index: 999997;font-style: normal;font-variant: normal;font-weight: normal;}#jlhlebbhengjlhmcjebbkambaekglhkf_up{text-align: center;padding:0px;margin: 0px;}#jlhlebbhengjlhmcjebbkambaekglhkf_cont{background-color: #729FCF;font-family: arial, helvetica, sans-serif-webkit-box-shadow: #729FCF 0px 0px 2px;color: #FFFFFF;padding:7px;-webkit-border-radius: 5px;}#jlhlebbhengjlhmcjebbkambaekglhkf_down{text-align: center;padding:0px;margin: 0px;}</style></head><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+  <style type="text/css">.jlhlebbhengjlhmcjebbkambaekglhkf {top: 0px; left: 0px;min-width: 30px;max-width: 300px;font-size: 13px;font-family: arial, helvetica, sans-serif;opacity: .93;padding:0px;position:absolute;display:block;z-index: 999997;font-style: normal;font-variant: normal;font-weight: normal;}#jlhlebbhengjlhmcjebbkambaekglhkf_up{text-align: center;padding:0px;margin: 0px;}#jlhlebbhengjlhmcjebbkambaekglhkf_cont{background-color: #729FCF;font-family: arial, helvetica, sans-serif-webkit-box-shadow: #729FCF 0px 0px 2px;color: #FFFFFF;padding:7px;-webkit-border-radius: 5px;}#jlhlebbhengjlhmcjebbkambaekglhkf_down{text-align: center;padding:0px;margin: 0px;}
+  </style>
+  <style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}
+</style>
+  </head>
 <body>
 <input id="tags"/>
 	<div class="container">
@@ -33,7 +39,7 @@
                     <% }else{ %>
                     <li class="welcome_top">
                         <a href="#">
-                            <img src="<%=session.user.profile_pic_url%>" alt="<%=session.user.name%>">
+                            <img src="<%=session.user.profile_pic_url%>" alt="<%=session.user.name%>"/>
                             Welcome, <strong><%=session.user.name%></strong>
                         </a>
                     </li>
@@ -65,51 +71,12 @@
                                     <%=data.event.questions[0].question%>
                                 </p>
 							</div>
-							<div class="question_bottom"></div>
+              <div class="question_bottom"></div>
 							<ul class="discuss jspScrollable" style="overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 541px; " tabindex="0">
-                                    <% if(data.messages&&data.messages.length>0) { %>
-                                    <% _.map(data.messages,function(message){ %>
-                                <li id="<%=message._id%>">
-                                    <div class="topper">
-                                        <div class="avatar">
-                                            <img src="<%=message.user.profile_pic_url%>"/>
-                                        </div>
-                                        <div class="discuss_info">
-                                            <p>
-                                                <a href="#">
-                                                    <%=message.user.name%>
-                                                </a>
-												<span>
-													<abbr class="timeago" title="<%=message.created_at.toISOString()%>"></abbr>
-												</span>
-												<span class="options">
-													<a href="#" class="undo">
-                                                        <img src="/images/undo.png" alt="">
-                                                    </a>
-													<a href="#" class="okay">
-                                                        <img src="/images/okay.png" alt="">
-                                                    </a>
-													<a href="#" class="share">
-                                                        <img src="/images/share.png" alt="">
-                                                    </a>
-													<a href="#" class="delete">
-                                                        <img src="/images/delete.png" alt="">
-                                                    </a>
-												</span>
-                                            </p>
-
-                                            <p class="message">
-                                                <%=message.message%>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="discuss_bottom"></div>
-                                </li>
-
-                                <% }); %>
-                                <% } %>
-                            </ul>
-                        </div><!--.ui_left_content-->
+              <div id='expander' style="height: 500px">
+            </div>
+              </ul>
+               </div><!--.ui_left_content-->
 						<div class="ui_left_bottom"></div>
 						<div class="commenter">
 							<div class="ui_left_top"></div>
@@ -128,10 +95,10 @@
                                 <p style="float:left;"><textarea cols="" rows="" id="chatMsg"></textarea></p>
 
                                 <div class="check_box">
-                                    <p style="float:left;"><input type="checkbox" value=""></p>
+                                    <p style="float:left;"><input type="checkbox" value=""/></p>
 									<span class="also">
 										Also post on Twitter
-										<br>
+										<br/>
 										<em>appends #<%=chatName%></em>
 									</span>
 
@@ -175,7 +142,7 @@
 								<div class="divide_side"></div>
 								<span class="next"><a href=""></a></span>
 							</div>
-                        <% if(data.most_liked&&data.most_liked.length>0){%>
+                        <% if(data.most_liked&&data.most_liked.length>0){ %>
                             <% _.map(data.most_liked,function(liked){%>
                             <div class="likes_container">
                                 <div class="likes">
@@ -209,71 +176,40 @@
 
 						</div>
 						<div class="replies words">
-							<h3><a class="active" href="#">Replies to me</a></h3>
+							<h3><a class="active" href="#replies">Replies to me</a></h3>
 							<div class="divide_side" style="margin-top:14px;"></div>
-							<h4><a href="#">Direct Messages (1)</a></h4>
+							<h4><a href="#dm">Direct Messages</a></h4>
 							<div class="side_nav">
 								<span class="prev"><a href=""></a></span>
 								<div class="divide_side"></div>
 								<span class="next"><a href=""></a></span>
 							</div>
-							<div>
-								<div class="likes reply">
-									<div class="avatar"></div>
-									<div class="likes_info">
-										<p>
-											<a href="#">
-												ZaddleMarketing
-											</a>
-											<span class="days">
-												6 days ago
-											</span>
-										</p>
-										<p class="message">
-											There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
-										</p>
-									</div>
-								</div>
-								<div class="likes_bottom reply_bottom"></div>
-							</div>
-							<div>
-								<div class="likes reply">
-									<div class="avatar"></div>
-									<div class="likes_info">
-										<p>
-											<a href="#">
-												ZaddleMarketing
-											</a>
-											<span class="days">
-												6 days ago
-											</span>
-										</p>
-										<p class="message">
-											There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
-										</p>
-									</div>
-								</div>
-								<div class="likes_bottom reply_bottom"></div>
-							</div>
-							<div>
-								<div class="likes reply">
-									<div class="avatar"></div>
-									<div class="likes_info">
-										<p>
-											<a href="#">
-												ZaddleMarketing
-											</a>
-											<span class="days">
-												6 days ago
-											</span>
-										</p>
-										<p class="message">
-											There are many variations of passages of Lorem Ipsum available, but the majority have... It uses a dictionary of over 200 Latin words
-										</p>
-									</div>
-								</div>
-								<div class="likes_bottom reply_bottom"></div>
-							</div>
+                                <% if(data.replies&&data.replies.length>0){%>
+                                <% _.map(data.replies,function(reply){%>
+                                    <div>
+                                        <div class="likes reply">
+                                            <div class="avatar">
+                                                <img src="<%=reply.sender.profile_pic_url%>"/>
+                                            </div>
+                                            <div class="likes_info">
+                                                <p>
+                                                    <a href="#">
+                                                        <%=reply.sender.name%>
+                                                    </a>
+                                                    <span class="days">
+                                                         <%=reply.message.created_at%>
+                                                    </span>
+                                                </p>
+
+                                                <p class="message">
+                                                    <%=reply.message.msg%>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="likes_bottom reply_bottom"></div>
+                                    </div>
+                                <%})%>
+                                <%}%>
 						</div>
 					</div><!--.ui_right-->
 				</div><!--.center_mid-->
@@ -288,4 +224,6 @@
 		});
 	</script>
 
-</body></html>
+</body>
+</html>
+
