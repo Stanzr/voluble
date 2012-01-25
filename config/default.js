@@ -28,6 +28,8 @@ module.exports = {
       "twitter":{
           "consumerKey":"l2AbWf22A136POS9XWxQ",
           "consumerSecret":"glDqSvEHPBt9PpIE7E6Oz5z58x01ENv2t5hcAHCrw",
+          "accessTokenKey":"36910075-1NkJucIm9qTsZSwzWy79wrzEjUqXDuuB1xPfPmIhW",
+          "accessTokenSecret":"ffb3wPUbmVN860N0B4kaoANy1ducYRSOFTGNkRHco",
           "redirectPath": "/",
           "entryPath": "/auth/twitter",
           "callbackPath": "/auth/twitter/callback"

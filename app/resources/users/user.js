@@ -10,7 +10,7 @@ api.index = function(req, res){
                 return {
                     'label':result.name,
                     'value':result._id
-                }
+                };
             });
             res.render('layout.html', resArr);
         });

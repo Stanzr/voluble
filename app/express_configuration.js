@@ -16,7 +16,7 @@ exports.configure = function(app){
             res.setHeader('Content-type', 'application/json');
             res.render = function(template, responseText){
                 res.send(JSON.stringify(responseText));
-            }
+            };
         }
 
         next();
@@ -33,7 +33,7 @@ exports.configure = function(app){
     app.use(express.session({"store" :session_store, "secret" :config.session.secret}));
     app.use(auth.middleware());
     app.use(express.favicon());
-    app.use(express.static(process.cwd() + '/public'));
+    app.use(express['static'](process.cwd() + '/public'));
     app.dynamicHelpers({
         session :function(req){
             return req.session;
