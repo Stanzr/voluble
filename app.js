@@ -17,7 +17,6 @@ app = express_configuration.configure(app);
 io = socket_configuration.configure(io);
 
 
-
 /**
  * Routes
  */
