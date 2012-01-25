@@ -17,7 +17,7 @@ socket.on('resForChatJoin', function(whoAmI){
   } else{
     me = whoAmI;
     setTimeout(function(){
-      socket.emit('getChatParticipants')
+      socket.emit('getChatParticipants');
     }, 100);
   }
 });
@@ -32,7 +32,7 @@ function onReady (){
       'msg':_.escape($.trim($('#chatMsg').val())),
       'repliesTo': $('#repliesFromMe').val()
     };
-
+    msg.postToTwitter = $('#postToTwitter').attr('checked');
     if (msg.msg.length > 1){
       socket.emit('chatMsg', msg);
       $('#chatMsg').val('');
@@ -148,16 +148,19 @@ function onReady (){
 }
 
 var readyTemplates = {};
-function getTemplate (template, callback){
+function getTemplate (template, cb){
+ var callback = cb ? cb:function(){};
   if (!readyTemplates[template]){
     $.get('/templates/' + template, function(data){
       if (data){
         readyTemplates[template] = _.template(data);
-        callback && callback(readyTemplates[template]);
-      }
+      
+            callback(readyTemplates[template]);
+        
+     }
     });
   } else{
-    callback && callback(readyTemplates[template]);
+    callback(readyTemplates[template]);
   }
 
 }
@@ -171,7 +174,7 @@ var VolubleMain = function(){
         chatContainer.reinitialise();
         chatContainer.scrollToBottom(true);
 
-      },parseInt(delay,10))
+      },parseInt(delay,10));
     }else{
       $('abbr.timeago').timeago();
       chatContainer.reinitialise();
@@ -186,9 +189,9 @@ var VolubleMain = function(){
       _.each(data,self.handleChatMessage);
       return false;
     }
-    
+    var replyToMe;
     if(data.replies&&data.replies.length>0){
-      var replyToMe = _.filter(data.replies,function(reply){
+       replyToMe = _.filter(data.replies,function(reply){
         return reply.to == me.name;
       });
     }
@@ -205,8 +208,8 @@ var VolubleMain = function(){
     });
     self.refreshChat(100);
 
-  }
-}
+  };
+};
 var voluble  = new VolubleMain();
 
 socket.on('peoplesInRoom', function(data){
@@ -231,7 +234,7 @@ socket.on('newcomer', function(newUser){
   $('#peopleCounter').html(parseInt($('#peopleCounter').html(), 10) + 1);
   getTemplate('chatParticipant', function(template){
     $('div.people>ul').append(template({'user' :newUser}));
-  })
+  });
 });
 
 

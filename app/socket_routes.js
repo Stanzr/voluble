@@ -29,7 +29,7 @@ exports.configure = function(io){
                 }
               };
             });
-              socket.emit('chatMsg',msgs);
+            socket.emit('chatMsg',msgs);
           });
         }
         var usr = {
@@ -84,6 +84,18 @@ exports.configure = function(io){
           'profile_pic_url' :socket.handshake.user.user.profile_pic_url
         };
         socket.get('chatId', function(err, chat){
+          if(socket.handshake.user.auth&&socket.handshake.user.auth.twitter&&msg.postToTwitter===true){
+            var twitterKeys = socket.handshake.user.auth.twitter;
+            streams.twitter.postMessage(twitterKeys.accessToken,twitterKeys.accessTokenSecret,chatMessage.msg+' #'+chat.replace('/',''),function(err,result){
+              if(err){
+                console.log(err);
+                return false;
+              }
+              if(result){
+                console.log(chatMessage.msg+ ' is posted!');
+              }
+            }); 
+          }
           (new models.chatMsg({
             'user' :chatMessage.sender,
             'chatId' :chat,
@@ -148,7 +160,7 @@ exports.configure = function(io){
           console.log('cant count peoples in chat '+chat);
         }
 
-      })
+      });
     });
   });
 };
