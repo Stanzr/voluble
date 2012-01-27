@@ -2,7 +2,7 @@ require 'capistrano/ext/multistage'
 
 set :application, "voluble"
 set :node_file, "index.js"
-set :host, "voluble.com"
+set :host, "69.164.202.158"
 set :repository,  "git@github.com:Stanzr/voluble.git"
 set :stages, %w[staging production]
 set :default_stage, 'staging'
