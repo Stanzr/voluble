@@ -4,7 +4,7 @@ var ObjectId = Schema.ObjectId;
 
 var User = new Schema( {
     'name':String,
-    'profile_pic_url':String,
+    'profile_pic_url':{'type':String,'default':'default.jpg'},
     'level' : {'type' : Number, 'min' : 0, 'max' : 3},
     'email':String, //TODO: replace with mongoose-types email type(adds free validation)
     'profile_url':String,
@@ -37,10 +37,6 @@ User.statics.findByAuthProvider = function(type,token,cb){
         default:cb(new Error('unknown auth type'));
             break;
     }
-};
-User.statics.findByNameRegexp = function(term,cb){
-    var regex = new RegExp(term,'i');
-    this.find({name:regex},{'name':1}).limit(5).run(cb);
 };
 
 module.exports = User;
