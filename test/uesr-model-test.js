@@ -93,5 +93,12 @@ describe('#User',function(){
     });
   });
 
+  it('should return error when authentication type is wrong',function(done){
+    User.findByAuthProvider('nonexistent',{'login':'login','psw':'password'},function(err,user){
+      assert.ok(err instanceof Error);
+      assert.equal(err.message,'unknown auth type');
+      done();      
+    });
+  });
 });
 
