@@ -27,6 +27,7 @@ describe('chatMessage',function(){
   afterEach(function(done){
     ChatMsg.collection.remove({},done); 
   });
+
   it('in room test should be exist 2 messages from Tony and Jake in correct order',function(done){
     ChatMsg.findByChat('test',function(err,messages){
       assert.equal(messages.length,2);
@@ -34,7 +35,50 @@ describe('chatMessage',function(){
       assert.equal(messages[1].user.name,'Jake');
       done();
     });
+    describe("sorting",function(){
+      beforeEach(function(done){
 
+        async.parallel([
+                       function(cb){
+          cb(null,null);
+        },
+        function(cb){
+          (new ChatMsg({'user':{'name':'Tony'},'chatId':'sorting','message':'message1','type':'user'})).save(cb);
+        },
+        function(cb){
+          (new ChatMsg({'user':{'name':'Jake'},'chatId':'sorting','message':'message2','type':'user'})).save(cb);
+
+        },
+
+        function(cb){
+          (new ChatMsg({'user':{'name':'Jake'},'chatId':'sorting','message':'message3','type':'user'})).save(cb);
+
+        },
+
+        function(cb){
+          (new ChatMsg({'user':{'name':'Jake'},'chatId':'sorting','message':'message4','type':'user'})).save(cb);
+
+        },
+
+        function(cb){
+          (new ChatMsg({'user':{'name':'Jake'},'chatId':'sorting','message':'message5','type':'user'})).save(cb);
+
+        }],done);
+      });
+      it('should correct order when pulled from DB',function(done){
+        ChatMsg.findByChat('sorting',function(err,messages){
+          assert.equal(err,null);
+          assert.equal(messages[0].message,'message1');
+          assert.equal(messages[1].message,'message2');
+          assert.equal(messages[2].message,'message3');
+          assert.equal(messages[3].message,'message4');
+          assert.equal(messages[4].message,'message5');
+          done(); 
+        });
+
+      });
+
+    });
   });
   describe('#like functionality',function(){
     var message;
