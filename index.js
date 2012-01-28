@@ -4,7 +4,7 @@ var CONFIG = require('config');
 
 
 
-app.listen(CONFIG.server.port);
+app.listen(CONFIG.server.port,function(){
+  console.log('server launched in "'+(process.env.NODE_ENV||'development')+'" enviroment on port '+CONFIG.server.port);
+});
 
-console.log('current env is '+process.env['NODE_ENV']);
-console.log('server listening on '+CONFIG.server.port);
