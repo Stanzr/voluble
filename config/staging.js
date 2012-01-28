@@ -1,0 +1,36 @@
+module.exports = {
+  'database': {
+    'host': 'localhost',
+    'name': 'voluble_stage'
+  },
+  'session': {
+    'secret': "$LKU789JO5(&$*(#(JOJOML:K%P$II#$W#kllfj-(**))))34u5934jioU&$#JFL"
+  },
+  'users':{
+    'default_role':'user'
+  },
+  'server': {
+    'port': 8000
+  },
+  'auth':{
+      'facebook':{
+          "appId":"",
+          "appSecret": "",
+          "redirectPath": "/",
+          "entryPath": "/auth/facebook",
+          "callbackPath": "/auth/facebook/callback",
+          "scope": "email,user_photos,read_stream,create_event,publish_stream"
+      },
+      "twitter":{
+          "consumerKey":"gD3qH3M2sWR7aPAozIPZEA",
+          "consumerSecret":"Eq57OA5QXjzv4MzHcEAKosdgcqDKtmMleP9uYUgVig",
+          "accessTokenKey":"472151458-wLb7S1XskPX8TTx7t6g7skOImnvNHuH6tMQpXKSL",
+          "accessTokenSecret":"kbOUeTs17t1HTj2sizxTiFQTA3uZtWi9gjvvkOWHu7w",
+          "redirectPath": "/",
+          "entryPath": "/auth/twitter",
+          "callbackPath": "/auth/twitter/callback"
+      }
+      
+  }
+  
+};
