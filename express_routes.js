@@ -10,7 +10,7 @@ var resourceOptions = {
 };
 var resources = {
     'user_chat':{
-        'path':'',
+        'path':'chat',
         'resource':require('./app/resources/chat/user_chat.js').configure(resourceOptions)
     },
     'users' :{
@@ -44,10 +44,17 @@ var handlers = {
                }else{
                    fs.readFile(template,function(err,fileContent){
                        res.send(fileContent);
-                   })
+                   });
                }
             });
         }
+    },
+    'index':{
+      'method':'get',
+      'path':"/",
+      'handler':function(req,res){
+        res.render('layout.html',{});      
+      }
     }
 };
 

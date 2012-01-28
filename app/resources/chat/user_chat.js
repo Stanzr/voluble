@@ -11,12 +11,7 @@ api.index = function(req, res){
             options.model.event.findPastEvents(callback);
         }
     ], function(err, results){
-      res.render('dashboard.html', {
-            'title' :'Available chats',
-            'data' :{
-                'events' :results[0],
-                'past_events' :results[1]
-            }});
+      res.render('dashboard.html', results[1]);
     });
 };
 api['new'] = function(req, res){

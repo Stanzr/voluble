@@ -22,7 +22,7 @@ describe( "Application", function () {
       express.listen( config.server.port, function () {
         done();
       } );
-    } )
+    } );
   } );
   describe('#running',function(){
     var browser,app;
@@ -52,7 +52,7 @@ describe( "Application", function () {
       });
 
       it('should have correct title',function(done){
-        assert.equal(browser.text('title'),'Chat Management - Dashboard');
+        assert.equal(browser.text('title'),'Voluble');
         done(); 
       });
 
