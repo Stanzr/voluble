@@ -44,7 +44,7 @@ var handlers = {
                }else{
                    fs.readFile(template,function(err,fileContent){
                        res.send(fileContent);
-                   });
+                   })
                }
             });
         }

@@ -3,7 +3,7 @@ var options = {};
 
 var api = {};
 api.index = function(req, res){
-    async.parallel([
+  async.parallel([
         function(callback){
             options.model.event.findCurrentEvents(callback);
         },
@@ -11,7 +11,7 @@ api.index = function(req, res){
             options.model.event.findPastEvents(callback);
         }
     ], function(err, results){
-        res.render('dashboard.html', {
+      res.render('dashboard.html', {
             'title' :'Available chats',
             'data' :{
                 'events' :results[0],
@@ -67,3 +67,4 @@ function setOptions (opts){
 
 }
 exports.configure = setOptions;
+
