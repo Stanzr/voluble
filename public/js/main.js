@@ -1,5 +1,5 @@
 (function(win){
-    win.io = win.io.connect('http://localhost');
+    win.io = win.io.connect('http://109.254.16.25');
     var Templater = function(){
         var self = this;
         this.cache = {};

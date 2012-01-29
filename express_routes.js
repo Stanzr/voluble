@@ -12,12 +12,8 @@ var resources = {
     'user_chat':{
         'path':'chat',
         'resource':require('./app/resources/chat/user_chat.js').configure(resourceOptions)
-    },
-    'users' :{
-        'path' :'user',
-        'resource' :require('./app/resources/users/user.js').configure(resourceOptions),
-        'using' :'user_chat'
     }
+
 };
 
 var readyResources = {};
@@ -53,7 +49,7 @@ var handlers = {
       'method':'get',
       'path':"/",
       'handler':function(req,res){
-        res.render('layout.html',{});      
+          res.render('layout.html',{});
       }
     }
 };
