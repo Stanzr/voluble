@@ -1,5 +1,5 @@
 var assert = require('assert');
-var eventmodel = require('../app/models.js').event;
+var eventmodel = require('../app/models.js').chatList;
 var async = require('async');
 
 

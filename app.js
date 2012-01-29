@@ -16,13 +16,12 @@ var socket_routes = require('./app/socket_routes.js');
 app = express_configuration.configure(app);
 io = socket_configuration.configure(io);
 
-
 /**
  * Routes
  */
 
 app = express_routes.configure(app);
-socket_routes.configure(io);
+io = socket_routes.configure(io);
 
 
 exports.express = app;
