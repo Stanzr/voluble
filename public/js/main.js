@@ -1,4 +1,5 @@
 (function(win){
+    win.io = win.io.connect('http://localhost');
     var Templater = function(){
         var self = this;
         this.cache = {};
@@ -47,6 +48,22 @@
         }
     });
 
+    Voluble.ChatMessage = Backbone.Model.extend({
+        'urlRoot' :'/chat/',
+        'defaults' :{
+            'msg' :"",
+            'user' :""
+        }
+    });
+
+
+
+
+    Voluble.ChatMessageCollection = Backbone.Collection.extend({
+        'model': Voluble.ChatMessage,
+        'url':'/chat/'
+    });
+
     Voluble.ChatCollection = Backbone.Collection.extend({
         'model' :Voluble.Chat,
         'url' :"/chat/"
@@ -61,7 +78,7 @@
             var list = this;
             templates.render('events', function(template){
                 $(list.el).html(template({}));
-                $('#newEventCreation').live('click',list.newEvent.bind(list));
+                $('#newEventCreation').live('click', list.newEvent.bind(list));
 
                 _.each(list.model.models, function(chat){
                     $('ul.event_listings').append(
@@ -76,7 +93,7 @@
                 name :$('#newEventName').val(),
                 'user' :'ololo'
             });
-            if(model.isNew()){
+            if (model.isNew()){
                 this.model.add(model);
                 app.chatList.create(model);
                 app.chatList.fetch();
@@ -88,6 +105,69 @@
         'close' :function(){
             $(this.el).unbind();
             $(this.el).empty();
+        }
+    });
+
+    Voluble.ChatMessageListView = Backbone.View.extend({
+        'el' :$('.center_mid'),
+        'initialize' :function(){
+            console.log(arguments);
+            this.model.bind("reset", this.render, this);
+        },
+        'render' :function(eventName){
+            var list = this;
+            templates.render('chat', function(template){
+                $(list.el).html(template({}));
+                /*
+                _.each(list.model.models, function(chat){
+                    $('ul.event_listings').append(
+                        new Voluble.ChatListItemView({model :chat}).render().el);
+                }, this);
+                */
+            });
+            return this;
+        },
+        'newEvent' :function(){
+            var model = new this.model.model();
+            model.set({
+                name :$('#newEventName').val(),
+                'user' :'ololo'
+            });
+            if (model.isNew()){
+                this.model.add(model);
+                app.chatList.create(model);
+                app.chatList.fetch();
+
+            }
+
+            return false;
+        },
+        'close' :function(){
+            $(this.el).unbind();
+            $(this.el).empty();
+        }
+    });
+    Voluble.ChatMessageItemView = Backbone.View.extend({
+        'tagName' :"li",
+        'initialize' :function(){
+
+            this.model.bind("change", this.render, this);
+            this.model.bind("destroy", this.close, this);
+            this.model.bind("like", this.like, this);
+        },
+        'render' :function(eventName){
+            var self = this;
+            templates.render('pubChatMsg', function(template){
+                $(self.el).html(template({'message' :self.model.toJSON()}));
+            });
+            return this;
+        },
+        'like':function(name){
+            alert('like');
+        },
+        'close' :function(){
+            $(this.el).unbind();
+            $(this.el).remove();
         }
     });
 
@@ -113,7 +193,7 @@
     var AppRouter = Backbone.Router.extend({
         'routes' :{
             "" :"list",
-            '/chat/:id':'chat'
+            '/chat/:id' :'chat'
         },
 
         'list' :function(){
@@ -121,8 +201,12 @@
             this.chatListView = new Voluble.ChatListView({model :this.chatList});
             this.chatList.fetch();
         },
-        'chat':function(){
-           
+        'chat' :function(id){
+
+            this.chatList = new Voluble.ChatMessageCollection({'id':id});
+            //this.chatList.url +=id;
+            this.chatListView = new Voluble.ChatMessageListView({model :this.chatList});
+            this.chatList.fetch();
         }
     });
 
