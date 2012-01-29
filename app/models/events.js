@@ -5,8 +5,8 @@ var ObjectId = Schema.ObjectId;
 
 var Event = new Schema( {
     'name' : {'type':String,'required':true},
-    'info' : {'type' : String, 'required' : true},
-    'summary' : {'type' : String, 'required' : true},
+    'info' : {'type' : String},//, 'required' : true
+    'summary' : {'type' : String},//, 'required' : true
     'start_date':{'type':Date,'default':Date.now},
     'end_date':{'type':Date,'default':Date.now},
     'attendees' : [ObjectId],

@@ -3,7 +3,11 @@ var options = {};
 
 var api = {};
 api.index = function(req, res){
-  async.parallel([
+    options.model.event.find({},function(err,results){
+        res.render('dashboard.html', results);
+    });
+  /*
+    async.parallel([
         function(callback){
             options.model.event.findCurrentEvents(callback);
         },
@@ -13,12 +17,24 @@ api.index = function(req, res){
     ], function(err, results){
       res.render('dashboard.html', results[1]);
     });
+    */
 };
 api['new'] = function(req, res){
     res.end('new');
 };
 api.create = function(req, res){
-    res.end('create');
+    var params = req.body||{};
+    if(params.user&&params.name){
+        var evt = {
+            'user':params.user,
+            'name':params.name
+        };
+        (new options.model.event(evt)).save(function(){
+            res.send('OK');
+        });
+    }else{
+        res.end('',403);
+    }
 };
 api.show = function(req, res){
     async.parallel([
