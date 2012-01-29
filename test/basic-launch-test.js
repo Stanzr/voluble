@@ -15,10 +15,6 @@ describe( "Application", function () {
     it( "should listen to socket connection", function (done) {
       var app = require( '../app' ).io;
       var express = require('../app').express;
-      var l = console.log;
-      console.info = function(data){
-        l('stubbed '+data );
-      };
       express.listen( config.server.port, function () {
         done();
       } );
