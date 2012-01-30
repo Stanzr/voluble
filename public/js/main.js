@@ -3,7 +3,7 @@
 
     var socket;
     Backbone.socket = socket = win.socket = win.io.connect('http://109.254.16.25');
-    var Templater = function(){
+      var Templater = function(){
       var self = this;
       this.cache = {};
       this.listeners = {};
@@ -75,31 +75,56 @@
       }
     });
 
+    Voluble.PastChat = Backbone.Model.extend({
+      'urlRoot' :'pastChat',
+      'noIoBind': false,
+      'socket': Backbone.socket,
+      'defaults' :{
+        'name' :"",
+        'user' :""
+      },
+      'initialize':function(){
+        _.bindAll(this,'serverChange','serverDelete','modelCleanup');
+        this.ioBind('update',Backbone.socket,this.serverChange,this);
+        this.ioBind('delete',Backbone.socket,this.serverDelete,this);
+      },
+      'serverChange':function(data){
+        data.fromServer = true;
+        this.set(data);
+      },
+      'serverDelete':function(data){
+        if(this.collection){
+          this.collection.remove(this);
+        }else{
+          this.trigger('remove',this);
+        }
+        this.modelCleanup();
+      },
+      'modelCleanup':function(){
+        this.ioUnbindAll();
+        return this;
+      }
+    });
 
-    /*Voluble.ChatMessage = Backbone.Model.extend({*/
-    /*'urlRoot' :'/chat/',*/
-    /*'defaults' :{*/
-    /*'msg' :"",*/
-    /*'user' :""*/
-    /*},*/
-    /*'initialize':function(){*/
-    /*_.bindAll(this,'serverChange','serverDelete','modelCleanup');*/
-    /*this.ioBind('update',Backbone.socket,this.serverChange,this);*/
-    /*this.ioBind('delete',Backbone.socket,this.serverDelete,this);*/
-    /*}*/
-    /*});*/
+
+    Voluble.PastChatCollection = Backbone.Collection.extend({
+      'model' :Voluble.PastChat,
+      'url' :"pastChats",
+      'socket':Backbone.socket,
+      'noIoBind':false,
+      initialize: function () {
+        _.bindAll(this,'collectionCleanup');
+      },
+      collectionCleanup: function (callback) {
+        this.ioUnbindAll();
+        this.each(function (model) {
+          model.modelCleanup();
+        });
+        return this;
+      }
+    });
 
 
-
-
-    /*Voluble.ChatMessageCollection = Backbone.Collection.extend({*/
-    /*'model': Voluble.ChatMessage,*/
-    /*'url':'/chat/',*/
-    /*'initialize':function(){*/
-    /*_.bindAll(this,'serverCreate','collectionCleanup');*/
-    /*this.ioBind('create',Backbone.socket,this.serverCreate,this);*/
-    /*}*/
-    /*});*/
 
     Voluble.ChatCollection = Backbone.Collection.extend({
       'model' :Voluble.Chat,
@@ -133,33 +158,45 @@
       'id':'chatList',
       'el' :$('.center_mid'),
       'initialize' :function(chats){
-        this.chats = chats.model;
-        this.chats.bind('reset', this.render);
-        this.chats.bind('add', this.addChat);
-        this.render();
+        this.past = chats.model.past;
+        this.chats = chats.model.upcoming;
+        this.chats.bind('reset', this.render,this);
+        this.chats.bind('add', this.addChat,this);
+        /*this.render();*/
       },
       'render' :function(eventName){
         var list = this;
+        //preload template for events
+        templates.render('one_event',function(){});
         templates.render('events', function(template){
           $('.center_mid').html(template({}));
           $('#newEventCreation').live('click', list.newEvent.bind(list));
+          $('ul.event_listings').html('');
+          list.chats.each(function(chat){
+            list.addChat(chat);
+          });
         });
         return this;
       },
       'addChat': function(chat){
-            $('ul.event_listings').append(
-              new Voluble.ChatListItemView({model :chat}).render().el);
-          
-      
+        $('ul.event_listings').append(new Voluble.ChatListItemView({model :chat}).render().el);
+      },
+      'addPastChat':function(chat){
+        //TODO:render past eventName
+
+
       },
       'newEvent' :function(){
-        var model = new this.model.model();
+        var model = new this.model.upcoming.model();
+        //TODO: replace with current user
         model.set({
           name :$('#newEventName').val(),
           'user' :'ololo'
         });
+
+
         if (model.isNew()){
-          this.model.add(model);
+          this.model.upcoming.add(model);
           app.chatList.create(model);
           app.chatList.fetch();
         }
@@ -172,69 +209,24 @@
       }
     });
 
-    /*Voluble.ChatMessageListView = Backbone.View.extend({*/
-    /*'el' :$('.center_mid'),*/
-    /*'initialize' :function(){*/
-    /*console.log(arguments);*/
-    /*this.model.bind("reset", this.render, this);*/
-    /*},*/
-    /*'render' :function(eventName){*/
-    /*var list = this;*/
-    /*templates.render('chat', function(template){*/
-    /*$(list.el).html(template({}));*/
-
-    /*_.each(list.model.models, function(chat){*/
-    /*$('ul.event_listings').append(*/
-    /*new Voluble.ChatListItemView({model :chat}).render().el);*/
-    /*}, this);*/
-
-    /*});*/
-    /*return this;*/
-    /*},*/
-    /*'newEvent' :function(){*/
-    /*var model = new this.model.model();*/
-    /*model.set({*/
-    /*name :$('#newEventName').val(),*/
-    /*'user' :'ololo'*/
-    /*});*/
-    /*if (model.isNew()){*/
-    /*this.model.add(model);*/
-    /*app.chatList.create(model);*/
-    /*app.chatList.fetch();*/
-
-    /*}*/
-
-    /*return false;*/
-    /*},*/
-    /*'close' :function(){*/
-    /*$(this.el).unbind();*/
-    /*$(this.el).empty();*/
-    /*}*/
-    /*});*/
-    Voluble.ChatMessageItemView = Backbone.View.extend({
+    Voluble.PastChatListItemView = Backbone.View.extend({
       'tagName' :"li",
       'initialize' :function(){
-
         this.model.bind("change", this.render, this);
         this.model.bind("destroy", this.close, this);
-        this.model.bind("like", this.like, this);
       },
       'render' :function(eventName){
         var self = this;
-        templates.render('pubChatMsg', function(template){
-          $(self.el).html(template({'message' :self.model.toJSON()}));
+        templates.render('one_event', function(template){
+          $(self.el).html(template({'event' :self.model.toJSON()}));
         });
         return this;
-      },
-      'like':function(name){
-        alert('like');
       },
       'close' :function(){
         $(this.el).unbind();
         $(this.el).remove();
       }
     });
-
     Voluble.ChatListItemView = Backbone.View.extend({
       'tagName' :"li",
       'initialize' :function(){
@@ -262,15 +254,18 @@
 
       'list' :function(){
         this.chatList = new Voluble.ChatCollection();
-        this.chatListView = new Voluble.ChatListView({model :this.chatList});
+        this.chatListPast = new Voluble.PastChatCollection();
+        this.chatListView = new Voluble.ChatListView({
+          model :{
+            'upcoming':this.chatList,
+            'past':this.chatListPast
+          }
+        });
+        this.chatListPast.fetch();
         this.chatList.fetch();
       },
       'chat' :function(id){
 
-        /*this.chatList = new Voluble.ChatMessageCollection({'id':id});*/
-        /*//this.chatList.url +=id;*/
-        /*this.chatListView = new Voluble.ChatMessageListView({model :this.chatList});*/
-        /*this.chatList.fetch();*/
       }
     });
 
