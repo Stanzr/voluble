@@ -55,7 +55,7 @@ Backbone.sync = function (method, model, options) {
 
   var cmd = getUrl(model).split('/')
     , namespace = (cmd[0] !== '') ? cmd[0] : cmd[1]; // if leading slash, ignore
-
+  console.log('sending request '+namespace+":"+method);
   var params = _.extend({
     req: namespace + ':' + method
   }, options);
@@ -71,6 +71,7 @@ Backbone.sync = function (method, model, options) {
     if (err) {
       options.error(err);
     } else {
+      console.log('successfuly load data with route '+namespace+':'+method);
       options.success(data);
     }
   });
