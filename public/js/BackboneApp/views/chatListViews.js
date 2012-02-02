@@ -1,0 +1,99 @@
+
+(function (win) {
+  var Voluble = win.Voluble = win.Voluble || {};
+  var Backbone = win.Backbone, templates = Voluble.Templater;
+  Voluble.ChatListView = Backbone.View.extend({
+    'id': 'chatList',
+    'el': $('.center_mid'),
+    'initialize': function (chats) {
+      this.past = chats.model.past;
+      this.chats = chats.model.upcoming;
+      this.chats.bind('reset', this.render, this);
+      this.chats.bind('add', this.addChat, this);
+      this.render();
+    },
+    'render': function (eventName) {
+      var list = this;
+      templates.render('events', function (template) {
+        $('.center_mid').html(template({}));
+        $('#newEventCreation').live('click', list.newEvent.bind(list));
+        $('ul.event_listings').html('');
+        list.chats.each(function (chat) {
+          list.addChat(chat);
+        });
+      });
+      return this;
+    },
+    'addChat': function (chat) {
+      $('ul.event_listings').append(new Voluble.ChatListItemView({
+        model: chat
+      }).render().el);
+    },
+    'addPastChat': function (chat) {
+      //TODO:render past eventName
+    },
+    'newEvent': function () {
+      var model = new this.model.upcoming.model();
+      //TODO: replace with current user
+      model.set({
+        name: $('#newEventName').val(),
+        'user': 'ololo'
+      });
+      if (model.isNew()) {
+        this.model.upcoming.add(model);
+        app.chatList.create(model);
+        app.chatList.fetch();
+      }
+      return false;
+    },
+    'close': function () {
+      $(this.el).unbind();
+      $(this.el).empty();
+    }
+  });
+  Voluble.PastChatListItemView = Backbone.View.extend({
+    'tagName': "li",
+    'initialize': function () {
+      this.model.bind("change", this.render, this);
+      this.model.bind("destroy", this.close, this);
+    },
+    'render': function (eventName) {
+      var self = this;
+      templates.render('one_event1', function (template) {
+        $(self.el).html(template({
+          'event': self.model.toJSON()
+        }));
+      });
+      return this;
+    },
+    'close': function () {
+      $(this.el).unbind();
+      $(this.el).remove();
+    }
+  });
+  Voluble.ChatListItemView = Backbone.View.extend({
+    'tagName': "li",
+    'initialize': function () {
+      this.model.bind("change", this.render, this);
+      this.model.bind("destroy", this.close, this);
+    },
+    'render': function (eventName) {
+      var self = this;
+      var model = this.model.toJSON();
+      console.log(model);
+      model.start_date = model.start_date ? $.timeago(model.start_date):new Date();
+      model.end_date = model.end_date? $.timeago(model.end_date):new Date();
+      console.log(model);
+      templates.render('one_event', function (template) {
+        $(self.el).html(template({
+          'event': model
+        }));
+      });
+      return this;
+    },
+    'close': function () {
+      $(this.el).unbind();
+      $(this.el).remove();
+    }
+  });
+})(this);
