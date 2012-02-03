@@ -1,8 +1,9 @@
 (function(win){
-  var root = win.Voluble  = win.Voluble || {};
+  var root = win.Voluble = win.Voluble || {};
 
   win.Backbone.socket = win.socket = win.io.connect('http://109.254.16.25');
-    var Templater = function () {
+
+  var Templater = function () {
     self = this;
     this.cache = {};
     this.listeners = {};

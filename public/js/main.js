@@ -2,7 +2,6 @@
   var $ = win.$;
   $(win.document).ready(function () {
     var Backbone = win.Backbone, Voluble = win.Voluble;
-    console.dir(Voluble);
     AppRouter = Backbone.Router.extend({
       'routes': {
         "": "list",

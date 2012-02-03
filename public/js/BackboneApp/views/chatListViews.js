@@ -21,6 +21,10 @@
         list.chats.each(function (chat) {
           list.addChat(chat);
         });
+        console.log(list.past);
+        list.past.each(function(pastChat){
+          list.addPastChat(pastChat);
+        });
       });
       return this;
     },
@@ -30,7 +34,9 @@
       }).render().el);
     },
     'addPastChat': function (chat) {
-      //TODO:render past eventName
+      $('ul.past_event_listings').append(new Voluble.ChatListItemView({
+        model: chat
+      }).render().el);
     },
     'newEvent': function () {
       var model = new this.model.upcoming.model();
@@ -80,10 +86,8 @@
     'render': function (eventName) {
       var self = this;
       var model = this.model.toJSON();
-      console.log(model);
       model.start_date = model.start_date ? $.timeago(model.start_date):new Date();
       model.end_date = model.end_date? $.timeago(model.end_date):new Date();
-      console.log(model);
       templates.render('one_event', function (template) {
         $(self.el).html(template({
           'event': model
