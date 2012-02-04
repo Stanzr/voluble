@@ -18,9 +18,16 @@
         });
         this.chatListPast.fetch();
         this.chatList.fetch();
-        var self = this;
       },
       'chat': function (id) {
+          this.chatMsgs = new Voluble.ChatMsgCollection(id);
+          this.chatInfo = new Voluble.chatInfo(id);
+          this.chatLayout = new Voluble.ChatView({
+            model: this.chatMsgs,
+            'chatId':id,
+            'chatInfo':this.chatInfo
+          });
+          this.chatMsgs.fetch();
       }
     });
     app = new AppRouter();

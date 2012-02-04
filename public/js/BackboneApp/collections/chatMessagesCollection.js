@@ -1,6 +1,7 @@
 (function (win) {
   var $ = win.$;
     var Backbone = win.Backbone, Voluble = win.Voluble = win.Voluble || {};
+    
     Voluble.ChatMsg = Backbone.Model.extend({
       'urlRoot': 'msg',
       'noIoBind': false,
@@ -32,7 +33,7 @@
       }
     });
     
-    Voluble.ChatCollection = Backbone.Collection.extend({
+    Voluble.ChatMsgCollection = Backbone.Collection.extend({
       'model': Voluble.ChatMsg,
       'url': "chatMsgs",
       'socket': Backbone.socket,
