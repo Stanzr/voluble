@@ -12,6 +12,10 @@ exports.configure = function(io){
   io.sockets.on('connection', function(socket){
     chatList.configure(socket,io);
     user.configure(socket,io); 
+    socket.on('whoAmI?',function(){
+      socket.emit('youAre',socket.handshake.user||{});    
+    });
+    
     socket.on('reqForChatJoin', function(chatId){
       //TODO:handle auth
 

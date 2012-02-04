@@ -6,3 +6,4 @@ exports.configure = function(socket,io){
       callback(null,false);
   });
 };
+
