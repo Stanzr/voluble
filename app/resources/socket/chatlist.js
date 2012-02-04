@@ -1,6 +1,7 @@
 var chatList = require('../../models.js').chatList;
 var _ = require('underscore')._;
-exports.configure = function(socket){
+exports.configure = function(socket,io){
+  var global = io;
   socket.on('chats:read',function(data,callback){
       chatList.findCurrentEvents(function(err,results){
         callback(null,results);
@@ -20,7 +21,8 @@ exports.configure = function(socket){
         console.log(err);
         return;
       }
-      socket.emit('chats:create',freshChat);
+      socket.emit('chats:create', freshChat);
+      socket.broadcast.emit('chats:create', freshChat);
     });
   });
 };
