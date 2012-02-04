@@ -9,7 +9,7 @@ var streams = require('./datastream.js');
 var twitterStreams = {};
 exports.configure = function(io){
   io.sockets.on('connection', function(socket){
-    chatList.configure(socket);
+    chatList.configure(socket,io);
     
     socket.on('reqForChatJoin', function(chatId){
       //TODO:handle auth
