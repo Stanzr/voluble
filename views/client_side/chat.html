@@ -1,77 +1,106 @@
 <div class="ui_left">
-    <div class="ui_left_content">
-        <div class="question_count">
+  <div class="ui_left_content">
+    <div class="question_count">
 
-        </div>
-        <!--.question_count-->
-        <div class="question">
-
-        </div>
-        <div class="question_bottom"></div>
-        <ul class="discuss jspScrollable"
-            style="overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 541px; "
-            tabindex="0">
-            <div id='expander' style="height: 500px">
-            </div>
-        </ul>
     </div>
-    <!--.ui_left_content-->
+    <!--.question_count-->
+    <div class="question">
+
+    </div>
+    <div class="question_bottom"></div>
+    <ul class="discuss jspScrollable"
+      style="overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 541px; "
+      tabindex="0">
+      <div id='expander' style="height: 500px">
+      </div>
+    </ul>
+  </div>
+  <!--.ui_left_content-->
+  <div class="ui_left_bottom"></div>
+  <div class="commenter">
+    <div class="ui_left_top"></div>
+
+    <% if(!user||user&&user.name==='Guest'){ %>
+    <div class="sign_upper">
+      <p>Please <strong><a
+          href="/auth/facebook">log
+          in</a></strong> or <strong><a
+          href="/auth/twitter">sign
+          up</a></strong> to add your comment</p>
+    </div>
+
+    <% }else{ %>
+    <form action="#" id="chatForm">
+      <input type="hidden" id="repliesFromMe" value=""/>
+      <p style="float:left;"><textarea id="chatMsg" ></textarea></p>
+
+      <div class="check_box">
+        <p style="float:left;"><input type="checkbox" id="postToTwitter" value=""/></p>
+        <span class="also">
+          Also post on Twitter
+          <br/>
+          <em>appends #<%=chatInfo.chatName%></em>
+        </span>
+
+        <p style="float:right;">
+        <button class="send">
+          <span>SEND</span>
+        </button>
+        </p>
+      </div>
+    </form>
+    <% } %>
+
     <div class="ui_left_bottom"></div>
-    <div class="commenter">
-        <div class="ui_left_top"></div>
-
-
-
-        <div class="ui_left_bottom"></div>
-    </div>
+  </div>
 </div><!--.ui_left-->
 <div class="ui_right">
-    <h2 class="main_right">Social Media Optimization</h2>
-    <ul class="ui_nav">
-        <li><a href="#">edit</a></li>
-        <li><a href="#">email</a></li>
-        <li><a href="#">curate</a></li>
-        <li><a href="#">aliases</a></li>
-        <li><a href="#">moderators</a></li>
-        <li class="last"><a href="#">analytics</a></li>
+  <h2 class="main_right">Social Media Optimization</h2>
+  <ul class="ui_nav">
+    <li><a href="#">edit</a></li>
+    <li><a href="#">email</a></li>
+    <li><a href="#">curate</a></li>
+    <li><a href="#">aliases</a></li>
+    <li><a href="#">moderators</a></li>
+    <li class="last"><a href="#">analytics</a></li>
+  </ul>
+  <div class="people">
+    <h3><span id='peopleCounter'>0</span> people in chat</h3>
+
+    <div class="side_nav">
+      <span class="prev"><a href=""></a></span>
+
+      <div class="divide_side"></div>
+      <span class="next"><a href=""></a></span>
+    </div>
+    <ul>
     </ul>
-    <div class="people">
-        <h3><span id='peopleCounter'>0</span> people in chat</h3>
+  </div>
+  <div class="most_likes words">
+    <h3>Most Likes</h3>
 
-        <div class="side_nav">
-            <span class="prev"><a href=""></a></span>
+    <div class="side_nav">
+      <span class="prev"><a href=""></a></span>
 
-            <div class="divide_side"></div>
-            <span class="next"><a href=""></a></span>
-        </div>
-        <ul>
-        </ul>
+      <div class="divide_side"></div>
+      <span class="next"><a href=""></a></span>
     </div>
-    <div class="most_likes words">
-        <h3>Most Likes</h3>
-
-        <div class="side_nav">
-            <span class="prev"><a href=""></a></span>
-
-            <div class="divide_side"></div>
-            <span class="next"><a href=""></a></span>
-        </div>
 
 
+  </div>
+  <div class="replies words">
+    <h3><a class="active" href="#replies">Replies to me</a></h3>
+
+    <div class="divide_side" style="margin-top:14px;"></div>
+    <h4><a href="#dm">Direct Messages</a></h4>
+
+    <div class="side_nav">
+      <span class="prev"><a href=""></a></span>
+
+      <div class="divide_side"></div>
+      <span class="next"><a href=""></a></span>
     </div>
-    <div class="replies words">
-        <h3><a class="active" href="#replies">Replies to me</a></h3>
 
-        <div class="divide_side" style="margin-top:14px;"></div>
-        <h4><a href="#dm">Direct Messages</a></h4>
-
-        <div class="side_nav">
-            <span class="prev"><a href=""></a></span>
-
-            <div class="divide_side"></div>
-            <span class="next"><a href=""></a></span>
-        </div>
-
-    </div>
+  </div>
 </div><!--.ui_right-->
 </div>
