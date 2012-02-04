@@ -3,7 +3,7 @@
   var $ = win.$;
     var Backbone = win.Backbone, Voluble = win.Voluble = win.Voluble || {};
     Voluble.Chat = Backbone.Model.extend({
-      'urlRoot': 'chat',
+      'urlRoot': 'chatList',
       'noIoBind': false,
       'socket': Backbone.socket,
       'defaults': {
@@ -33,7 +33,7 @@
       }
     });
     Voluble.PastChat = Backbone.Model.extend({
-      'urlRoot': 'pastChat',
+      'urlRoot': 'pastChatList',
       'noIoBind': false,
       'socket': Backbone.socket,
       'defaults': {
@@ -64,7 +64,7 @@
     });
     Voluble.PastChatCollection = Backbone.Collection.extend({
       'model': Voluble.PastChat,
-      'url': "pastChats",
+      'url': "pastChatLists",
       'socket': Backbone.socket,
       'noIoBind': false,
       initialize: function () {
@@ -80,7 +80,7 @@
     });
     Voluble.ChatCollection = Backbone.Collection.extend({
       'model': Voluble.Chat,
-      'url': "chats",
+      'url': "chatLists",
       'socket': Backbone.socket,
       'noIoBind': false,
       'initialize': function () {
