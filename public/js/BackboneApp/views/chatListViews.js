@@ -23,7 +23,6 @@
         list.chats.each(function (chat) {
           list.addChat(chat);
         });
-        console.log(list.past);
         list.past.each(function(pastChat){
           list.addPastChat(pastChat);
         });
@@ -31,12 +30,12 @@
       return this;
     },
     'addChat': function (chat) {
-      $('ul.event_listings').append(new Voluble.ChatListItemView({
+      $('.center_mid_left > ul.event_listings').append(new Voluble.ChatListItemView({
         model: chat
       }).render().el);
     },
     'addPastChat': function (chat) {
-      $('ul.past_event_listings').append(new Voluble.ChatListItemView({
+      $('.center_mid_right > ul.event_listings').append(new Voluble.ChatListItemView({
         model: chat
       }).render().el);
     },
