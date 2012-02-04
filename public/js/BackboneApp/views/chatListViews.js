@@ -2,6 +2,8 @@
 (function (win) {
   var Voluble = win.Voluble = win.Voluble || {};
   var Backbone = win.Backbone, templates = Voluble.Templater;
+  templates.preCache('one_event');  
+
   Voluble.ChatListView = Backbone.View.extend({
     'id': 'chatList',
     'el': $('.center_mid'),
