@@ -15,11 +15,11 @@ var Event = new Schema( {
 
 Event.statics.findCurrentEvents = function(cb){
   var currentDate = new Date();
-  this.find({'start_date':{'$lte':currentDate},'end_date':{'$gte':currentDate}}).run(cb);
+  this.find({'start_date':{'$lte':currentDate},'end_date':{'$gte':currentDate}}).sort('start_date',1).run(cb);
 };
 Event.statics.findPastEvents = function(cb){
   var currentDate = new Date(); 
-  this.find({'end_date':{'$lte':currentDate}}).limit(10).run(cb);
+  this.find({'end_date':{'$lte':currentDate}}).sort('end_date',1).limit(10).run(cb);
 };
 Event.statics.findEvent = function(name,cb){
     this.findOne({'name':name},cb);
