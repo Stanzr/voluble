@@ -17,7 +17,6 @@
       },
       'serverChange': function (data) {
         data.fromServer = true;
-        /*console.log('server change');*/
         this.set(data);
       },
       'serverDelete': function (data) {
