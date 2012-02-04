@@ -3,7 +3,7 @@
 
   win.Backbone.socket = win.socket = win.io.connect('http://109.254.16.25');
 
-  var Templater = function () {
+    var Templater = function () {
     self = this;
     this.cache = {};
     this.listeners = {};
@@ -14,6 +14,11 @@
           self.listeners[template].splice(idx, 1);
         });
       }
+    };
+    this.preCache = function(template){
+      self.getTemplate(template,function(data){
+        self.cache[template] = _.template(data);
+      });
     };
     this.getTemplate = function (template, callback) {
       $.get('/templates/' + template, function (data) {
