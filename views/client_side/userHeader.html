@@ -1,0 +1,17 @@
+<% if(_.isEmpty(user)){ %>
+<li class="lo">
+  <a id="auth_facebook" href="/auth/facebook">Log in(fb)</a>
+  <a id="auth_twitter" href="/auth/twitter">Log in(tw)</a>
+</li>
+
+<% }else{ %>
+  <li class="welcome_top">
+    <a href="#">
+      <img src="<%=user.profile_pic_url%>" alt="<%=user.name%>">
+      Welcome, <strong><%=user.name%></strong>
+    </a>
+  </li>
+  <li><a href="#/history">History</a></li>
+  <li><a href="#/settings">Settings</a></li>
+  <li><a href="#/logout">Log out</a></li>
+<% } %>

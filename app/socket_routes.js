@@ -2,6 +2,7 @@ var models = require('./models.js');
 var _ = require('underscore')._;
 
 var chatList = require('./resources/socket/chatlist.js');
+var user = require('./resources/socket/user.js');
 
 var session_store = models.session;
 var streams = require('./datastream.js');
@@ -10,7 +11,7 @@ var twitterStreams = {};
 exports.configure = function(io){
   io.sockets.on('connection', function(socket){
     chatList.configure(socket,io);
-    
+    user.configure(socket,io); 
     socket.on('reqForChatJoin', function(chatId){
       //TODO:handle auth
 
