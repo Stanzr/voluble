@@ -3,7 +3,7 @@
   var Backbone = win.Backbone, templates = Voluble.Templater;
   templates.preCache('chat'); 
   templates.preCache('pubChatMsg'); 
-
+  var DEFAULT_TEXTAREA_VALUE = 'Type your comment...';
   Voluble.ChatView = Backbone.View.extend({
     'id': 'chat',
     'el': $('.center_mid'),
@@ -32,6 +32,27 @@
         list.chatContainer = ($('ul.jspScrollable').jScrollPane({'contentWidth':500})).data('jsp');
         list.chatContainer.scrollToBottom(true);
         list.chatContainer.reinitialise(true);
+        $('#chatMsg').val(DEFAULT_TEXTAREA_VALUE);
+        
+        $('#chatMsg').blur(function(){
+          if ($(this).val().trim() === ''){
+            $(this).val(DEFAULT_TEXTAREA_VALUE);
+          }
+
+        });
+        $('#chatMsg').keydown(function(evt){
+          if (evt.keyCode == 13 && evt.metaKey){
+            $('#chatForm').submit();
+          }
+        });
+        $('#chatMsg').focus(function(evt){
+          if ($(this).val() == DEFAULT_TEXTAREA_VALUE){
+            $(this).val('');
+          }
+          evt.stopPropagation();
+          return false;
+        });
+
         $('div.center').fadeIn('slow');
 
       });
@@ -39,12 +60,17 @@
     },
     'addMsg':function(msg){
       var model = new this.msgModel.model();
+      var message = $('#chatMsg').val();
+      if(!message||message==DEFAULT_TEXTAREA_VALUE){
+        return false;
+      }
       model.set({
         'chatId':this.chatId,
-        'msg':$('#chatMsg').val(),
+        'msg': message,
         'postTo':$('#postToTwitter').attr('checked'),
         'user':Voluble.currentUser
       });
+      $('#chatMsg').val(DEFAULT_TEXTAREA_VALUE);
       this.msgModel.add(model);
       app.chatMsgs.create(model);
       app.chatMsgs.fetch();
