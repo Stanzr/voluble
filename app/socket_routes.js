@@ -4,6 +4,7 @@ var _ = require('underscore')._;
 var chatList = require('./resources/socket/chatlist.js');
 var chatInfo = require('./resources/socket/chatInfo.js');
 var user = require('./resources/socket/user.js');
+var chat = require('./resources/socket/chat.js');
 
 var session_store = models.session;
 var streams = require('./datastream.js');
@@ -14,8 +15,10 @@ exports.configure = function(io){
     chatList.configure(socket,io);
     user.configure(socket,io);
     chatInfo.configure(socket,io);
-    socket.on('whoAmI?',function(){
-      socket.emit('youAre',socket.handshake.user||{});    
+    chat.configure(socket,io);
+
+    socket.on('whoAmI?',function(data,cb){
+      cb(socket.handshake.user||{});    
     });
     
     socket.on('reqForChatJoin', function(chatId){

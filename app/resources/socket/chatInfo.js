@@ -5,6 +5,10 @@ exports.configure = function(socket,io){
   socket.on('chatInfo:read',function(data,callback){
     if(data.chatId){
       chatList.getCurrentChatInfo(data.chatId,function(err,results){
+        if(!err&&results){
+          socket.join(data.chatId);
+          socket.set('chatId',data.chatId);
+        }
         callback(null,results);
       });
     }

@@ -2,7 +2,8 @@
   var Voluble = win.Voluble = win.Voluble || {};
   var Backbone = win.Backbone, templates = Voluble.Templater;
   templates.preCache('chat'); 
-
+  templates.preCache('pubChatMsg'); 
+  var DEFAULT_TEXTAREA_VALUE = 'Type your comment...';
   Voluble.ChatView = Backbone.View.extend({
     'id': 'chat',
     'el': $('.center_mid'),
@@ -11,27 +12,86 @@
       this.chatInfo = chats.chatInfo;
       this.msgModel = chats.msgModel;
       this.msgModel.bind('reset', this.render, this);
-      this.msgModel.bind('add', this.addMsg, this);
+      this.msgModel.bind('add', this.renderMsg, this);
       this.chatInfo.bind('change', this.setChatInfo,this);
       this.render();
     },
-    'render': function (eventName) {
+    'renderMsgs':function(msgs){
+      var self = this;
+      msgs.each(function(msg){
+        self.renderMsg(msg); 
+      });
+    },
+    'render': function (msgs) {
+      if(msgs){
+        return this.renderMsgs(msgs);
+      }
       var list = this;
       $('div.center').hide();
+      $('#chatForm').live('submit',list.addMsg.bind(list));
       templates.render('chat', function (template) {
         var obj = {
-          'user':Voluble.currentUser,
+          'user':$('#uid').val(),
           'chatInfo':{
             'chatName':list.chatId
           }
         };
         $('.center_mid').html(template(obj));
+
+        list.chatContainer = ($('ul.jspScrollable').jScrollPane({'contentWidth':500})).data('jsp');
+        list.chatContainer.scrollToBottom(true);
+        list.chatContainer.reinitialise(true);
+        $('#chatMsg').val(DEFAULT_TEXTAREA_VALUE);
+        
+        $('#chatMsg').blur(function(){
+          if ($(this).val().trim() === ''){
+            $(this).val(DEFAULT_TEXTAREA_VALUE);
+          }
+
+        });
+        $('#chatMsg').keydown(function(evt){
+          if (evt.keyCode == 13 && evt.metaKey){
+            $('#chatForm').submit();
+          }
+        });
+        $('#chatMsg').focus(function(evt){
+          if ($(this).val() == DEFAULT_TEXTAREA_VALUE){
+            $(this).val('');
+          }
+          evt.stopPropagation();
+          return false;
+        });
+
         $('div.center').fadeIn('slow');
+
       });
       return this;
     },
     'addMsg':function(msg){
-      console.log('adding msg');
+      var model = new this.msgModel.model();
+      var message = $('#chatMsg').val();
+      if(!message||message==DEFAULT_TEXTAREA_VALUE){
+        return false;
+      }
+      model.set({
+        'chatId':this.chatId,
+        'message': message,
+        'postTo':$('#postToTwitter').attr('checked'),
+        'user':Voluble.currentUser
+      });
+      $('#chatMsg').val(DEFAULT_TEXTAREA_VALUE);
+      this.msgModel.create(model);
+      return false;
+    },
+    'reinitChatLayout':function(){
+      this.chatContainer.reinitialise();
+      this.chatContainer.scrollToBottom(true);
+      return this;
+    },
+    'renderMsg':function(msg){
+      var content =new Voluble.ChatMsg({'model':msg}).render().el ;
+      this.chatContainer.getContentPane().append(content);
+      this.reinitChatLayout();
     },
     'setChatInfo':function(info){
       (new Voluble.ChatInfoView({'model':info})).render();
@@ -87,6 +147,9 @@
     },
     'render': function (eventName) {
       var self = this;
+      templates.render('pubChatMsg',function(template){
+        $(self.el).html(template({'message':self.model.toJSON()}));
+      }); 
       return this;
     },
     'close': function () {

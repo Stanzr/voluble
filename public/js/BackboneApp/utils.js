@@ -2,11 +2,10 @@
   var root = win.Voluble = win.Voluble || {};
 
   win.Backbone.socket = win.socket = win.io.connect('http://109.254.16.25');
-    win.socket.emit('whoAmI?',{});
-    win.socket.on('youAre',function(me){
-      root.currentUser = me.user;    
-    });
-    var Templater = function () {
+    win.socket.emit('whoAmI?',{},function(me){
+    root.currentUser = me.user;    
+  });
+  var Templater = function () {
     self = this;
     this.cache = {};
     this.listeners = {};

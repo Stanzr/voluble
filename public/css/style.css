@@ -1244,13 +1244,15 @@ ul.discuss {
     max-height: 700px;
     min-height: 150px;
     overflow-x: hidden;
-    overflow-y: auto;
-    padding-top: 4px;
+    overflow-y: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+
     position: relative;
     width: 541px !important;
     z-index: 999;
 }
-
 ul.discuss li {
     float: left;
     list-style-type: none;
@@ -1368,3 +1370,4 @@ ul.navigation li.welcome_top img {
     margin-top: -4px;
     width: 24px;
 }
+
