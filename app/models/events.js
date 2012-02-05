@@ -9,7 +9,6 @@ var Event = new Schema( {
     'summary' : {'type' : String},//, 'required' : true
     'start_date':{'type':Date,'default':Date.now},
     'end_date':{'type':Date,'default':Date.now},
-    'attendees' : [ObjectId],
     'questions':[{}]
 } );
 
@@ -23,6 +22,10 @@ Event.statics.findPastEvents = function(cb){
 };
 Event.statics.findEvent = function(name,cb){
     this.findOne({'name':name},cb);
+};
+Event.statics.getCurrentChatInfo = function(name,cb){
+  var currentDate = new Date(); 
+  this.findOne({'name':name,'start_date':{'$lte':currentDate},'end_date':{'$gte':currentDate}}).run(cb);
 };
 
 module.exports = Event;
