@@ -7,7 +7,7 @@
     <script type="text/javascript" src="/js/libs/jquery.timeago.js"></script>
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/js/libs/underscore-min.js"></script>
-    <script type="text/javascript" src="/js/scroll.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery.jscrollpane.js"></script>
     <script type="text/javascript" src="/js/libs/backbone.js"></script>
     <script type="text/javascript" src="/js/libs/backbone.iobind.dev.js"></script>
     <script type="text/javascript" src="/js/libs/backbone.iosync.dev.js"></script>
@@ -29,7 +29,6 @@
             <a id="login" href="/auth/facebook">Log in(fb)</a>
             <a id="login3" href="/auth/twitter">Log in(tw)</a>
             </li>
-
             <% }else{ %>
             <li class="welcome_top">
             <input type="hidden" id="uid" value="<%=session.user._id%>"/>
