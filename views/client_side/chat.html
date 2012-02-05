@@ -40,7 +40,7 @@
   </div>
 
   <% }else{ %>
-  <form action="#" id="chatForm" onsubmit="return false">
+  <form action="#/chat/<%=chatInfo.chatName%>" id="chatForm" onsubmit="return false">
     <input type="hidden" id="repliesFromMe" value=""/>
     <p style="float:left;"><textarea id="chatMsg" ></textarea></p>
 
@@ -52,7 +52,7 @@
         <em>appends #<%=chatInfo.chatName%></em>
       </span>
 
-      <p style="float:right;">
+      <p style="float:right;" id="sendMsg">
       <button class="send">
         <span>SEND</span>
       </button>

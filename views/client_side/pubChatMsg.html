@@ -1,14 +1,14 @@
 <!-- <li id="<%=message.id%>"> -->
     <div class="topper">
         <div class="avatar">
-            <% if(message.sender&&message.sender.profile_pic_url){%>
-            <img src="<%=message.sender.profile_pic_url%>"/>
+            <% if(message.user&&message.user.profile_pic_url){%>
+            <img src="<%=message.user.profile_pic_url%>"/>
             <% } %>
         </div>
         <div class="discuss_info">
             <p>
                 <a href="#">
-                    <%=message.sender.name%>
+                    <%=message.user.name%>
                 </a>
 												<span>
 													<abbr class="timeago" title="<%=message.created_at%>"></abbr>
