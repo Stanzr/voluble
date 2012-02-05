@@ -2,6 +2,7 @@
   var Voluble = win.Voluble = win.Voluble || {};
   var Backbone = win.Backbone, templates = Voluble.Templater;
   templates.preCache('chat'); 
+  templates.preCache('pubChatMsg'); 
 
   Voluble.ChatView = Backbone.View.extend({
     'id': 'chat',
@@ -11,7 +12,7 @@
       this.chatInfo = chats.chatInfo;
       this.msgModel = chats.msgModel;
       this.msgModel.bind('reset', this.render, this);
-      this.msgModel.bind('add', this.addMsg, this);
+      this.msgModel.bind('add', this.renderMsg, this);
       this.chatInfo.bind('change', this.setChatInfo,this);
       this.render();
     },
@@ -20,18 +21,34 @@
       $('div.center').hide();
       templates.render('chat', function (template) {
         var obj = {
-          'user':Voluble.currentUser,
+          'user':$('#uid').val(),
           'chatInfo':{
             'chatName':list.chatId
           }
         };
         $('.center_mid').html(template(obj));
+        $('#chatForm>.send').live('click',list.addMsg.bind(list));
+
         $('div.center').fadeIn('slow');
+
       });
       return this;
     },
     'addMsg':function(msg){
-      console.log('adding msg');
+      var model = new this.msgModel();
+      model.set({
+        'chatId':this.chatId,
+        'msg':$('#chatMsg').val(),
+        'postTo':$('#postToTwitter').attr('checked'),
+        'user':Voluble.currentUser
+      });
+      this.msgModel.add(model);
+      app.chatMsgs.create(model);
+      app.chatMsgs.fetch();
+
+    },
+    'renderMsg':function(msg){
+      $(this.el).append( new Voluble.ChatMsg({'model':msg}).render().el);
     },
     'setChatInfo':function(info){
       (new Voluble.ChatInfoView({'model':info})).render();
@@ -87,6 +104,9 @@
     },
     'render': function (eventName) {
       var self = this;
+      templates.render('pubChatMsg',function(template){
+        $(self.el).html(template({'message':self.model.toJSON()}));
+      }); 
       return this;
     },
     'close': function () {
