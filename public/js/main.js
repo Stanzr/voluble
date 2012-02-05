@@ -5,7 +5,8 @@
     AppRouter = Backbone.Router.extend({
       'routes': {
         "": "list",
-        '/chat/:id': 'chat'
+        '/chat/:id': 'chat',
+        '/chat/:id/q:number': 'chat'
       },
       'list': function () {
         this.chatList = new Voluble.ChatCollection();
@@ -19,15 +20,16 @@
         this.chatListPast.fetch();
         this.chatList.fetch();
       },
-      'chat': function (id) {
-          this.chatMsgs = new Voluble.ChatMsgCollection(id);
-          this.chatInfo = new Voluble.chatInfo(id);
-          this.chatLayout = new Voluble.ChatView({
-            model: this.chatMsgs,
-            'chatId':id,
-            'chatInfo':this.chatInfo
-          });
-          this.chatMsgs.fetch();
+      'chat': function (id,question) {
+        this.chatMsgs = new Voluble.ChatMsgCollection({'chatId':id});
+        this.chatInfo = new Voluble.ChatInfoModel({'chatId':id,'question':question});
+        this.chatLayout = new Voluble.ChatView({
+          'msgModel': this.chatMsgs,
+          'chatId':id,
+          'chatInfo':this.chatInfo
+        });
+        this.chatInfo.fetch();
+        this.chatMsgs.fetch();
       }
     });
     app = new AppRouter();

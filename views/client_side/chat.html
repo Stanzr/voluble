@@ -1,58 +1,68 @@
 <div class="ui_left">
   <div class="ui_left_content">
     <div class="question_count">
-
-    </div>
-    <!--.question_count-->
+      <h3>Question <span id ='currentQuestionPos'></span> of <span id='qcnt'></span></h3>
+      <div class="ques_nav">
+        <div class="divide_ques"></div>
+        <span class="prev"><a href="#/chat/<%=chatInfo.chatName%>/q1"></a></span>
+        <div class="divide_ques"></div>
+        <span class="next"><a href="#/chat/<%=chatInfo.chatName%>/q1"></a></span>
+      </div>
+    </div><!--.question_count-->
     <div class="question">
-
+      <h2>
+      </h2>
+      <p>
+      </p>
     </div>
-    <div class="question_bottom"></div>
-    <ul class="discuss jspScrollable"
-      style="overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 541px; "
-      tabindex="0">
-      <div id='expander' style="height: 500px">
-      </div>
-    </ul>
+
+  <!--.question_count-->
+  <div class="question_bottom"></div>
+  <ul class="discuss jspScrollable"
+    style="overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 541px; "
+    tabindex="0">
+    <div id='expander' style="height: 500px">
+    </div>
+  </ul>
+</div>
+<!--.ui_left_content-->
+<div class="ui_left_bottom"></div>
+<div class="commenter">
+  <div class="ui_left_top"></div>
+
+  <% if(_.isEmpty(user)||user.name==='Guest'){ %>
+  <div class="sign_upper">
+    <p>Please <strong><a
+        href="/auth/facebook">log
+        in</a></strong> or <strong><a
+        href="/auth/twitter">sign
+        up</a></strong> to add your comment</p>
   </div>
-  <!--.ui_left_content-->
+
+  <% }else{ %>
+  <form action="#" id="chatForm">
+    <input type="hidden" id="repliesFromMe" value=""/>
+    <p style="float:left;"><textarea id="chatMsg" ></textarea></p>
+
+    <div class="check_box">
+      <p style="float:left;"><input type="checkbox" id="postToTwitter" value=""/></p>
+      <span class="also">
+        Also post on Twitter
+        <br/>
+        <em>appends #<%=chatInfo.chatName%></em>
+      </span>
+
+      <p style="float:right;">
+      <button class="send">
+        <span>SEND</span>
+      </button>
+      </p>
+    </div>
+  </form>
+  <% } %>
+
   <div class="ui_left_bottom"></div>
-  <div class="commenter">
-    <div class="ui_left_top"></div>
-
-    <% if(!user||user&&user.name==='Guest'){ %>
-    <div class="sign_upper">
-      <p>Please <strong><a
-          href="/auth/facebook">log
-          in</a></strong> or <strong><a
-          href="/auth/twitter">sign
-          up</a></strong> to add your comment</p>
-    </div>
-
-    <% }else{ %>
-    <form action="#" id="chatForm">
-      <input type="hidden" id="repliesFromMe" value=""/>
-      <p style="float:left;"><textarea id="chatMsg" ></textarea></p>
-
-      <div class="check_box">
-        <p style="float:left;"><input type="checkbox" id="postToTwitter" value=""/></p>
-        <span class="also">
-          Also post on Twitter
-          <br/>
-          <em>appends #<%=chatInfo.chatName%></em>
-        </span>
-
-        <p style="float:right;">
-        <button class="send">
-          <span>SEND</span>
-        </button>
-        </p>
-      </div>
-    </form>
-    <% } %>
-
-    <div class="ui_left_bottom"></div>
-  </div>
+</div>
 </div><!--.ui_left-->
 <div class="ui_right">
   <h2 class="main_right">Social Media Optimization</h2>
