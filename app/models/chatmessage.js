@@ -18,12 +18,14 @@ exports.configure=function(mongoose){
     'chatId': {'type': String, required: true},
     'message' : {'type': String, required: true},
     'likes': [],
+    'question': {'type': Number, 'default': 0 },
     'replies': [],
     'likeCount': {'type': Number, 'default': 0},
     'type': {'type': String, 'enum': ['system','user','attention']}
   } );
   ChatMsg.statics.findByChat= function(chatId,cb){
-    this.find({'chatId':chatId}).desc('created_at').limit(10).run(function(err,results){
+    var chat = chatId.split(':');
+    this.find({'chatId':chat[0],'question':chat[1]}).desc('created_at').limit(10).run(function(err,results){
       cb(err,results.reverse());      
     });
   };
@@ -41,14 +43,16 @@ exports.configure=function(mongoose){
     this.find({'chatId':chat,'likeCount':{'$gt':0}}).sort('likeCount',-1).limit(4).run(cb);
   };
 
-  ChatMsg.statics.processMessage = function(msgData,user,cb){
-    if(msgData.user._id == user.user._id){
+  ChatMsg.statics.processMessage = function(chatId,msgData,user,cb){
+    var chat = chatId.split(':');
+    if(msgData.user._id == user.user._id||(chat[0]!=msgData.chatId)){
       var msg = new this();
       msg.user.name = user.user.name;
       msg.user.uid = user.user._id;
       msg.user.profile_pic_url = user.user.profile_pic_url;
       msg.message = msgData.message;
-      msg.chatId = msgData.chatId;
+      msg.chatId = chat[0];
+      msg.question = chat[1];
       msg.type = 'user';
       msg.save(cb);
     }else{

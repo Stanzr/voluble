@@ -21,15 +21,17 @@
         this.chatList.fetch();
       },
       'chat': function (id,question) {
-        this.chatMsgs = new Voluble.ChatMsgCollection({'chatId':id});
-        this.chatInfo = new Voluble.ChatInfoModel({'chatId':id,'question':question});
-        this.chatLayout = new Voluble.ChatView({
-          'msgModel': this.chatMsgs,
-          'chatId':id,
-          'chatInfo':this.chatInfo
+        win.socket.emit('join',{'id':id,'question':question},function(err,permission){
+          this.chatInfo = new Voluble.ChatInfoModel({'chatId':id,'question':question});
+          this.chatMsgs = new Voluble.ChatMsgCollection({'chatId':id});
+          this.chatLayout = new Voluble.ChatView({
+            'msgModel': this.chatMsgs,
+            'chatId':id,
+            'chatInfo':this.chatInfo
+          });
+          this.chatInfo.fetch();
+          this.chatMsgs.fetch();
         });
-        this.chatInfo.fetch();
-        this.chatMsgs.fetch();
       }
     });
     app = new AppRouter();
