@@ -50,8 +50,8 @@
 
         });
         $('#chatMsg').keydown(function(evt){
-          if (evt.keyCode == 13 && evt.metaKey){
-            $('#chatForm').submit();
+          if (evt.keyCode == 13){
+            list.addMsg.call(list);
           }
         });
         $('#chatMsg').focus(function(evt){
@@ -67,7 +67,7 @@
       });
       return this;
     },
-    'addMsg':function(msg){
+    'addMsg':function(){
       var model = new this.msgModel.model();
       var message = $('#chatMsg').val();
       if(!message||message==DEFAULT_TEXTAREA_VALUE){
@@ -79,7 +79,7 @@
         'postTo':$('#postToTwitter').attr('checked'),
         'user':Voluble.currentUser
       });
-      $('#chatMsg').val(DEFAULT_TEXTAREA_VALUE);
+      $('#chatMsg').val('');
       this.msgModel.create(model);
       return false;
     },
