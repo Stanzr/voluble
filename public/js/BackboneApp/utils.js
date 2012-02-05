@@ -4,7 +4,7 @@
   win.Backbone.socket = win.socket = win.io.connect('http://109.254.16.25');
     win.socket.emit('whoAmI?',{});
     win.socket.on('youAre',function(me){
-      root.currentUser = me;    
+      root.currentUser = me.user;    
     });
     var Templater = function () {
     self = this;
