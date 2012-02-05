@@ -19,6 +19,7 @@
     'render': function (eventName) {
       var list = this;
       $('div.center').hide();
+      $('#chatForm').live('submit',list.addMsg.bind(list));
       templates.render('chat', function (template) {
         var obj = {
           'user':$('#uid').val(),
@@ -27,15 +28,17 @@
           }
         };
         $('.center_mid').html(template(obj));
-        $('#chatForm>.send').live('click',list.addMsg.bind(list));
 
+        list.chatContainer = ($('ul.jspScrollable').jScrollPane({'contentWidth':500})).data('jsp');
+        list.chatContainer.scrollToBottom(true);
+        list.chatContainer.reinitialise(true);
         $('div.center').fadeIn('slow');
 
       });
       return this;
     },
     'addMsg':function(msg){
-      var model = new this.msgModel();
+      var model = new this.msgModel.model();
       model.set({
         'chatId':this.chatId,
         'msg':$('#chatMsg').val(),
@@ -45,10 +48,13 @@
       this.msgModel.add(model);
       app.chatMsgs.create(model);
       app.chatMsgs.fetch();
-
+      this.chatContainer.reinitialise();
+      this.chatContainer.scrollToBottom(true);
+      return false;
     },
     'renderMsg':function(msg){
-      $(this.el).append( new Voluble.ChatMsg({'model':msg}).render().el);
+      var content =new Voluble.ChatMsg({'model':msg}).render().el ;
+      this.chatContainer.getContentPane().append(content);
     },
     'setChatInfo':function(info){
       (new Voluble.ChatInfoView({'model':info})).render();
