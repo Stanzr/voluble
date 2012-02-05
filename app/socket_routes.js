@@ -14,8 +14,8 @@ exports.configure = function(io){
     chatList.configure(socket,io);
     user.configure(socket,io);
     chatInfo.configure(socket,io);
-    socket.on('whoAmI?',function(){
-      socket.emit('youAre',socket.handshake.user||{});    
+    socket.on('whoAmI?',function(data,cb){
+      cb(socket.handshake.user||{});    
     });
     
     socket.on('reqForChatJoin', function(chatId){
