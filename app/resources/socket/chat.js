@@ -11,8 +11,14 @@ exports.configure = function(socket,io){
     if(!socket.handshake||!socket.handshake.user|| socket.handshake.user.user.name==='Guest'){
       return false;
     }
-    ChatMsg.processMessage(data,socket.handshake.user,function(err,msg){
-      callback(err,msg); 
+    socket.get('chatId',function(err,chatId){
+      if(chatId!=data.chatId){
+        return callback(null,null);
+      }
+      ChatMsg.processMessage(data,socket.handshake.user,function(err,msg){
+        callback(err,msg);
+        socket.broadcast.to(chatId).emit('chatMsgs:create', msg);
+      });
     });
   });
 };
