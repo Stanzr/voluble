@@ -18,11 +18,7 @@
 
   <!--.question_count-->
   <div class="question_bottom"></div>
-  <ul class="discuss jspScrollable"
-    style="overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 541px; "
-    tabindex="0">
-    <div id='expander' style="height: 500px">
-    </div>
+  <ul class="discuss jspScrollable" tabindex="0">
   </ul>
 </div>
 <!--.ui_left_content-->
@@ -30,7 +26,7 @@
 <div class="commenter">
   <div class="ui_left_top"></div>
 
-  <% if(_.isEmpty(user)||user.name==='Guest'){ %>
+  <% if(_.isEmpty(user)){ %>
   <div class="sign_upper">
     <p>Please <strong><a
         href="/auth/facebook">log
@@ -40,7 +36,7 @@
   </div>
 
   <% }else{ %>
-  <form action="#" id="chatForm">
+  <form action="#/chat/<%=chatInfo.chatName%>" id="chatForm" onsubmit="return false">
     <input type="hidden" id="repliesFromMe" value=""/>
     <p style="float:left;"><textarea id="chatMsg" ></textarea></p>
 
@@ -52,7 +48,7 @@
         <em>appends #<%=chatInfo.chatName%></em>
       </span>
 
-      <p style="float:right;">
+      <p style="float:right;" id="sendMsg">
       <button class="send">
         <span>SEND</span>
       </button>

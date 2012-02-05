@@ -7,7 +7,7 @@
       'noIoBind': false,
       'socket': Backbone.socket,
       'defaults': {
-        'msg': "",
+        'message': "",
         'user': ""
       },
       'initialize': function () {
