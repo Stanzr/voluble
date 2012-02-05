@@ -16,7 +16,16 @@
       this.chatInfo.bind('change', this.setChatInfo,this);
       this.render();
     },
-    'render': function (eventName) {
+    'renderMsgs':function(msgs){
+      var self = this;
+      msgs.each(function(msg){
+        self.renderMsg(msg); 
+      });
+    },
+    'render': function (msgs) {
+      if(msgs){
+        return this.renderMsgs(msgs);
+      }
       var list = this;
       $('div.center').hide();
       $('#chatForm').live('submit',list.addMsg.bind(list));
@@ -66,21 +75,23 @@
       }
       model.set({
         'chatId':this.chatId,
-        'msg': message,
+        'message': message,
         'postTo':$('#postToTwitter').attr('checked'),
         'user':Voluble.currentUser
       });
       $('#chatMsg').val(DEFAULT_TEXTAREA_VALUE);
-      this.msgModel.add(model);
-      app.chatMsgs.create(model);
-      app.chatMsgs.fetch();
+      this.msgModel.create(model);
+      return false;
+    },
+    'reinitChatLayout':function(){
       this.chatContainer.reinitialise();
       this.chatContainer.scrollToBottom(true);
-      return false;
+      return this;
     },
     'renderMsg':function(msg){
       var content =new Voluble.ChatMsg({'model':msg}).render().el ;
       this.chatContainer.getContentPane().append(content);
+      this.reinitChatLayout();
     },
     'setChatInfo':function(info){
       (new Voluble.ChatInfoView({'model':info})).render();
