@@ -30,7 +30,7 @@
 <div class="commenter">
   <div class="ui_left_top"></div>
 
-  <% if(_.isEmpty(user)||user.name==='Guest'){ %>
+  <% if(_.isEmpty(user)){ %>
   <div class="sign_upper">
     <p>Please <strong><a
         href="/auth/facebook">log
@@ -40,7 +40,7 @@
   </div>
 
   <% }else{ %>
-  <form action="#" id="chatForm">
+  <form action="#" id="chatForm" onsubmit="return false">
     <input type="hidden" id="repliesFromMe" value=""/>
     <p style="float:left;"><textarea id="chatMsg" ></textarea></p>
 

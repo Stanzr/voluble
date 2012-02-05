@@ -32,6 +32,7 @@
 
             <% }else{ %>
             <li class="welcome_top">
+            <input type="hidden" id="uid" value="<%=session.user._id%>"/>
             <a href="#">
               <img src="<%=session.user.profile_pic_url%>" alt="<%=session.user.name%>">
               Welcome, <strong><%=session.user.name%></strong>
