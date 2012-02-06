@@ -22,8 +22,8 @@ module.exports = {
           "scope": "email,user_photos,read_stream,create_event,publish_stream"
       },
       "twitter":{
-          "consumerKey":"gD3qH3M2sWR7aPAozIPZEA",
-          "consumerSecret":"Eq57OA5QXjzv4MzHcEAKosdgcqDKtmMleP9uYUgVig",
+          "consumerKey":"JcSBvdSTXjqFSPw7UVG9Q",
+          "consumerSecret":"omuSO8zQppPgXp1NZGL8Bw3FrcfekHkXM2FUWLhKMw",
           "accessTokenKey":"472151458-wLb7S1XskPX8TTx7t6g7skOImnvNHuH6tMQpXKSL",
           "accessTokenSecret":"kbOUeTs17t1HTj2sizxTiFQTA3uZtWi9gjvvkOWHu7w",
           "redirectPath": "/",
