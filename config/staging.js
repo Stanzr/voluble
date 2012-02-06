@@ -14,8 +14,8 @@ module.exports = {
   },
   'auth':{
       'facebook':{
-          "appId":"",
-          "appSecret": "",
+          "appId":"364850843526918",
+          "appSecret": "33c644ac40c987b2d3367f53da1ce472",
           "redirectPath": "/",
           "entryPath": "/auth/facebook",
           "callbackPath": "/auth/facebook/callback",
