@@ -20,29 +20,7 @@ exports.configure = function(io){
     socket.on('whoAmI?',function(data,cb){
       cb(socket.handshake.user||{});    
     });
-
-    socket.on('join',function(data,cb){
-      var question = parseInt(data.question||0,10);
-      question = question > 0 ? question-1: 0;
-      var chatId = data.id+':'+question;
-      socket.get('chatId',function(err,oldChat){
-        if(oldChat){
-          socket.leave(oldChat);
-        }
-        socket.set('chatId',chatId,function(){
-          socket.join(chatId);
-          cb(null,chatId);
-        });
-
-      });
-    });
-    socket.on('disconnect',function(){
-      socket.get('chatId',function(err,chatId){
-        if(chatId){
-          socket.leave(chatId); 
-        }
-      });
-    });
+    
     socket.on('reqForChatJoin', function(chatId){
       //TODO:handle auth
 
