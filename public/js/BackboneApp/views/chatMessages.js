@@ -10,8 +10,9 @@
     'el': $('.center_mid'),
     'initialize': function (chats) {
       this.chatId = chats.chatId;
+
       this.msgModel = chats.msgModel;
-      this.msgModel.bind('reset', this.render, this);
+      this.msgModel.bind('reset', this.renderMsgs, this);
       this.msgModel.bind('add', this.renderMsg, this);
       this.msgModel.bind('change', this.renderMsgs,this);
       
@@ -20,19 +21,17 @@
 
       this.participants  = chats.chatParticipants;
       this.participants.bind('change', this.renderParticipants,this);
+      this.participants.bind('reset', this.renderParticipants,this);
 
       this.render();
     },
     'renderParticipants': function (usrs) {
-     var users = _.flatten([usrs]); 
-     users.each(function(user){
+      $('#peopleCounter').html(usrs.length);
+      usrs.each(function(user){
         $('div.people > ul').append(new Voluble.ChatParticipantsSingleView({ 'model':user }).render().el);
       });
     },
     'render': function (msgs) {
-      if(msgs){
-        return this.renderMsgs(msgs);
-      }
       var list = this;
       $('div.center').hide();
       $('#chatForm').live('submit',list.addMsg.bind(list));
