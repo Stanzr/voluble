@@ -1,16 +1,17 @@
 (function (win) {
   var $ = win.$;
   var Backbone = win.Backbone, Voluble = win.Voluble = win.Voluble || {};
-  Voluble.ChatParticipants= Backbone.Model.extend({
-    'urlRoot': 'chatParticipants',
+  
+  Voluble.ChatParticipantSingle= Backbone.Model.extend({
+    'urlRoot': 'chatParticipant',
     'noIoBind': false,
     'socket': Backbone.socket,
     'defaults': {
-      'chatId': "",
-      'participants': []
+      'name': "Guest",
+      'profile_pic_url': '',
+      'socket_id':''
     },
-    'initialize': function (id,questionId) {
-      this.defaults.chatId = id;
+    'initialize': function () {
       _.bindAll(this, 'serverChange', 'serverDelete', 'modelCleanup');
       this.ioBind('update', Backbone.socket, this.serverChange, this);
       this.ioBind('delete', Backbone.socket, this.serverDelete, this);
@@ -21,6 +22,7 @@
     },
     'serverDelete': function (data) {
       if (this.collection) {
+
         this.collection.remove(this);
       } else {
         this.trigger('remove', this);
@@ -29,6 +31,33 @@
     },
     'modelCleanup': function () {
       this.ioUnbindAll();
+      return this;
+    }
+  });
+
+  Voluble.ChatParticipants = Backbone.Collection.extend({
+    'model': Voluble.ChatParticipantSingle,
+    'url': "chatParticipants",
+    'socket': Backbone.socket,
+    'noIoBind': false,
+    'initialize': function () {
+      _.bindAll(this, 'serverCreate', 'collectionCleanup');
+      this.ioBind('create', Backbone.socket, this.serverCreate, this);
+    },
+    'serverCreate': function (data) {
+      var exists = this.get(data.id);
+      if (!exists) {
+        this.add(data);
+      } else {
+        data.fromServer = true;
+        exists.set(data);
+      }
+    },
+    'collectionCleanup': function (callback) {
+      this.ioUnbindAll();
+      this.each(function (model) {
+        model.modelCleanup();
+      });
       return this;
     }
   });
