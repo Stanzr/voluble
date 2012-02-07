@@ -20,7 +20,13 @@ exports.configure = function(io){
     socket.on('whoAmI?',function(data,cb){
       cb(socket.handshake.user||{});    
     });
+    socket.on('join',function(chatId,callback){
+      socket.set('chatId',chatId);
+      socket.join(chatId,function(){
+        callback(null,true);
+      });
     
+    });    
     socket.on('reqForChatJoin', function(chatId){
       //TODO:handle auth
 
