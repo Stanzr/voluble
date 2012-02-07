@@ -35,8 +35,8 @@ exports.configure = function(socket,io){
       }else{
         console.log('cant count peoples in chat '+chat);
       }
+    socket.broadcast.to(chat).emit('chatParticipants:create', socket.handshake.user.user);
     });
-    /*socket.broadcast.to(chatId).emit('chatParticipants:create', usr);*/
   });
 
 

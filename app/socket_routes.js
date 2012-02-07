@@ -25,8 +25,21 @@ exports.configure = function(io){
       socket.join(chatId,function(){
         callback(null,true);
       });
+    }); 
+
+    socket.on('disconnect',function(){
+      socket.get('chatId',function(err,chatId){
+        if(chatId){
+          io.sockets['in'](chatId).emit('chatParticipants:delete', {'id':socket.id});
+        }
+      });
+    });
+   
     
-    });    
+    
+    
+    
+    
     socket.on('reqForChatJoin', function(chatId){
       //TODO:handle auth
 
@@ -133,13 +146,6 @@ exports.configure = function(io){
 
 
 
-    });
-    socket.on('disconnect',function(){
-      socket.get('chatId',function(err,chatId){
-        if(chatId){
-          io.sockets['in'](chatId).emit('userLeave', {'id':socket.id});
-        }
-      });
     });
     socket.on('likeMsg',function(msgId){
       socket.get('chatId',function(err,chatId){

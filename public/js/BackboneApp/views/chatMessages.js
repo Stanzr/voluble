@@ -21,9 +21,16 @@
 
       this.participants  = chats.chatParticipants;
       this.participants.bind('change', this.renderParticipants,this);
+      this.participants.bind('add', this.renderParticipantSingle,this);
       this.participants.bind('reset', this.renderParticipants,this);
 
       this.render();
+    },
+    'renderParticipantSingle': function (user) {
+      //update counter 
+      var counter = $('#peopleCounter');
+      counter.html(parseInt(counter.html(),10)+1);
+      $('div.people > ul').append(new Voluble.ChatParticipantsSingleView({ 'model':user }).render().el);
     },
     'renderParticipants': function (usrs) {
       $('#peopleCounter').html(usrs.length);

@@ -14,7 +14,11 @@
     'initialize': function () {
       _.bindAll(this, 'serverChange', 'serverDelete', 'modelCleanup');
       this.ioBind('update', Backbone.socket, this.serverChange, this);
+      this.ioBind('create', Backbone.socket, this.serverCreate, this);
       this.ioBind('delete', Backbone.socket, this.serverDelete, this);
+    },
+    'serverCreate':function(usr){
+      this.set(usr);
     },
     'serverChange': function (data) {
       data.fromServer = true;
