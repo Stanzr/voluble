@@ -72,7 +72,7 @@ everyauth.twitter
                 user.auth.twitter.metadata = twitterUserMetadata;
                 user.role = config.users.default_role;
                 user.profile_pic_url = twitterUserMetadata.profile_image_url;
-                user.name = twitterUserMetadata.name;
+                user.name = twitterUserMetadata.screen_name;
                 user.profile_url = "https://twitter.com/#!/" + twitterUserMetadata.screen_name;
 
                 user.save(function(err, done){
