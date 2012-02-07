@@ -121,12 +121,9 @@
         $('div.question>h2').html(question+'&nbsp;'); 
         $('div.question>p').html(question);
         $('#qcnt').html(chatInfo.questions.length);
-        var urlRoot = '#/chat/'+chatInfo.name+'/q';
         questionIdx = questionIdx||1;
         var prev = questionIdx <= 1 ? 1 : questionIdx-1;
         var next = questionIdx >= chatInfo.questions.length ? chatInfo.questions.length : questionIdx+1;
-        $('div.ques_nav > span.prev > a').attr('href',urlRoot+prev);
-        $('div.ques_nav > span.next > a').attr('href',urlRoot+next);
         $('#currentQuestionPos').html(questionIdx);
       }
       return this;
