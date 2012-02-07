@@ -13,5 +13,34 @@ exports.configure = function(socket,io){
       });
     }
   });
+
+  /**
+ * chat participants
+*/
+  socket.on('chatParticipants:read',function(data,callback){
+    socket.get('chatId',function(err,chat){
+      if(chat){
+        if(global.sockets.manager.rooms['/' + chat]){
+          var clients = global.sockets.clients(chat);
+          var clients_info = _.map(clients,function(client){
+            return {
+              'name':client.handshake.user.user.name,
+              'profile_pic_url':client.handshake.user.user.profile_pic_url,
+              'socket_id':client.id
+            };
+          });
+          console.dir(clients_info);
+          callback(null,clients_info); 
+        }
+      }else{
+        console.log('cant count peoples in chat '+chat);
+      }
+    });
+    /*socket.broadcast.to(chatId).emit('chatParticipants:create', usr);*/
+  });
+
+
+
+
 };
 
