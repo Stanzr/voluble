@@ -8,6 +8,7 @@
         '/chat/:id': 'chat'
       },
       'list': function () {
+
         this.chatList = new Voluble.ChatCollection();
         this.chatListPast = new Voluble.PastChatCollection();
         this.chatListView = new Voluble.ChatListView({
@@ -20,15 +21,26 @@
         this.chatList.fetch();
       },
       'chat': function (id) {
-        this.chatMsgs = new Voluble.ChatMsgCollection({'chatId':id});
-        this.chatInfo = new Voluble.ChatInfoModel({'chatId':id});
-        this.chatLayout = new Voluble.ChatView({
-          'msgModel': this.chatMsgs,
-          'chatId':id,
-          'chatInfo':this.chatInfo
+        var self = this;
+        win.socket.emit('join',id,function(err,permission){
+          if(!permission){
+            return self.navigate('');
+          }
+          self.chatParticipants = new Voluble.ChatParticipants();
+          /*self.chatParticipantsView = new Voluble.ChatParticipantsView(self.chatParticipants);*/
+          self.chatMsgs = new Voluble.ChatMsgCollection({'chatId':id});
+          self.chatInfo = new Voluble.ChatInfoModel({'chatId':id});
+          self.chatLayout = new Voluble.ChatView({
+            'msgModel': self.chatMsgs,
+            'chatId':id,
+            'chatInfo':self.chatInfo,
+            'chatParticipants':self.chatParticipants
+          });
+
+          self.chatParticipants.fetch();
+          self.chatInfo.fetch();
+          self.chatMsgs.fetch();
         });
-        this.chatInfo.fetch();
-        this.chatMsgs.fetch();
       }
     });
     app = new AppRouter();
