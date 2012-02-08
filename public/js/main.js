@@ -5,7 +5,7 @@
     AppRouter = Backbone.Router.extend({
       'routes': {
         "": "list",
-        '/chat/:id': 'chat'
+        '/:id': 'chat'
       },
       'list': function () {
 
