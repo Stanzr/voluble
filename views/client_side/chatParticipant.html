@@ -1,16 +1,9 @@
-<% if(user.moder){%>
-<li class="moder" id="<%=user.socket_id%>">
-<%}else{%>
-<li id="<%=user.socket_id%>">
-<%}%>
+<a href="#"><img class="tip" src="<%=user.profile_pic_url%>" alt="<%=user.name %>"></a>
 
-    <a href="#"><img class="tip" src="<%=user.profile_pic_url%>" alt="<%=user.name %>"></a>
+<div class="popup">
+  <p class="message"><a href="#">message</a></p>
 
-    <div class="popup">
-        <p class="message"><a href="#">message</a></p>
+  <p class="mute"><a href="#">mute</a></p>
 
-        <p class="mute"><a href="#">mute</a></p>
-
-        <p class="ban"><a href="#">ban</a></p>
-    </div>
-</li>
+  <p class="ban"><a href="#">ban</a></p>
+</div>
