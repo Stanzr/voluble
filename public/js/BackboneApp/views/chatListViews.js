@@ -16,9 +16,9 @@
     },
     'render': function (eventName) {
       var list = this;
+      $('#newEventCreation').live('click', this.newEvent.bind(this));
       templates.render('events', function (template) {
         $('.center_mid').html(template({}));
-        $('#newEventCreation').live('click', list.newEvent.bind(list));
         $('ul.event_listings').html('');
         list.chats.each(function (chat) {
           list.addChat(chat);

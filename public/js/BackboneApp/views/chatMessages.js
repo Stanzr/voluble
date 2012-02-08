@@ -48,7 +48,7 @@
     'render': function (msgs) {
       var list = this;
       $('div.center').hide();
-      $('#chatForm').live('submit',list.addMsg.bind(list));
+      $('#chatForm').live('submit',this.addMsg.bind(this));
       templates.render('chat', function (template) {
         var obj = {
           'user':$('#uid').val(),
