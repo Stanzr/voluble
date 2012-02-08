@@ -23,8 +23,15 @@
       this.participants.bind('change', this.renderParticipants,this);
       this.participants.bind('add', this.renderParticipantSingle,this);
       this.participants.bind('reset', this.renderParticipants,this);
+      this.participants.bind('remove', this.removeParticipant,this);
 
       this.render();
+    },
+    'removeParticipant':function(user){
+      //update counter 
+      var counter = $('#peopleCounter');
+      counter.html(parseInt(counter.html(),10)-1);
+      $('#'+user.id).remove(); 
     },
     'renderParticipantSingle': function (user) {
       //update counter 

@@ -13,6 +13,7 @@
       var self = this;
       var model = this.model.toJSON();
       templates.render('chatParticipant', function (template) {
+        $(self.el).attr('id',model.id);
         $(self.el).html(template({
           'user': model
         }));

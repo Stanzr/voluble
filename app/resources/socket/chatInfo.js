@@ -26,16 +26,17 @@ exports.configure = function(socket,io){
             return {
               'name':client.handshake.user.user.name,
               'profile_pic_url':client.handshake.user.user.profile_pic_url,
-              'socket_id':client.id
+              'id':client.id
             };
           });
-          console.dir(clients_info);
           callback(null,clients_info); 
         }
       }else{
         console.log('cant count peoples in chat '+chat);
       }
-    socket.broadcast.to(chat).emit('chatParticipants:create', socket.handshake.user.user);
+      var usr = socket.handshake.user.user;
+      usr.id = socket.id;
+    socket.broadcast.to(chat).emit('chatParticipants:create', usr);
     });
   });
 

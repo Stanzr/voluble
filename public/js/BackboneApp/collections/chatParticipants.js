@@ -9,7 +9,7 @@
     'defaults': {
       'name': "Guest",
       'profile_pic_url': '',
-      'socket_id':''
+      'id':''
     },
     'initialize': function () {
       _.bindAll(this, 'serverChange', 'serverDelete', 'modelCleanup');
@@ -26,7 +26,6 @@
     },
     'serverDelete': function (data) {
       if (this.collection) {
-
         this.collection.remove(this);
       } else {
         this.trigger('remove', this);
@@ -47,6 +46,7 @@
     'initialize': function () {
       _.bindAll(this, 'serverCreate', 'collectionCleanup');
       this.ioBind('create', Backbone.socket, this.serverCreate, this);
+      this.ioBind('delete', Backbone.socket, this.serverDelete, this);
     },
     'serverCreate': function (data) {
       var exists = this.get(data.id);
@@ -56,6 +56,12 @@
         data.fromServer = true;
         exists.set(data);
       }
+    },
+    'serverDelete':function(person){
+      var model = this.get(person.id);
+      model.modelCleanup();
+      this.ioUnbind(model);
+      this.remove(model);
     },
     'collectionCleanup': function (callback) {
       this.ioUnbindAll();
