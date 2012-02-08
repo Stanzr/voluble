@@ -1,6 +1,7 @@
 (function (win) {
   var Voluble = win.Voluble = win.Voluble || {};
   var Backbone = win.Backbone, templates = Voluble.Templater;
+  var _ = win._;
   templates.preCache('chat'); 
   templates.preCache('pubChatMsg'); 
   var DEFAULT_TEXTAREA_VALUE = 'Type your comment...';
@@ -9,23 +10,42 @@
     'el': $('.center_mid'),
     'initialize': function (chats) {
       this.chatId = chats.chatId;
-      this.chatInfo = chats.chatInfo;
+
       this.msgModel = chats.msgModel;
-      this.msgModel.bind('reset', this.render, this);
+      this.msgModel.bind('reset', this.renderMsgs, this);
       this.msgModel.bind('add', this.renderMsg, this);
+      this.msgModel.bind('change', this.renderMsgs,this);
+      
+      this.chatInfo = chats.chatInfo;
       this.chatInfo.bind('change', this.setChatInfo,this);
+
+      this.participants  = chats.chatParticipants;
+      this.participants.bind('change', this.renderParticipants,this);
+      this.participants.bind('add', this.renderParticipantSingle,this);
+      this.participants.bind('reset', this.renderParticipants,this);
+      this.participants.bind('remove', this.removeParticipant,this);
+
       this.render();
     },
-    'renderMsgs':function(msgs){
-      var self = this;
-      msgs.each(function(msg){
-        self.renderMsg(msg); 
+    'removeParticipant':function(user){
+      //update counter 
+      var counter = $('#peopleCounter');
+      counter.html(parseInt(counter.html(),10)-1);
+      $('#'+user.id).remove(); 
+    },
+    'renderParticipantSingle': function (user) {
+      //update counter 
+      var counter = $('#peopleCounter');
+      counter.html(parseInt(counter.html(),10)+1);
+      $('div.people > ul').append(new Voluble.ChatParticipantsSingleView({ 'model':user }).render().el);
+    },
+    'renderParticipants': function (usrs) {
+      $('#peopleCounter').html(usrs.length);
+      usrs.each(function(user){
+        $('div.people > ul').append(new Voluble.ChatParticipantsSingleView({ 'model':user }).render().el);
       });
     },
     'render': function (msgs) {
-      if(msgs){
-        return this.renderMsgs(msgs);
-      }
       var list = this;
       $('div.center').hide();
       $('#chatForm').live('submit',list.addMsg.bind(list));
@@ -87,6 +107,12 @@
       this.chatContainer.reinitialise();
       this.chatContainer.scrollToBottom(true);
       return this;
+    },
+    'renderMsgs':function(msgs){
+      var self = this;
+      msgs.each(function(msg){
+        self.renderMsg(msg); 
+      });
     },
     'renderMsg':function(msg){
       var content =new Voluble.ChatMsg({'model':msg}).render().el ;
