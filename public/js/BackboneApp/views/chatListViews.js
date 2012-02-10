@@ -18,7 +18,6 @@
       var list = this;
       templates.render('events', function (template) {
         $('.center_mid').html(template({}));
-        $('#newEventCreation').live('click', list.newEvent.bind(list));
         $('ul.event_listings').html('');
         list.chats.each(function (chat) {
           list.addChat(chat);
@@ -38,20 +37,6 @@
       $('.center_mid_right > ul.event_listings').append(new Voluble.ChatListItemView({
         model: chat
       }).render().el);
-    },
-    'newEvent': function () {
-      var model = new this.model.upcoming.model();
-      //TODO: replace with current user
-      model.set({
-        name: $('#newEventName').val(),
-        'user': 'ololo'
-      });
-      if (model.isNew()) {
-        this.model.upcoming.add(model);
-        app.chatList.create(model);
-        app.chatList.fetch();
-      }
-      return false;
     },
     'close': function () {
       $(this.el).unbind();
