@@ -5,7 +5,8 @@
     AppRouter = Backbone.Router.extend({
       'routes': {
         "": "list",
-        '/chat/:id': 'chat'
+        '/chat/:id': 'chat',
+        '/create/:id/:action': 'createEvent'
       },
       'list': function () {
 
@@ -19,6 +20,13 @@
         });
         this.chatListPast.fetch();
         this.chatList.fetch();
+        $('#newEventCreation').live('click',function(evt){
+          var name = $('#newEventName').attr('value');
+          if(name.length>3){
+            app.navigate('/create/'+name+'/details',  {trigger: true, replace: true}); 
+          }
+          return false;
+        });
       },
       'chat': function (id) {
         var self = this;
@@ -27,7 +35,6 @@
             return self.navigate('');
           }
           self.chatParticipants = new Voluble.ChatParticipants();
-          /*self.chatParticipantsView = new Voluble.ChatParticipantsView(self.chatParticipants);*/
           self.chatMsgs = new Voluble.ChatMsgCollection({'chatId':id});
           self.chatInfo = new Voluble.ChatInfoModel({'chatId':id});
           self.chatLayout = new Voluble.ChatView({
@@ -41,6 +48,9 @@
           self.chatInfo.fetch();
           self.chatMsgs.fetch();
         });
+      },
+      'createEvent':function(id,action){
+          this.eventCreationView = new Voluble.EventCreationView({'id':id,'action':action});
       }
     });
     app = new AppRouter();
