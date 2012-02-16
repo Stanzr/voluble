@@ -5,7 +5,7 @@
     AppRouter = Backbone.Router.extend({
       'routes': {
         "": "list",
-        '/chat/:id': 'chat',
+        '/:id': 'chat',
         '/create/:id/:action': 'createEvent'
       },
       'list': function () {
