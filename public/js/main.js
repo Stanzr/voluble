@@ -2,7 +2,7 @@
   var $ = win.$;
   $(win.document).ready(function () {
     var Backbone = win.Backbone, Voluble = win.Voluble;
-    AppRouter = Backbone.Router.extend({
+    win.AppRouter = Backbone.Router.extend({
       'routes': {
         "": "list",
         '/:id': 'chat',
@@ -20,28 +20,28 @@
         });
         this.chatListPast.fetch();
         this.chatList.fetch();
-        $('#newEventCreation').live('click',function(evt){
+        $('#newEventCreation').live('click', function (evt) {
           var name = $('#newEventName').attr('value');
-          if(name.length>3){
-            app.navigate('/create/'+name+'/details',  {trigger: true, replace: true}); 
+          if (name.length > 3) {
+            win.app.navigate('/create/' + name + '/details',  {trigger: true, replace: true}); 
           }
           return false;
         });
       },
       'chat': function (id) {
         var self = this;
-        win.socket.emit('join',id,function(err,permission){
-          if(!permission){
+        win.socket.emit('join', id, function (err, permission) {
+          if (!permission) {
             return self.navigate('');
           }
           self.chatParticipants = new Voluble.ChatParticipants();
-          self.chatMsgs = new Voluble.ChatMsgCollection({'chatId':id});
-          self.chatInfo = new Voluble.ChatInfoModel({'chatId':id});
+          self.chatMsgs = new Voluble.ChatMsgCollection({'chatId': id});
+          self.chatInfo = new Voluble.ChatInfoModel({'chatId': id});
           self.chatLayout = new Voluble.ChatView({
             'msgModel': self.chatMsgs,
-            'chatId':id,
-            'chatInfo':self.chatInfo,
-            'chatParticipants':self.chatParticipants
+            'chatId': id,
+            'chatInfo': self.chatInfo,
+            'chatParticipants': self.chatParticipants
           });
 
           self.chatParticipants.fetch();
@@ -49,11 +49,11 @@
           self.chatMsgs.fetch();
         });
       },
-      'createEvent':function(id,action){
-          this.eventCreationView = new Voluble.EventCreationView({'id':id,'action':action});
-      }
+      'createEvent': function (id, action) {
+          this.eventCreationView = new Voluble.EventCreationView({'id': id, 'action': action});
+        }
     });
-    app = new AppRouter();
+    win.app = new win.AppRouter();
     Backbone.history.start();
   });
 })(this);
