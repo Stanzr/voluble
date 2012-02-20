@@ -1,21 +1,22 @@
 (function (win) {
   var Voluble = win.Voluble = win.Voluble || {};
   var Backbone = win.Backbone, templates = Voluble.Templater;
+  var $ = win.$;
   templates.preCache('eventCreateInvite');  
   templates.preCache('eventCreateDetails');  
   templates.preCache('eventCreateSend');  
   templates.preCache('eventCreateHeader');  
   var keeper = {
     'details': {
-      'id':'one',
-      'template':'eventCreateDetails'
+      'id': 'one',
+      'template': 'eventCreateDetails'
     },
-    'invite':{
-      'id':'two',
+    'invite': {
+      'id': 'two',
       'template': 'eventCreateInvite'
     },
-    'send':{
-      'id':'three',
+    'send': {
+      'id': 'three',
       'template': 'eventCreateSend'
     }
   };
@@ -35,11 +36,15 @@
           'fullName': eventName.id
         }
       };
-      templates.render('eventCreateHeader',function(template){
+      templates.render('eventCreateHeader', function (template) {
         $(list.el).html(template(renderObj));
         templates.render(keeper[eventName.action].template, function (template) {
           $('#main_send').html(template(renderObj));
-          $('#'+keeper[eventName.action].id).addClass('active');
+          $('#' + keeper[eventName.action].id).addClass('active');
+          $('a.date_cal').click(function () {
+            $(this).datepicker();
+            return false;
+          });
         });
       });
       return this;
@@ -49,4 +54,4 @@
       $(this.el).empty();
     }
   });
-})(this);
+}(this));

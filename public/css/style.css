@@ -1900,11 +1900,15 @@ ul.navigation li.welcome_top img {
 }
 .setting_input input {
 	display:block;
-	margin: 8px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	padding:0px;
 	width:300px;
 	height:22px;
+	font-family: Helvetica, Arial, sherif ;
+	font-size: 14pt;
+  font-style: normal;
 	border:0px;
+  color: rgb(97, 97, 97);
 }
 .setting_textarea {
 	margin-left: 20px;
@@ -1924,12 +1928,15 @@ ul.navigation li.welcome_top img {
 }
 .setting_textarea textarea {
 	display:block;
-	margin: 8px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	padding:0px;
 	width: 550px;
 	height: 127px;
+	font-family: Helvetica, Arial, sherif ;
+	font-size: 14pt;
+  font-style: normal;
 	border:0px;
-	color: #bfbeba;
+  color: rgb(97, 97, 97);
 }
 a.import:link,a.import:active, a.import:visited, a.import:hover , a.view:link, a.view:active, a.view:visited, a.view:hover {	
 	padding-left:15px;
