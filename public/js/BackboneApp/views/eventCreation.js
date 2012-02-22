@@ -41,9 +41,13 @@
         templates.render(keeper[eventName.action].template, function (template) {
           $('#main_send').html(template(renderObj));
           $('#' + keeper[eventName.action].id).addClass('active');
+          $('input.chat_text').datepicker();
           $('a.date_cal').click(function () {
-            $(this).datepicker();
+            $('p.chat_date').datepicker();
             return false;
+          });
+          $('p.am_text').click(function () {
+            $(this).html($(this).html() === 'am' ? 'pm': 'am');
           });
         });
       });

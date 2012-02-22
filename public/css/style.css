@@ -2215,8 +2215,8 @@ a.send:link , a.send:active, a.send:visited, a.send:hover {
 	float:left;
 	line-height:40px;
 	font-size: 14px;
-    font-weight: bold;
-	margin:0px 0px 0px 18px;
+  font-weight: bold;
+	margin:0px 0px 0px 5px;
 }
 .am_text {	
 	line-height:40px;
@@ -2224,6 +2224,7 @@ a.send:link , a.send:active, a.send:visited, a.send:hover {
     font-weight: bold;
 	margin:0px 0px 0px 12px;
 	float:left;
+  cursor: pointer;
 }
 .chat_list {
 	float:left;
