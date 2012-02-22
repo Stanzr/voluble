@@ -3,7 +3,7 @@
 }
 
 #uniform-hours span {
-    background-image: url(/images/drop_down.png) !important;
+    background-image: url(/img/drop_down.png) !important;
     padding: 6px 0 0 13px !important;
     width: 85px !important;
 }
@@ -13,13 +13,13 @@
 }
 
 #uniform-minutes span {
-    background-image: url(/images/drop_down.png) !important;
+    background-image: url(/img/drop_down.png) !important;
     padding: 6px 0 0 13px !important;
     width: 105px !important;
 }
 
 #uniform-nod {
-    background-image: url(/images/nod.png) !important;
+    background-image: url(/img/nod.png) !important;
     width: 46px !important;
 }
 
@@ -46,7 +46,7 @@ html,body{
 }
 
 button.save {
-    background-image: url(/images/button_005.png);
+    background-image: url(/img/button_005.png);
     float: right;
     font-family: Helvetica, Arial, Myriad Pro, sans-serif;
     height: 36px;
@@ -67,7 +67,7 @@ button.save span {
 
 button.send {
     background-color: transparent;
-    background-image: url(/images/send.png);
+    background-image: url(/img/send.png);
     float: right;
     font-family: Helvetica, Arial, Myriad Pro, sans-serif;
     height: 33px;
@@ -110,7 +110,7 @@ div.bios {
 
 div.buttons button {
     background-color: transparent;
-    background-image: url(/images/button_006.png);
+    background-image: url(/img/button_006.png);
     float: left;
     font-family: Helvetica, Arial, Myriad Pro, sans-serif;
     height: 36px;
@@ -130,7 +130,7 @@ div.buttons button span {
 }
 
 div.buttons button.save_chat {
-    background-image: url(/images/button_005.png);
+    background-image: url(/img/button_005.png);
 }
 
 div.calendar {
@@ -141,7 +141,7 @@ div.calendar {
 
 div.calendar button {
     background-color: transparent;
-    background-image: url(/images/calendar.png);
+    background-image: url(/img/calendar.png);
     background-position: left;
     background-repeat: no-repeat;
     float: left;
@@ -150,7 +150,7 @@ div.calendar button {
 }
 
 div.calendar_in {
-    background-image: url(/images/calendar_left.png);
+    background-image: url(/img/calendar_left.png);
     background-position: left;
     background-repeat: no-repeat;
     float: left;
@@ -172,7 +172,7 @@ div.calendar_in input {
 }
 
 div.center_bottom {
-    background-image: url(/images/backs.png);
+    background-image: url(/img/backs.png);
     background-position: 0 -8px;
     background-repeat: no-repeat;
     float: left;
@@ -193,7 +193,7 @@ div.center_mid_full {
 }
 
 div.center_mid_full_bottom {
-    background-image: url(/images/backs.png);
+    background-image: url(/img/backs.png);
     background-position: 0 -40px;
     background-repeat: no-repeat;
     float: left;
@@ -208,7 +208,7 @@ div.center_mid_full_content {
 }
 
 div.center_mid_full_top {
-    background-image: url(/images/backs.png);
+    background-image: url(/img/backs.png);
     background-position: 0 -32px;
     background-repeat: no-repeat;
     float: left;
@@ -231,7 +231,7 @@ div.center_mid_right {
 }
 
 div.center_mid_sides_bottom {
-    background-image: url(/images/backs.png);
+    background-image: url(/img/backs.png);
     background-position: 0 -24px;
     background-repeat: no-repeat;
     float: left;
@@ -240,7 +240,7 @@ div.center_mid_sides_bottom {
 }
 
 div.center_mid_sides_top {
-    background-image: url(/images/backs.png);
+    background-image: url(/img/backs.png);
     background-position: 0 -16px;
     background-repeat: no-repeat;
     height: 8px;
@@ -248,7 +248,7 @@ div.center_mid_sides_top {
 }
 
 div.center_top {
-    background-image: url(/images/backs.png);
+    background-image: url(/img/backs.png);
     background-position: 0 0;
     background-repeat: no-repeat;
     float: left;
@@ -310,7 +310,7 @@ div.commenter form {
 }
 
 div.commenter textarea {
-    background-image: url(/images/commenter.png);
+    background-image: url(/img/commenter.png);
     background-repeat: repeat-x;
     border-bottom: 1px solid #bfbeba;
     border-left: 1px solid #bfbeba;
@@ -429,7 +429,7 @@ div.edit_item {
 }
 
 div.enter_event {
-    background-image: url(/images/enter_event.png);
+    background-image: url(/img/enter_event.png);
     background-repeat: no-repeat;
     float: left;
     height: 42px;
@@ -440,7 +440,7 @@ div.enter_event {
 
 div.enter_event button {
     background: transparent;
-    background-image: url(/images/button_001.png);
+    background-image: url(/img/button_001.png);
     border: none;
     color: #fff;
     font-family: Helvetica, Arial, Myriad Pro, sans-serif;
@@ -487,7 +487,7 @@ div.hash_topic, div.buttons {
 }
 
 div.hashtag {
-    background-image: url(/images/hash_topic.png);
+    background-image: url(/img/hash_topic.png);
     background-repeat: no-repeat;
     float: left;
     height: 41px;
@@ -536,14 +536,14 @@ div.jsppane, div.jspcontainer {
 }
 
 div.likes {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     float: left;
     margin-left: 24px;
     width: 382px;
 }
 
 div.likes_bottom {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: 0 -392px;
     background-repeat: no-repeat;
     float: left;
@@ -629,7 +629,7 @@ div.most_likes {
 }
 
 div.most_likes h3 {
-    background-image: url(/images/most_likes.png);
+    background-image: url(/img/most_likes.png);
 }
 
 div.navigate_2 {
@@ -677,22 +677,22 @@ div.navigate_2 ul li a.active, div.buttons button.save_chat span {
 }
 
 div.navigate_2 ul li.details a {
-    background-image: url(/images/button_002.png);
+    background-image: url(/img/button_002.png);
     z-index: 1000;
 }
 
 div.navigate_2 ul li.invite a {
-    background-image: url(/images/button_003.png);
+    background-image: url(/img/button_003.png);
     z-index: 999;
 }
 
 div.navigate_2 ul li.send a {
-    background-image: url(/images/button_004.png);
+    background-image: url(/img/button_004.png);
     z-index: 998;
 }
 
 div.people h3 {
-    background-image: url(/images/people.png);
+    background-image: url(/img/people.png);
 }
 
 div.people ul {
@@ -731,7 +731,7 @@ div.people ul li.modder {
 }
 
 div.popup {
-    background-image: url(/images/sprite.png) !important;
+    background-image: url(/img/sprite.png) !important;
     background-position: -382px 0 !important;
     background-repeat: no-repeat !important;
     display: none;
@@ -768,7 +768,7 @@ div.ques_nav {
 }
 
 div.ques_nav span.next {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: -730px 0;
     background-repeat: no-repeat;
     float: left;
@@ -778,7 +778,7 @@ div.ques_nav span.next {
 }
 
 div.ques_nav span.prev {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: -720px 0;
     background-repeat: no-repeat;
     float: left;
@@ -808,7 +808,7 @@ div.question p {
 }
 
 div.question_bottom {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: -382px -163px;
     float: left;
     height: 29px;
@@ -818,7 +818,7 @@ div.question_bottom {
 }
 
 div.question_count {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: -382px -59px;
     background-repeat: no-repeat;
     border-bottom: 1px solid #e0ded8;
@@ -875,7 +875,7 @@ div.selectable {
 
 div.selectable select {
     background-color: transparent;
-    background-image: url(/images/selectable_001.png);
+    background-image: url(/img/selectable_001.png);
     background-position: left;
     background-repeat: no-repeat;
     border: none;
@@ -889,7 +889,7 @@ div.selectable select {
 
 div.selector {
     background-color: transparent !important;
-    background-image: url(/images/selectable_001.png) !important;
+    background-image: url(/img/selectable_001.png) !important;
     background-position: 0 0 !important;
     background-repeat: no-repeat !important;
     border: none !important;
@@ -925,7 +925,7 @@ div.side_nav {
 }
 
 div.side_nav span.cross {
-    background-image: url(/images/cross.png);
+    background-image: url(/img/cross.png);
     background-repeat: no-repeat;
     float: left;
     height: 12px;
@@ -934,7 +934,7 @@ div.side_nav span.cross {
 }
 
 div.side_nav span.next {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: -710px 0;
     background-repeat: no-repeat;
     float: left;
@@ -944,7 +944,7 @@ div.side_nav span.next {
 }
 
 div.side_nav span.prev {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: -700px 0;
     background-repeat: no-repeat;
     float: left;
@@ -984,7 +984,7 @@ div.social_in {
 }
 
 div.teaser {
-    background-image: url(/images/accent.png);
+    background-image: url(/img/accent.png);
     background-position: 390px 0;
     background-repeat: no-repeat;
     border-bottom: 1px solid #e0ded8;
@@ -994,7 +994,7 @@ div.teaser {
 }
 
 div.teaser h3 {
-    background-image: url(/images/tease.png);
+    background-image: url(/img/tease.png);
     background-position: 117px 4px !important;
     background-repeat: no-repeat;
     padding-left: 24px !important;
@@ -1027,7 +1027,7 @@ div.teaser p img {
 }
 
 div.text_area_bottom {
-    background-image: url(/images/text_area.png);
+    background-image: url(/img/text_area.png);
     background-position: 0 -10px;
     background-repeat: no-repeat;
     float: left;
@@ -1036,7 +1036,7 @@ div.text_area_bottom {
 }
 
 div.text_area_top {
-    background-image: url(/images/text_area.png);
+    background-image: url(/img/text_area.png);
     background-position: 0 0;
     background-repeat: no-repeat;
     float: left;
@@ -1045,7 +1045,7 @@ div.text_area_top {
 }
 
 div.time_input {
-    background-image: url(/images/time.png);
+    background-image: url(/img/time.png);
     background-position: left;
     background-repeat: no-repeat;
     float: left;
@@ -1093,7 +1093,7 @@ div.top {
 }
 
 div.top h1 {
-    background-image: url(/images/logo.png);
+    background-image: url(/img/logo.png);
     background-repeat: no-repeat;
     float: left;
     height: 30px;
@@ -1114,14 +1114,14 @@ div.ui_left {
 }
 
 div.ui_left_bottom {
-    background-image: url(/images/ui_dg_bottom.png);
+    background-image: url(/img/ui_dg_bottom.png);
     float: left;
     height: 8px;
     width: 541px;
 }
 
 div.ui_left_top {
-    background-image: url(/images/ui_dg_top.png);
+    background-image: url(/img/ui_dg_top.png);
     float: left;
     height: 8px;
     width: 541px;
@@ -1133,7 +1133,7 @@ div.ui_right {
 }
 
 div.ui_right h2.main_right {
-    background-image: url(/images/info.png);
+    background-image: url(/img/info.png);
     background-position: 385px 1px;
     background-repeat: no-repeat;
     border-bottom: 1px solid #e0ded8;
@@ -1225,7 +1225,7 @@ p.add_topic {
 }
 
 span.trash {
-    background-image: url(/images/trash.png);
+    background-image: url(/img/trash.png);
     background-repeat: no-repeat;
     float: left;
     height: 16px;
@@ -1263,7 +1263,7 @@ ul.discuss li {
 }
 
 ul.discuss li div.discuss_bottom {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: 0 -1192px;
     background-repeat: no-repeat;
     float: left;
@@ -1272,7 +1272,7 @@ ul.discuss li div.discuss_bottom {
 }
 
 ul.discuss li div.topper {
-    background-image: url(/images/sprite.png);
+    background-image: url(/img/sprite.png);
     background-position: 0 -800px;
     background-repeat: no-repeat;
     float: left;
@@ -1301,7 +1301,7 @@ ul.discuss li:hover div.discuss_info p span.options {
 }
 
 ul.event_listings {
-    background-image: url(/images/events.png);
+    background-image: url(/img/events.png);
     background-repeat: no-repeat;
     float: left;
     list-style-type: none;
@@ -1335,7 +1335,7 @@ ul.event_listings li p.event_info {
 }
 
 ul.event_listings li.last_event {
-    background-image: url(/images/last_event.png);
+    background-image: url(/img/last_event.png);
     background-position: bottom center;
     background-repeat: no-repeat;
     border-bottom: none;
@@ -1411,7 +1411,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width: 130px;
 	height:40px;
-	background: url(../images/sprites.png) 0 0;
+	background: url(../img/sprites.png) 0 0;
 	margin:5px 0px;
 	float:left;
 }
@@ -1419,7 +1419,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width: 25px;
 	height:25px;
-	background: url(../images/sprites.png) -69px -50px;
+	background: url(../img/sprites.png) -69px -50px;
 	margin:5px 2px;
 	float:left;
 }
@@ -1427,7 +1427,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width: 25px;
 	height:25px;
-	background: url(../images/sprites.png) -34px -50px;
+	background: url(../img/sprites.png) -34px -50px;
 	margin:5px 2px;
 	float:left;
 }
@@ -1435,7 +1435,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width: 25px;
 	height:25px;
-	background: url(../images/sprites.png) -1px -50px;
+	background: url(../img/sprites.png) -1px -50px;
 	margin:-5px 10px;
 	float:left;
 }
@@ -1450,7 +1450,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width:20px;
 	height: 25px;
-	background: url(../images/sprites.png) -102px -53px;
+	background: url(../img/sprites.png) -102px -53px;
 	margin:8px 10px 8px 0px;
 	float:left;
 }
@@ -1466,7 +1466,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width: 20px;
 	height:20px;
-	background: url(../images/sprites.png) no-repeat -2px -88px !important;
+	background: url(../img/sprites.png) no-repeat -2px -88px !important;
 	margin:5px 0;
 	padding:0px !important;
 	float:left;
@@ -1477,7 +1477,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width: 20px;
 	height:20px;
-	background: url(../images/sprites.png) no-repeat -33px -88px !important;
+	background: url(../img/sprites.png) no-repeat -33px -88px !important;
 	margin:5px;
 	padding:0px !important;
 	float:left;
@@ -1486,7 +1486,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width: 5px;
 	height:30px;
-	background: url(../images/sprites.png) -20px -84px;
+	background: url(../img/sprites.png) -20px -84px;
 	margin:2px 5px 0 0;
 	float:left;
 }
@@ -1741,7 +1741,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width:20px;
 	height: 25px;
-	background: url(../images/sprites.png) -69px -88px;
+	background: url(../img/sprites.png) -69px -88px;
 	margin:10px 10px 8px 25px;
 	float:left;
 }
@@ -1787,7 +1787,7 @@ ul.navigation li.welcome_top img {
 	display:block;
 	width:15px;
 	height: 35px;
-	background: url(../images/sprites.png) -52px -83px;
+	background: url(../img/sprites.png) -52px -83px;
 	margin:20px 0px 0 10px;
 	float:left;
 	z-index:100;
@@ -1863,7 +1863,7 @@ ul.navigation li.welcome_top img {
 	height: 40px;
     font-size: 15px;   
     outline: none;  
-    background: url(../images/bg-date.png) left top repeat-x; 
+    background: url(../img/bg-date.png) left top repeat-x; 
     -webkit-border-radius: 6px;  
     -moz-border-radius: 6px;  
     border-radius: 6px;  
@@ -1890,7 +1890,7 @@ ul.navigation li.welcome_top img {
 	height: 35px;
     font-size: 15px;   
     outline: none;  
-    background: url(../images/bg_input.jpg) left top repeat-x; 
+    background: url(../img/bg_input.jpg) left top repeat-x; 
     -webkit-border-radius: 6px;  
     -moz-border-radius: 6px;  
     border-radius: 6px;  
@@ -1917,7 +1917,7 @@ ul.navigation li.welcome_top img {
 	height: 130px;
     font-size: 15px;   
     outline: none;  
-    background: url(../images/bg_input.jpg) left top repeat-x #ffffff; 
+    background: url(../img/bg_input.jpg) left top repeat-x #ffffff; 
     -webkit-border-radius: 6px;  
     -moz-border-radius: 6px;  
     border-radius: 6px;  
@@ -1944,7 +1944,7 @@ a.import:link,a.import:active, a.import:visited, a.import:hover , a.view:link, a
 	height: 40px;
     font-size: 15px;   
     outline: none;  
-    background: url(../images/bg-date.png) left top repeat-x; 
+    background: url(../img/bg-date.png) left top repeat-x; 
     -webkit-border-radius: 6px;  
     -moz-border-radius: 6px;  
     border-radius: 6px;  
@@ -1978,7 +1978,7 @@ a.view:link {
 	display:block;
 	width:126px;
 	height: 36px;
-	background: url(../images/sprites.png) -2px -121px no-repeat;
+	background: url(../img/sprites.png) -2px -121px no-repeat;
 	margin:	2px 20px;
 	float:left;
 }
@@ -1986,7 +1986,7 @@ a.view:link {
 	display:block;
 	width:112px;
 	height: 36px;
-	background: url(../images/sprites.png) -134px -121px no-repeat;
+	background: url(../img/sprites.png) -134px -121px no-repeat;
 	 margin: 2px 20px 10px 0;
 	float:right;
 }
@@ -1994,7 +1994,7 @@ a.view:link {
 	display:block;
 	width:65px;
 	height: 36px;
-	background: url(../images/sprites.png) -258px -121px no-repeat;
+	background: url(../img/sprites.png) -258px -121px no-repeat;
 	 margin: 2px 20px 10px 0;
 	float:right;
 }
@@ -2002,7 +2002,7 @@ a.view:link {
 	display:block;
 	width:190px;
 	height: 36px;
-	background: url(../images/sprites.png) -205px -225px no-repeat;
+	background: url(../img/sprites.png) -205px -225px no-repeat;
 	margin: 20px 20px 10px 20px;
 	float:left;
 }
@@ -2010,7 +2010,7 @@ a.view:link {
 	display:block;
 	width:190px;
 	height: 36px;
-	background: url(../images/sprites.png) -2px -225px no-repeat;
+	background: url(../img/sprites.png) -2px -225px no-repeat;
 	 margin: 20px 20px 10px 20px;
 	float:left;
 }
@@ -2023,7 +2023,7 @@ a.view:link {
 	display:block;
 	width: 20px;
 	height:20px;
-	background: url(../images/sprites.png) -92px -87px;
+	background: url(../img/sprites.png) -92px -87px;
 	margin:10px;
 	float:right;
 }
@@ -2031,7 +2031,7 @@ a.view:link {
     background-position: -1px -162px;
 }
 .checkBox, .checkBoxClear {
-    background-image: url("../images/sprites.png");
+    background-image: url("../img/sprites.png");
     background-position: -1px -162px;
     background-repeat: no-repeat;
     display: inline-block;
@@ -2091,7 +2091,7 @@ a.social_twitter:link {
 	width:20px;
 	height:22px;
 	margin: -5px 8px 0 0;
-	background: url(../images/sprites.png) -129px -51px;
+	background: url(../img/sprites.png) -129px -51px;
 	float:left;
 }
 ul#navigation {
@@ -2119,37 +2119,37 @@ ul#navigation li a {
 	line-height:36px;
 }
 ul#navigation li a#one {
-    background: url("../images/menu_left.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/menu_left.png") no-repeat scroll 0 0 transparent;
     height: 38px;
     left: 0;
     width: 105px;
 	z-index: 5;
 }
 ul#navigation li a#one:hover, ul#navigation li a#one.active {
-    background: url("../images/menu_left_hover.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/menu_left_hover.png") no-repeat scroll 0 0 transparent;
     color: #ffffff;
 }
 
 ul#navigation li a#two {
-    background: url("../images/menu_middle.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/menu_middle.png") no-repeat scroll 0 0 transparent;
     height: 38px;
     left: 75px;
     width: 140px;
 	z-index: 4;
 }
 ul#navigation li a#two:hover, ul#navigation li a#two.active {
-    background: url("../images/menu_middle_hover.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/menu_middle_hover.png") no-repeat scroll 0 0 transparent;
     color:#ffffff;
 }
 ul#navigation li a#three {
-    background: url("../images/menu_right.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/menu_right.png") no-repeat scroll 0 0 transparent;
     height: 38px;
     left: 185px;
     width: 125px;
     z-index: 3;
 }
 ul#navigation li a#three:hover, ul#navigation li a#three.active {
-    background: url("../images/menu_right_hover.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/menu_right_hover.png") no-repeat scroll 0 0 transparent;
     color:#ffffff;
 }
 
@@ -2195,7 +2195,7 @@ a.send:link , a.send:active, a.send:visited, a.send:hover {
 	display:block;
 	width: 17px;
 	height:15px;
-	background: url(../images/sprites.png) 0px -183px;
+	background: url(../img/sprites.png) 0px -183px;
 	margin:0;
 	padding: 15px;
 	float:right;
@@ -2205,7 +2205,7 @@ a.send:link , a.send:active, a.send:visited, a.send:hover {
 	display:block;
 	width: 17px;
 	height:15px;
-	background: url(../images/sprites.png) -47px -183px;
+	background: url(../img/sprites.png) -47px -183px;
 	margin:0;
 	padding: 15px;
 	float:right;
@@ -2231,7 +2231,7 @@ a.send:link , a.send:active, a.send:visited, a.send:hover {
 	width:400px;
 	height:240px;
 	margin:20px;
-	background: url(../images/bg-textarea.jpg) left top repeat-x #fff;
+	background: url(../img/bg-textarea.jpg) left top repeat-x #fff;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;	
