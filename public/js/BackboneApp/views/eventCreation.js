@@ -42,6 +42,10 @@
           $('#main_send').html(template(renderObj));
           $('#' + keeper[eventName.action].id).addClass('active');
           $('input.chat_text').datepicker();
+          $('a.send').click(function () {
+            $('div.topic-container').append('<br/><div class="setting_input"><input type="text" value="" class="voluble-input" name="chatTopic[]" /></div>');
+            return false;
+          });
           $('a.date_cal').click(function () {
             $('p.chat_date').datepicker();
             return false;
