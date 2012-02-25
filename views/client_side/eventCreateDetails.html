@@ -1,68 +1,65 @@
-    <div class="send_el">
-      <div class="setting_textarea">
-        <textarea name="description" rows="8" cols="20"></textarea>
-      </div>
-      <div class="add_image">
-        <p>add image</p>
-      </div>
-    </div>
-    <br />
-    <div class="send_el">
-      <div class="chat_el">
-        <p class="label">Chat Date</p>
-        <div class="date_input">
-          <p class="chat_text"><input type="text" class="chat_text" value="02/01/2012"/></p>
-          <!--<a class="date_cal" href="#"></a>-->
+<div class="send_el">
+  <form class="form-horizontal evt-create-details">
+    <fieldset>
+      <div class="control-group">
+        <div class="setting_textarea">
+          <textarea name="description" class="input-xlarge" rows="8" placeholder="Enter event description" cols="20"></textarea>
+        </div>
+        <div class="add_image">
+          <p>add image</p>
         </div>
       </div>
-      <div class="chat_el">
+      <div class="control-group">
         <div class="chat_el">
-          <p class="label">Starts at</p>
-          <div class="hour_input">
-            <p class="chat_text"><input type="text" class="chat_text" value="12:09"/></p>						
-          </div>
+          <p class="paragraph_label">Chat Date</p>
+          <p class="chat_text"><input type="text" class="input-min datepicker span2" placeholder="01/01/2012" value=""/></p>
         </div>
-        <div class="chat_el">	
-          <p class="label"> &nbsp;</p>
-          <div class="am_input">
-            <p class="am_text">am</p>							
-          </div>
-        </div>	
-      </div>
-      <div class="chat_el">
+        &nbsp;
+        &nbsp;
         <div class="chat_el">
-          <p class="label">Chat Length</p>
-          <div class="length_input">
-            <p class="am_text">1h</p>
-            <a class="arrow_cal" href="#"></a>
-          </div>
+            <p class="paragraph_label">Starts at</p>
+            <input type="text" class="input-min span1" placeholder="00:00" value=""/>
+          <select class="span1">
+            <option>am</option>
+            <option>pm</option>
+          </select>
         </div>
+        &nbsp;
         <div class="chat_el">
-          <p class="label">Chat Length</p>
-          <div class="length_input">
-            <p class="am_text">30 min</p>
-            <a class="arrow_cal" href="#"></a>
-          </div>
+          <p class="paragraph_label">Chat Length</p>
+          <select id="select01" class="span1">
+            <option>1h</option>
+            <option>2h</option>
+            <option>3h</option>
+            <option>4h</option>
+            <option>5h</option>
+            <option>6h</option>
+          </select>
+          <!--<a class="arrow_cal dropdown-toggle" data-toggle="dropdown" href="#"></a>-->
         </div>
       </div>
-    </div>
-    <div class="send_el">
-      <p class="label">Chat hashgtag</p>
-      <div class="setting_input">
-        <input type="text" value="" name="firstName" />
+      <div class="control-group">
+        <p class="paragraph_label">Chat hashgtag</p>
+        <div class="setting_input">
+          <input type="text" value="" class="voluble-input" name="chatHashTag" />
+        </div>
       </div>
-    </div>
-    <div class="send_el">	
-      <p class="label">Chat topic</p>
-      <div class="setting_input">
-        <input type="text" value="" name="firstName" />
-      </div>
-    </div>	
+      <div class="control-group topic-container">
+        <p class="paragraph_label">Chat topic</p>
+        <div class="setting_input">
+          <input type="text" value="" class="voluble-input" name="chatTopic[]" />
+        </div>
 
-    <div class="send_el">
-      <br />
-      <a class="send" href="#/create/<%=freshEvent.id%>/invite">+ Add another chat topic</a>					
+      </div>
     </div>
-    <a href="#/create/<%=freshEvent.id%>/invite" class="next_btn" ></a>
+      </fieldset>
+  </form>
+  
+</div>
+<div class="send_el">
+  <br />
+  <a class="send" href="#addChatTopic">+ Add another chat topic</a>					
+</div>
+<a href="#/create/<%=freshEvent.id%>/invite" class="next_btn" ></a>
 <br />		
 <br />		
