@@ -19,13 +19,12 @@
     };
     this.preCache = function(template){
       self.getTemplate(template,function(data){
-        self.cache[template] = _.template(data);
+        self.cache[template] = _.template(data.responseText);
       });
     };
     this.getTemplate = function (template, callback) {
-      $.get('/templates/' + template, function (data) {
-        callback(data);
-      });
+     var handler =  $.get('/templates/' + template);
+     handler.always(callback);
     };
     this.render = function (template, callback) {
       if (self.cache[template] && self.cache[template] !== true) {
@@ -39,7 +38,7 @@
       } else {
         self.cache[template] = true;
         self.getTemplate(template, function (templ) {
-          self.cache[template] = _.template(templ);
+          self.cache[template] = _.template(templ.responseText);
           callback(self.cache[template]);
           self.ready(template);
         });
