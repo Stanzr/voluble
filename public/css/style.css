@@ -1849,7 +1849,7 @@ ul.navigation li.welcome_top img {
 	color: #fff !important;
 	background-color: #969696;
 }
-.label {
+.paragraph_label {
 	font-size:14px;
 	font-weight:bold;
 	margin: 7px 20px;
@@ -2246,4 +2246,13 @@ a.send:link , a.send:active, a.send:visited, a.send:hover {
 }
 .chk {
 	overflow:auto;
+}
+input.voluble-input {
+  background-color: transparent;
+  margin:0px;
+  height: 100%;
+  width: 100%;
+  font-size:16px;
+  font-weight:bold;
+  position: static;
 }
