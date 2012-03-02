@@ -42,6 +42,35 @@
           $('#main_send').html(template(renderObj));
           $('#' + keeper[eventName.action].id).addClass('active');
           $('input.datepicker').datepicker();
+           
+          $('#hoursSetter').keydown(function(evt){
+            if(evt.keyCode > 64){
+              return false;
+            }
+            var symbol = parseInt(String.fromCharCode(evt.keyCode), 10);
+            var value = $(this).val();
+            if(value.length === 5 && evt.keyCode > 20) {
+              return false;
+            }
+            if (!isNaN(symbol)) {
+              if(value.length === 1){
+                value+=symbol+':'; 
+                $(this).val(value);
+                return false;
+              }
+              if(value.length === 2){
+                value+=':'+symbol; 
+                $(this).val(value);
+                return false;
+              }
+              if(value.length === 0 && symbol > 1){
+                 value = '0'+symbol+':';
+                 $(this).val(value);
+                 return false;
+              }
+              evt.stopPropagation();
+            }
+          });
           $('a.send').click(function () {
             $('div.topic-container').append('<br/><div class="setting_input"><input type="text" value="" class="voluble-input" name="chatTopic[]" /></div>');
             return false;
