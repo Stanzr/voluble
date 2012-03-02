@@ -1,7 +1,7 @@
 (function (win) {
   var $ = win.$;
   var Backbone = win.Backbone, Voluble = win.Voluble = win.Voluble || {};
-  Voluble.ChatInfoModel= Backbone.Model.extend({
+  Voluble.newChat = Backbone.Model.extend({
     'urlRoot': 'eventCreate',
     'noIoBind': false,
     'socket': Backbone.socket,
