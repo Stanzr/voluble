@@ -1,6 +1,7 @@
 (function (win) {
   var Voluble = win.Voluble = win.Voluble || {};
   var Backbone = win.Backbone, templates = Voluble.Templater;
+  var _ = win._;
   var $ = win.$;
   templates.preCache('eventCreateInvite');  
   templates.preCache('eventCreateDetails');  
