@@ -50,7 +50,7 @@
         });
       },
       'createEvent': function (id, action) {
-          this.eventCreationView = new Voluble.EventCreationView({'id': id, 'action': action});
+          this.eventCreationView = new Voluble.EventCreationView({'id': id, 'action': action, 'model': Voluble.newChat});
         }
     });
     win.app = new win.AppRouter();
