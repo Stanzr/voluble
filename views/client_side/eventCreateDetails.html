@@ -1,5 +1,5 @@
 <div class="send_el">
-  <form class="form-horizontal evt-create-details">
+  <form class="form-horizontal evt-create-details" id='createEvent'>
     <fieldset>
       <div class="control-group">
         <div class="setting_textarea">
@@ -12,13 +12,13 @@
       <div class="control-group">
         <div class="chat_el">
           <p class="paragraph_label">Chat Date</p>
-          <p class="chat_text"><input type="text" class="input-min datepicker span2" placeholder="01/01/2012" value=""/></p>
+          <p class="chat_text"><input type="text" class="input-min datepicker span2" name="startDate" placeholder="01/01/2012" value=""/></p>
         </div>
         &nbsp;
         &nbsp;
         <div class="chat_el">
-            <p class="paragraph_label">Starts at</p>
-            <input type="text" class="input-min span1" placeholder="00:00" value=""/>
+          <p class="paragraph_label">Starts at</p>
+          <input type="text" class="input-min span1" id="hoursSetter" name="startHours" placeholder="00:00" value=""/>
           <select class="span1">
             <option>am</option>
             <option>pm</option>
@@ -35,7 +35,6 @@
             <option>5h</option>
             <option>6h</option>
           </select>
-          <!--<a class="arrow_cal dropdown-toggle" data-toggle="dropdown" href="#"></a>-->
         </div>
       </div>
       <div class="control-group">
@@ -52,14 +51,14 @@
 
       </div>
     </div>
-      </fieldset>
-  </form>
-  
+  </fieldset>
+</form>
+
 </div>
 <div class="send_el">
   <br />
   <a class="send" href="#addChatTopic">+ Add another chat topic</a>					
 </div>
-<a href="#/create/<%=freshEvent.id%>/invite" class="next_btn" ></a>
+<a href="#/create/<%=freshEvent.id%>/invite" class="next_btn"></a>
 <br />		
 <br />		
